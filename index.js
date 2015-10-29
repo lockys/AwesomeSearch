@@ -1,6 +1,5 @@
 var nodejs = require('./data/awesome-nodejs.json');
 var awesome = require('./data/awesome.json');
-console.log(nodejs);
 var options = {
   keys: ['name', 'description'],
 };

@@ -1,7 +1,7 @@
 Awesome search
 ==
-A website which make you access the awesome lists more quickly.
-[awesome-search.github.io](awesome-search.github.io)
+A website which make you access the awesome lists more quickly.  
+[awesome-search.github.io](http://awesome-search.github.io)
 
 Why
 ==
@@ -15,8 +15,8 @@ Only two awesome lists we parsed for now.
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 
-The format of different awesome list vary, so building a general parsing program is not easy for us for now.
-
+The format of different awesome list vary, so building a general parsing program is not easy for us for now.  
+We use this simple tool to parse these list [awesome.json](https://github.com/lockys/awesome.json)
 Collaborator(s)
 ==
 - [lockys](https://github.com/lockys)

@@ -1,0 +1,944 @@
+{
+  "Platforms": [
+    {
+      "name": "Node.js",
+      "url": "https://github.com/sindresorhus/awesome-nodejs"
+    },
+    {
+      "name": "Frontend Development",
+      "url": "https://github.com/dypsilon/frontend-dev-bookmarks"
+    },
+    {
+      "name": "iOS",
+      "url": "https://github.com/vsouza/awesome-ios"
+    },
+    {
+      "name": "Android",
+      "url": "https://github.com/JStumpp/awesome-android"
+    },
+    {
+      "name": "IoT & Hybrid Apps",
+      "url": "https://github.com/weblancaster/awesome-IoT-hybrid"
+    },
+    {
+      "name": "Electron",
+      "url": "https://github.com/sindresorhus/awesome-electron"
+    },
+    {
+      "name": "Cordova",
+      "url": "https://github.com/busterc/awesome-cordova"
+    },
+    {
+      "name": "React Native",
+      "url": "https://github.com/jondot/awesome-react-native"
+    },
+    {
+      "name": "Xamarin",
+      "url": "https://github.com/benoitjadinon/awesome-xamarin"
+    },
+    {
+      "name": "Linux",
+      "url": "https://github.com/aleksandar-todorovic/awesome-linux"
+    },
+    {
+      "name": "OS X",
+      "url": "https://github.com/iCHAIT/awesome-osx"
+    },
+    {
+      "name": "Command-Line",
+      "url": "https://github.com/herrbischoff/awesome-osx-command-line"
+    },
+    {
+      "name": "watchOS",
+      "url": "https://github.com/yenchenlin1994/awesome-watchos"
+    },
+    {
+      "name": "JVM",
+      "url": "https://github.com/deephacks/awesome-jvm"
+    },
+    {
+      "name": "Salesforce",
+      "url": "https://github.com/mailtoharshit/awesome-salesforce"
+    },
+    {
+      "name": "Amazon Web Services",
+      "url": "https://github.com/donnemartin/awesome-aws"
+    },
+    {
+      "name": "Windows",
+      "url": "https://github.com/RiseLedger/awesome-windows"
+    }
+  ],
+  "Programming Languages": [
+    {
+      "name": "JavaScript",
+      "url": "https://github.com/sorrycc/awesome-javascript"
+    },
+    {
+      "name": "Promises",
+      "url": "https://github.com/wbinnssmith/awesome-promises"
+    },
+    {
+      "name": "Swift",
+      "url": "https://github.com/matteocrippa/awesome-swift"
+    },
+    {
+      "name": "Python",
+      "url": "https://github.com/vinta/awesome-python"
+    },
+    {
+      "name": "Rust",
+      "url": "https://github.com/kud1ing/awesome-rust"
+    },
+    {
+      "name": "Haskell",
+      "url": "https://github.com/krispo/awesome-haskell"
+    },
+    {
+      "name": "PureScript",
+      "url": "https://github.com/passy/awesome-purescript"
+    },
+    {
+      "name": "Go",
+      "url": "https://github.com/avelino/awesome-go"
+    },
+    {
+      "name": "Scala",
+      "url": "https://github.com/lauris/awesome-scala"
+    },
+    {
+      "name": "Ruby",
+      "url": "https://github.com/markets/awesome-ruby"
+    },
+    {
+      "name": "Ruby Events",
+      "url": "https://github.com/planetruby/awesome-events"
+    },
+    {
+      "name": "Clojure",
+      "url": "https://github.com/razum2um/awesome-clojure"
+    },
+    {
+      "name": "ClojureScript",
+      "url": "https://github.com/emrehan/awesome-clojurescript"
+    },
+    {
+      "name": "Elixir",
+      "url": "https://github.com/h4cc/awesome-elixir"
+    },
+    {
+      "name": "Elm",
+      "url": "https://github.com/isRuslan/awesome-elm"
+    },
+    {
+      "name": "Erlang",
+      "url": "https://github.com/drobakowski/awesome-erlang"
+    },
+    {
+      "name": "Julia",
+      "url": "https://github.com/svaksha/Julia.jl"
+    },
+    {
+      "name": "Lua",
+      "url": "https://github.com/LewisJEllis/awesome-lua"
+    },
+    {
+      "name": "C",
+      "url": "https://github.com/aleksandar-todorovic/awesome-c"
+    },
+    {
+      "name": "C/C++",
+      "url": "https://github.com/fffaraz/awesome-cpp"
+    },
+    {
+      "name": "R",
+      "url": "https://github.com/qinwf/awesome-R"
+    },
+    {
+      "name": "D",
+      "url": "https://github.com/zhaopuming/awesome-d"
+    },
+    {
+      "name": "Common Lisp",
+      "url": "https://github.com/CodyReichert/awesome-cl"
+    },
+    {
+      "name": "Perl",
+      "url": "https://github.com/hachiojipm/awesome-perl"
+    },
+    {
+      "name": "Groovy",
+      "url": "https://github.com/kdabir/awesome-groovy"
+    },
+    {
+      "name": "Dart",
+      "url": "https://github.com/yissachar/awesome-dart"
+    },
+    {
+      "name": "Java",
+      "url": "https://github.com/akullpp/awesome-java"
+    },
+    {
+      "name": "OCaml",
+      "url": "https://github.com/rizo/awesome-ocaml"
+    },
+    {
+      "name": "Coldfusion",
+      "url": "https://github.com/seancoyne/awesome-coldfusion"
+    },
+    {
+      "name": "Fortran",
+      "url": "https://github.com/rabbiabram/awesome-fortran"
+    },
+    {
+      "name": ".NET",
+      "url": "https://github.com/quozd/awesome-dotnet"
+    },
+    {
+      "name": "PHP",
+      "url": "https://github.com/ziadoz/awesome-php"
+    },
+    {
+      "name": "Delphi",
+      "url": "https://github.com/Fr0sT-Brutal/awesome-delphi"
+    },
+    {
+      "name": "Assembler",
+      "url": "https://github.com/mat0thew/awesome-asm"
+    },
+    {
+      "name": "AutoHotkey",
+      "url": "https://github.com/ahkscript/awesome-AutoHotkey"
+    },
+    {
+      "name": "AutoIt",
+      "url": "https://github.com/J2TeaM/awesome-AutoIt"
+    },
+    {
+      "name": "Crystal",
+      "url": "https://github.com/veelenga/awesome-crystal"
+    },
+    {
+      "name": "TypeScript",
+      "url": "https://github.com/dzharii/awesome-typescript"
+    }
+  ],
+  "Front-end Development": [
+    {
+      "name": "JavaScript Must Watch Talks",
+      "url": "https://github.com/bolshchikov/js-must-watch"
+    },
+    {
+      "name": "ES6 Tools",
+      "url": "https://github.com/addyosmani/es6-tools"
+    },
+    {
+      "name": "Web Performance Optimization",
+      "url": "https://github.com/davidsonfellipe/awesome-wpo"
+    },
+    {
+      "name": "Web Tools",
+      "url": "https://github.com/lvwzhen/tools"
+    },
+    {
+      "name": "Critical-Path (Above-the-fold) CSS Tools",
+      "url": "https://github.com/addyosmani/critical-path-css-tools"
+    },
+    {
+      "name": "React",
+      "url": "https://github.com/enaqx/awesome-react"
+    },
+    {
+      "name": "Web Components",
+      "url": "https://github.com/mateusortiz/webcomponents-the-right-way"
+    },
+    {
+      "name": "Polymer",
+      "url": "https://github.com/Granze/awesome-polymer"
+    },
+    {
+      "name": "Angular 2",
+      "url": "https://github.com/angular-class/awesome-angular2"
+    },
+    {
+      "name": "Angular",
+      "url": "https://github.com/gianarb/awesome-angularjs"
+    },
+    {
+      "name": "Backbone",
+      "url": "https://github.com/instanceofpro/awesome-backbone"
+    },
+    {
+      "name": "HTML5",
+      "url": "https://github.com/diegocard/awesome-html5"
+    },
+    {
+      "name": "SVG",
+      "url": "https://github.com/willianjusten/awesome-svg"
+    },
+    {
+      "name": "Canvas",
+      "url": "https://github.com/raphamorim/awesome-canvas"
+    },
+    {
+      "name": "KnockoutJS",
+      "url": "https://github.com/dnbard/awesome-knockout"
+    },
+    {
+      "name": "Dojo Toolkit",
+      "url": "https://github.com/peterkokot/awesome-dojo"
+    },
+    {
+      "name": "Inspiration",
+      "url": "https://github.com/NoahBuscher/Inspire"
+    },
+    {
+      "name": "Ember",
+      "url": "https://github.com/nmec/awesome-ember"
+    },
+    {
+      "name": "Android UI",
+      "url": "https://github.com/wasabeef/awesome-android-ui"
+    },
+    {
+      "name": "iOS UI",
+      "url": "https://github.com/cjwirth/awesome-ios-ui"
+    },
+    {
+      "name": "Scalable CSS",
+      "url": "https://github.com/davidtheclark/scalable-css-reading-list"
+    },
+    {
+      "name": "Meteor",
+      "url": "https://github.com/Urigo/awesome-meteor"
+    },
+    {
+      "name": "BEM",
+      "url": "https://github.com/sturobson/BEM-resources"
+    },
+    {
+      "name": "CSS Must-Watch Talks",
+      "url": "https://github.com/AllThingsSmitty/must-watch-css"
+    },
+    {
+      "name": "Flexbox",
+      "url": "https://github.com/afonsopacifer/awesome-flexbox"
+    },
+    {
+      "name": "Web Typography",
+      "url": "https://github.com/deanhume/typography"
+    },
+    {
+      "name": "Web Accessibility",
+      "url": "https://github.com/brunopulis/awesome-a11y"
+    },
+    {
+      "name": "Material Design",
+      "url": "https://github.com/sachin1092/awesome-material"
+    },
+    {
+      "name": "CSS",
+      "url": "https://github.com/sotayamashita/awesome-css"
+    },
+    {
+      "name": "D3",
+      "url": "https://github.com/wbkd/awesome-d3"
+    },
+    {
+      "name": "Emails",
+      "url": "https://github.com/jonathandion/awesome-emails"
+    },
+    {
+      "name": "jQuery",
+      "url": "https://github.com/peterkokot/awesome-jquery"
+    },
+    {
+      "name": "Web Audio",
+      "url": "https://github.com/notthetup/awesome-webaudio"
+    },
+    {
+      "name": "Offline-First",
+      "url": "https://github.com/pazguille/offline-first"
+    }
+  ],
+  "Back-end Development": [
+    {
+      "name": "Django",
+      "url": "https://github.com/rosarior/awesome-django"
+    },
+    {
+      "name": "Flask",
+      "url": "https://github.com/humiaozuzu/awesome-flask"
+    },
+    {
+      "name": "Docker",
+      "url": "https://github.com/veggiemonk/awesome-docker"
+    },
+    {
+      "name": "Vagrant",
+      "url": "https://github.com/iJackUA/awesome-vagrant"
+    },
+    {
+      "name": "Pyramid",
+      "url": "https://github.com/ITCase/awesome-pyramid"
+    },
+    {
+      "name": "Play1 Framework",
+      "url": "https://github.com/PerfectCarl/awesome-play1"
+    },
+    {
+      "name": "CakePHP",
+      "url": "https://github.com/friendsofcake/awesome-cakephp"
+    },
+    {
+      "name": "Symfony2",
+      "url": "https://github.com/EmanueleMinotto/awesome-symfony2"
+    },
+    {
+      "name": "Laravel",
+      "url": "https://github.com/chiraggude/awesome-laravel"
+    },
+    {
+      "name": "Rails",
+      "url": "https://github.com/ekremkaraca/awesome-rails"
+    },
+    {
+      "name": "Rails Gem",
+      "url": "https://github.com/hothero/awesome-rails-gem"
+    },
+    {
+      "name": "Phalcon",
+      "url": "https://github.com/sergeyklay/awesome-phalcon"
+    },
+    {
+      "name": "Useful `.htaccess` Snippets",
+      "url": "https://github.com/phanan/htaccess"
+    },
+    {
+      "name": "nginx",
+      "url": "https://github.com/fcambus/nginx-resources"
+    },
+    {
+      "name": "Dropwizard",
+      "url": "https://github.com/stve/awesome-dropwizard"
+    }
+  ],
+  "Computer Science": [
+    {
+      "name": "University Courses",
+      "url": "https://github.com/prakhar1989/awesome-courses"
+    },
+    {
+      "name": "Data Science",
+      "url": "https://github.com/okulbilisim/awesome-datascience"
+    },
+    {
+      "name": "Machine Learning",
+      "url": "https://github.com/josephmisiti/awesome-machine-learning"
+    },
+    {
+      "name": "Speech and Natural Language Processing",
+      "url": "https://github.com/edobashira/speech-language-processing"
+    },
+    {
+      "name": "Linguistics",
+      "url": "https://github.com/theimpossibleastronaut/awesome-linguistics"
+    },
+    {
+      "name": "Cryptography",
+      "url": "https://github.com/MaciejCzyzewski/retter"
+    },
+    {
+      "name": "Computer Vision",
+      "url": "https://github.com/jbhuang0604/awesome-computer-vision"
+    },
+    {
+      "name": "Deep Learning",
+      "url": "https://github.com/ChristosChristofidis/awesome-deep-learning"
+    },
+    {
+      "name": "Deep Vision",
+      "url": "https://github.com/kjw0612/awesome-deep-vision"
+    },
+    {
+      "name": "Open Source Society University",
+      "url": "https://github.com/open-source-society/computer-science"
+    }
+  ],
+  "Big Data": [
+    {
+      "name": "Big Data",
+      "url": "https://github.com/onurakpolat/awesome-bigdata"
+    },
+    {
+      "name": "Public Datasets",
+      "url": "https://github.com/caesar0301/awesome-public-datasets"
+    },
+    {
+      "name": "Hadoop",
+      "url": "https://github.com/youngwookim/awesome-hadoop"
+    },
+    {
+      "name": "Data Engineering",
+      "url": "https://github.com/igorbarinov/awesome-data-engineering"
+    }
+  ],
+  "Theory": [
+    {
+      "name": "Papers We Love",
+      "url": "https://github.com/papers-we-love/papers-we-love"
+    },
+    {
+      "name": "Talks",
+      "url": "https://github.com/JanVanRyswyck/awesome-talks"
+    },
+    {
+      "name": "Algorithms",
+      "url": "https://github.com/tayllan/awesome-algorithms"
+    },
+    {
+      "name": "Algorithm Visualizations",
+      "url": "https://github.com/enjalot/algovis"
+    },
+    {
+      "name": "Artificial Intelligence",
+      "url": "https://github.com/owainlewis/awesome-artificial-intelligence"
+    },
+    {
+      "name": "Search Engine Optimization",
+      "url": "https://github.com/marcobiedermann/search-engine-optimization"
+    }
+  ],
+  "Books": [
+    {
+      "name": "Free Programming Books",
+      "url": "https://github.com/vhf/free-programming-books"
+    },
+    {
+      "name": "Free Software Testing Books",
+      "url": "https://github.com/ligurio/free-software-testing-books/blob/master/free-software-testing-books.md"
+    },
+    {
+      "name": "Go Books",
+      "url": "https://github.com/dariubs/GoBooks"
+    },
+    {
+      "name": "R Books",
+      "url": "https://github.com/RomanTsegelskyi/rbooks"
+    },
+    {
+      "name": "Mind Expanding Books",
+      "url": "https://github.com/hackerkid/Mind-Expanding-Books"
+    }
+  ],
+  "Editors": [
+    {
+      "name": "Sublime Text",
+      "url": "https://github.com/dreikanter/sublime-bookmarks"
+    },
+    {
+      "name": "Vim",
+      "url": "http://vimawesome.com"
+    },
+    {
+      "name": "Emacs",
+      "url": "https://github.com/emacs-tw/awesome-emacs"
+    },
+    {
+      "name": "Atom",
+      "url": "https://github.com/mehcode/awesome-atom"
+    }
+  ],
+  "Gaming": [
+    {
+      "name": "Game Development",
+      "url": "https://github.com/ellisonleao/magictools"
+    },
+    {
+      "name": "Game Talks",
+      "url": "https://github.com/hzoo/awesome-gametalks"
+    },
+    {
+      "name": "Godot",
+      "url": "https://github.com/Calinou/awesome-godot"
+    },
+    {
+      "name": "Open Source Games",
+      "url": "https://github.com/leereilly/games"
+    }
+  ],
+  "Developer Environment": [
+    {
+      "name": "Quick Look Plugins",
+      "url": "https://github.com/sindresorhus/quick-look-plugins"
+    },
+    {
+      "name": "Dev Env",
+      "url": "https://github.com/jondot/awesome-devenv"
+    },
+    {
+      "name": "Dotfiles",
+      "url": "https://github.com/webpro/awesome-dotfiles"
+    },
+    {
+      "name": "Shell",
+      "url": "https://github.com/alebcay/awesome-shell"
+    },
+    {
+      "name": "ZSH Plugins",
+      "url": "https://github.com/unixorn/awesome-zsh-plugins"
+    },
+    {
+      "name": "Browser Extensions for GitHub",
+      "url": "https://github.com/stefanbuck/awesome-browser-extensions-for-github"
+    },
+    {
+      "name": "Git Cheat Sheet",
+      "url": "https://github.com/arslanbilal/git-cheat-sheet"
+    },
+    {
+      "name": "Git Tips",
+      "url": "https://github.com/git-tips/tips"
+    },
+    {
+      "name": "Git Add-ons",
+      "url": "https://github.com/stevemao/awesome-git-addons"
+    }
+  ],
+  "Entertainment": [
+    {
+      "name": "Science Fiction",
+      "url": "https://github.com/sindresorhus/awesome-scifi"
+    },
+    {
+      "name": "Fantasy",
+      "url": "https://github.com/RichardLitt/awesome-fantasy"
+    },
+    {
+      "name": "Podcasts",
+      "url": "https://github.com/guipdutra/awesome-geek-podcasts"
+    },
+    {
+      "name": "Email Newsletters",
+      "url": "https://github.com/vredniy/awesome-newsletters"
+    }
+  ],
+  "Databases": [
+    {
+      "name": "Database",
+      "url": "https://github.com/numetriclabz/awesome-db"
+    },
+    {
+      "name": "MySQL",
+      "url": "https://github.com/shlomi-noach/awesome-mysql/blob/gh-pages/index.md"
+    },
+    {
+      "name": "SQLAlchemy",
+      "url": "https://github.com/dahlia/awesome-sqlalchemy"
+    },
+    {
+      "name": "InfluxDB",
+      "url": "https://github.com/mark-rushakoff/awesome-influxdb"
+    },
+    {
+      "name": "Neo4j",
+      "url": "https://github.com/GraphGeeks/awesome-neo4j"
+    }
+  ],
+  "Resources": [
+    {
+      "name": "Creative Commons Media",
+      "url": "https://github.com/shime/creative-commons-media"
+    },
+    {
+      "name": "Images",
+      "url": "https://github.com/heyalexej/awesome-images"
+    },
+    {
+      "name": "Fonts",
+      "url": "https://github.com/brabadu/awesome-fonts"
+    },
+    {
+      "name": "Codeface",
+      "url": "https://github.com/chrissimpkins/codeface"
+    }
+  ],
+  "Learn": [
+    {
+      "name": "CLI Workshoppers/Adventures",
+      "url": "https://github.com/therebelrobot/awesome-workshopper"
+    },
+    {
+      "name": "Learn to Program",
+      "url": "https://github.com/karlhorky/learn-to-program"
+    },
+    {
+      "name": "Speaking",
+      "url": "https://github.com/matteofigus/awesome-speaking"
+    },
+    {
+      "name": "Tech Videos",
+      "url": "https://github.com/lucasviola/awesome-tech-videos"
+    }
+  ],
+  "Security": [
+    {
+      "name": "Application Security",
+      "url": "https://github.com/paragonie/awesome-appsec"
+    },
+    {
+      "name": "Security",
+      "url": "https://github.com/sbilly/awesome-security"
+    },
+    {
+      "name": "CTF",
+      "url": "https://github.com/apsdehal/awesome-ctf"
+    },
+    {
+      "name": "Malware Analysis",
+      "url": "https://github.com/rshipp/awesome-malware-analysis"
+    },
+    {
+      "name": "Android Security",
+      "url": "https://github.com/ashishb/android-security-awesome"
+    },
+    {
+      "name": "Hacking",
+      "url": "https://github.com/carpedm20/awesome-hacking"
+    },
+    {
+      "name": "Honeypots",
+      "url": "https://github.com/paralax/awesome-honeypots"
+    }
+  ],
+  "Miscellaneous": [
+    {
+      "name": "JSON",
+      "url": "https://github.com/burningtree/awesome-json"
+    },
+    {
+      "name": "Discounts for Student Developers",
+      "url": "https://github.com/najela/discount-for-student-dev"
+    },
+    {
+      "name": "Slack",
+      "url": "https://github.com/matiassingers/awesome-slack"
+    },
+    {
+      "name": "Conferences",
+      "url": "https://github.com/RichardLitt/awesome-conferences"
+    },
+    {
+      "name": "GeoJSON",
+      "url": "https://github.com/tmcw/awesome-geojson"
+    },
+    {
+      "name": "Sysadmin",
+      "url": "https://github.com/n1trux/awesome-sysadmin"
+    },
+    {
+      "name": "Radio",
+      "url": "https://github.com/kyleterry/awesome-radio"
+    },
+    {
+      "name": "Awesome",
+      "url": "https://github.com/sindresorhus/awesome"
+    },
+    {
+      "name": "Analytics",
+      "url": "https://github.com/onurakpolat/awesome-analytics"
+    },
+    {
+      "name": "FOSS for Developers",
+      "url": "https://github.com/httpsGithubParty/FOSS-for-Dev"
+    },
+    {
+      "name": "GitHub Cheat Sheet",
+      "url": "https://github.com/tiimgreen/github-cheat-sheet"
+    },
+    {
+      "name": "Open Companies",
+      "url": "https://github.com/opencompany/awesome-open-company"
+    },
+    {
+      "name": "REST",
+      "url": "https://github.com/marmelab/awesome-rest"
+    },
+    {
+      "name": "Selenium",
+      "url": "https://github.com/christian-bromann/awesome-selenium"
+    },
+    {
+      "name": "Endangered Languages",
+      "url": "https://github.com/RichardLitt/endangered-languages"
+    },
+    {
+      "name": "Slack Communities",
+      "url": "https://github.com/filipelinhares/awesome-slack"
+    },
+    {
+      "name": "Continuous Delivery",
+      "url": "https://github.com/ciandcd/awesome-ciandcd"
+    },
+    {
+      "name": "Services Engineering",
+      "url": "https://github.com/mmcgrana/services-engineering"
+    },
+    {
+      "name": "Free for Developers",
+      "url": "https://github.com/ripienaar/free-for-dev"
+    },
+    {
+      "name": "Bitcoin",
+      "url": "https://github.com/igorbarinov/awesome-bitcoin/"
+    },
+    {
+      "name": "Answers",
+      "url": "https://github.com/jugoncalves/awesome-answers"
+    },
+    {
+      "name": "Sketch",
+      "url": "https://github.com/diessica/awesome-sketch"
+    },
+    {
+      "name": "Places to Post Your Startup",
+      "url": "https://github.com/mmccaff/PlacesToPostYourStartup"
+    },
+    {
+      "name": "Maintainance Modules",
+      "url": "https://github.com/maxogden/maintenance-modules"
+    },
+    {
+      "name": "PCAPTools",
+      "url": "https://github.com/caesar0301/awesome-pcaptools"
+    },
+    {
+      "name": "Remote Jobs",
+      "url": "https://github.com/lukasz-madon/awesome-remote-job"
+    },
+    {
+      "name": "Boilerplate Projects",
+      "url": "https://github.com/melvin0008/awesome-projects-boilerplates"
+    },
+    {
+      "name": "Mad Science Modules",
+      "url": "https://github.com/feross/awesome-mad-science"
+    },
+    {
+      "name": "Readme",
+      "url": "https://github.com/matiassingers/awesome-readme"
+    },
+    {
+      "name": "Tools",
+      "url": "https://github.com/cjbarber/ToolsOfTheTrade"
+    },
+    {
+      "name": "Styleguides",
+      "url": "https://github.com/RichardLitt/awesome-styleguides"
+    },
+    {
+      "name": "Blogs",
+      "url": "https://github.com/aleksandar-todorovic/awesome-blogs"
+    },
+    {
+      "name": "Design and Development Guides",
+      "url": "https://github.com/NARKOZ/guides"
+    },
+    {
+      "name": "Software Engineering Blogs",
+      "url": "https://github.com/kilimchoi/engineering-blogs"
+    },
+    {
+      "name": "Self Hosted",
+      "url": "https://github.com/Kickball/awesome-selfhosted"
+    },
+    {
+      "name": "FOSS Production Apps",
+      "url": "https://github.com/jwaterfaucett/awesome-foss-apps"
+    },
+    {
+      "name": "Gulp",
+      "url": "https://github.com/alferov/awesome-gulp"
+    },
+    {
+      "name": "AMA",
+      "url": "https://github.com/sindresorhus/amas"
+    },
+    {
+      "name": "AMA-answers",
+      "url": "https://github.com/stoeffel/awesome-ama-answers"
+    },
+    {
+      "name": "GIF",
+      "url": "https://github.com/ibaaj/awesome-gif"
+    },
+    {
+      "name": "Open Source Photography",
+      "url": "https://github.com/ibaaj/awesome-OpenSourcePhotography/"
+    },
+    {
+      "name": "OpenGL",
+      "url": "https://github.com/eug/awesome-opengl"
+    },
+    {
+      "name": "JavaScript Standard Style",
+      "url": "https://github.com/feross/awesome-standard"
+    },
+    {
+      "name": "Productivity",
+      "url": "https://github.com/jyguyomarch/awesome-productivity"
+    },
+    {
+      "name": "GraphQL",
+      "url": "https://github.com/chentsulin/awesome-graphql"
+    },
+    {
+      "name": "Transit",
+      "url": "https://github.com/luqmaan/awesome-transit"
+    },
+    {
+      "name": "Research Tools",
+      "url": "https://github.com/emptymalei/awesome-research"
+    },
+    {
+      "name": "Niche Job Boards",
+      "url": "https://github.com/wfhio/awesome-job-boards"
+    },
+    {
+      "name": "Data Visualization",
+      "url": "https://github.com/fasouto/awesome-dataviz"
+    },
+    {
+      "name": "Social Media Share Links",
+      "url": "https://github.com/vinkla/share-links"
+    },
+    {
+      "name": "JSON Datasets",
+      "url": "https://github.com/jdorfman/awesome-json-datasets"
+    },
+    {
+      "name": "Microservices",
+      "url": "https://github.com/mfornos/awesome-microservices"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/phillipadsmith/awesome-github"
+    },
+    {
+      "name": "Unicode Code Points",
+      "url": "https://github.com/Codepoints/awesome-codepoints"
+    },
+    {
+      "name": "Internet of Things",
+      "url": "https://github.com/HQarroum/awesome-iot"
+    },
+    {
+      "name": "Open Source Documents",
+      "url": "https://github.com/nacyot/awesome-opensource-documents"
+    },
+    {
+      "name": "Umbraco",
+      "url": "https://github.com/leekelleher/awesome-umbraco"
+    }
+  ]
+}

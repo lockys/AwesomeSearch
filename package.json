@@ -1,0 +1,15 @@
+{
+  "name": "awesome-search",
+  "version": "0.0.1",
+  "description": "A website which make you access the awesome list more quickly.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "awesome",
+    "search"
+  ],
+  "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
+  "license": "MIT"
+}

@@ -16,4 +16,5 @@ Contribution
     },]
 }
 ```
+You can see the full example [here](https://github.com/lockys/awesome-search/blob/master/data/awesome-nodejs.json)
 - Any patch about UI, UX improvement is welcome, just be aware of the coding style.

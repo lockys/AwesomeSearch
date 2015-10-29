@@ -1,7 +1,7 @@
 Awesome search
 ==
 A website which make you access the awesome lists more quickly.  
-[awesome-search.github.io](http://lockys.github.io/awesome-search)
+[http://lockys.github.io/awesome-search](http://lockys.github.io/awesome-search)
 
 Why
 ==

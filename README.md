@@ -1,7 +1,7 @@
 Awesome search
 ==
 ![](https://img.shields.io/badge/version-0.0.1-green.svg)  
-A website which make you access the awesome lists more quickly.  
+A website which makes you access the awesome lists more quickly.  
 [http://lockys.github.io/awesome-search](http://lockys.github.io/awesome-search)
 
 ![](/media/record.gif)

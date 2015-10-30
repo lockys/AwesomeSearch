@@ -1,7 +1,7 @@
 Awesome search
 ==
 ![](https://img.shields.io/badge/version-0.0.1-green.svg)  
-A website which make you access the awesome lists more quickly.  
+A website which makes you access the awesome lists more quickly.  
 [http://lockys.github.io/awesome-search](http://lockys.github.io/awesome-search)
 
 ![](/media/record.gif)
@@ -10,15 +10,15 @@ Why
 ==
 In a nutshell, there are too many awesome lists :)  
 We hope to build a tool to access them more quickly.  
-And hope this would be a helpful idea.
+Maybe awesome-search would be a helpful idea. :octocat:
 
 Supported awesome lists
 ==
-It is version 0.0.1 version for now, only two awesome lists we parsed for now :sorry:
+In version 0.0.1, only two awesome lists we parsed for now :sorry:
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 
-The format of awesome lists vary, so building a general parsing program is not easy for us for now.  
+The format of awesome lists vary, so building a general program that exacts info from them is not easy to us for now.  
 We use this simple [tool](https://github.com/lockys/awesome.json) to parse these lists.
 
 Collaborator(s)
@@ -28,11 +28,11 @@ Collaborator(s)
 
 Contributions
 ==
-Please refer to [contribution.md](contribution.md)  
-Or Filing a issue to make suggestions is always welcome.
+Please refer to [contribution.md](contribution.md)    
+Filing a issue to make suggestions or complain anything is always welcome.
 
 Credit
 ==
-Thanks them for creating these awesome list.
+Thanks all awesome authors for creating these awesome lists to make the world better.  
 - [sindresorhus/awesome](https://github.com/sindresorhus/awesome)  
 - [All awesome list contributors](https://github.com/sindresorhus/awesome/graphs/contributors)

@@ -99,7 +99,6 @@ var f;
 var d = [];
 var $awesome = $('.awesome');
 var $searchResult = $('.search-result');
-list.nodejs = require('./data/nodejs.json');
 
 getAllAwesome();
 
@@ -121,6 +120,7 @@ function getAllAwesome(cate) {
 }
 
 $('#nodejs').on('click', function(e) {
+  list.nodejs = require('./data/nodejs.json');
   d = [];
   $('.cate').html('nodejs');
   $awesome.html('');
@@ -137,7 +137,7 @@ $('#nodejs').on('click', function(e) {
     list.nodejs[e].forEach(function(e) {
       var id = e.name.replace(/\W/g, '').toLowerCase();
       var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
-      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank">' +  e.name + ' - ' + e.description + '</a>';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank"><span class="mui--text-black-87">' +  e.name + '</span><span class="mui--text-white"> - ' + e.description + '</span></a>';
       $awesome.append(link);
     });
   });

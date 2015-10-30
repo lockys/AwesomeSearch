@@ -1,6 +1,6 @@
 Awesome search
 ==
-![](https://img.shields.io/badge/version-0.0.1-green.svg)  
+![](https://img.shields.io/badge/version-0.1.0-green.svg)  
 A website which makes you access the awesome lists more quickly.  
 [http://lockys.github.io/awesome-search](http://lockys.github.io/awesome-search)
 

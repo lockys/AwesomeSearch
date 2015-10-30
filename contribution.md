@@ -7,12 +7,14 @@ Contribution
     {
       "name": "webtorrent",
       "url": "https://github.com/feross/webtorrent",
-      "description": "Streaming torrent client for Node"
+      "description": "Streaming torrent client for Node",
+      "cate": "Category"
     },
     {
       "name": "GitTorrent",
       "url": "https://github.com/cjb/GitTorrent",
-      "description": "Peer-to-peer network of Git repositories being shared over BitTorrent"
+      "description": "Peer-to-peer network of Git repositories being shared over BitTorrent",
+      "cate": "Category"
     },]
 }
 ```

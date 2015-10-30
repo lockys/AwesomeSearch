@@ -4,12 +4,26 @@
   "description": "A website which make you access the awesome list more quickly.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "duo index.js && gulp"
   },
   "keywords": [
     "awesome",
     "search"
   ],
   "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "del": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.3.5"
+  }
 }

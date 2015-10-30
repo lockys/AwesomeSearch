@@ -19,7 +19,7 @@ function getAllAwesome(cate) {
     awesome[e].forEach(function(e) {
       var id = e.name.replace(/\W/g, '').toLowerCase();
       var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
-      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" class="' + id + '"' + href + 'target="_blank">' +  e.name + '</a>';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" class="' + id + '"' + href + 'target="_blank" data-url="' + e.url + '">' +  e.name + '</a>';
       $awesome.append(link);
     });
   });

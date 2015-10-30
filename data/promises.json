@@ -1,0 +1,21 @@
+{
+  "Node.js": "nodejs",
+  "Frontend Development": "frontenddevelopment",
+  "iOS": "ios",
+  "Android": "android",
+  "IoT & Hybrid Apps": "iothybridapps",
+  "Electron": "electron",
+  "Cordova": "cordova",
+  "React Native": "reactnative",
+  "Xamarin": "xamarin",
+  "Linux": "linux",
+  "OS X": "osx",
+  "Command-Line": "commandline",
+  "watchOS": "watchos",
+  "JVM": "jvm",
+  "Salesforce": "salesforce",
+  "Amazon Web Services": "amazonwebservices",
+  "Windows": "windows",
+  "JavaScript": "javascript",
+  "Promises": "promises"
+}

@@ -40,14 +40,18 @@ var getCateList = function(e, cate) {
     });
 
     f = new Fuse(d, options);
+    $.getJSON('https://raw.githubusercontent.com/lockys/awesome-search/gh-pages/data/nameMap.json', function(data) {
+      Object.keys(data).forEach(function(ele) {
+        var cate = data[ele];
+        $('.' + cate).on('click', function(e) {
+          if (onClick) {
+            return false;
+          }
 
-    $('.nodejs').on('click', function(e) {
-      if (onClick) {
-        return false;
-      }
-
-      onClick = true;
-      getCateList(e, 'nodejs');
+          onClick = true;
+          getCateList(e, cate);
+        });
+      });
     });
 
     onClick = false;
@@ -72,12 +76,15 @@ $('.awesome-input').on('input', function(e) {
   for (var i = 0, len = result.length; i < len; ++i) {
     if (result[i]) {
       var id = result[i].name.replace(/\W/g, '').toLowerCase();
-      var href = id === 'nodejs' ? '' : ' href="' + result[i].url + '" ';
+      var href = id === 'nodejs' || id === 'awesome' ? '' : ' href="' + e.url + '" ';
       description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
-      link += '<a class="' + id + '"' + href + 'target="_blank">' +  result[i].name + '</a>' + description;
+      $searchResult.append('<a class="' + id + '"' + href + 'target="_blank" data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</a>' + description);
+      (function(id) {
+        $('.' + id).on('click', function(e) {
+          getCateList(e, id);
+        });
+      })(id);
     }
   }
 
-  $searchResult.html(link);
-  $('.nodejs').on('click', getCateList);
 });

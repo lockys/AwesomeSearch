@@ -19,7 +19,7 @@ function getAllAwesome(cate) {
     awesome[e].forEach(function(e) {
       var id = e.name.replace(/\W/g, '').toLowerCase();
       var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
-      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" class="' + id + '"' + href + 'target="_blank" data-url="' + e.url + '">' +  e.name + '</a>';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'target="_blank" data-url="' + e.url + '">' +  e.name + '</a>';
       $awesome.append(link);
     });
   });
@@ -28,10 +28,11 @@ function getAllAwesome(cate) {
 }
 
 var getCateList = function(e) {
+  var repoURL = $(e.target).data('url');
   list.nodejs = require('./data/nodejs.json');
   d = [];
   $('.cate').html('nodejs');
-  $awesome.html('').append('<a href="/awesome-search/"><- Back to Awesome</a>');
+  $awesome.html('').append('<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>');
   $awesome.removeClass('content-hidden');
   $searchResult.html('');
 
@@ -46,7 +47,7 @@ var getCateList = function(e) {
     list.nodejs[e].forEach(function(e) {
       var id = e.name.replace(/\W/g, '').toLowerCase();
       var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
-      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" class="' + id + '"' + href + 'target="_blank"><span class="mui--text-black-87">' +  e.name + '</span><span class="mui--text-white"> - ' + e.description + '</span></a>';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'target="_blank"><span class="mui--text-black-87">' +  e.name + '</span><span class="mui--text-white"> - ' + e.description + '</span></a>';
       $awesome.append(link);
     });
   });

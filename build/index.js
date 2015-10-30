@@ -137,7 +137,7 @@ $('#nodejs').on('click', function(e) {
     list.nodejs[e].forEach(function(e) {
       var id = e.name.replace(/\W/g, '').toLowerCase();
       var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
-      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank">' +  e.name + '</a>';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank">' +  e.name + ' - ' + e.description + '</a>';
       $awesome.append(link);
     });
   });

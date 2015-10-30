@@ -18,18 +18,11 @@ var getCateList = function(e, cate) {
     $searchResult.html('');
 
     if (cate !== 'awesome') {
-      console.log('test');
       var repoURL = $(e.target).data('url');
-      console.log(repoURL);
       var originalName = $(e.target).data('name');
       $('.cate').html(originalName);
       $awesome.append('<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>');
     }
-    console.log(list);
-    // if (list) {
-    //   $awesome.removeClass('content-hidden');
-    //   return;
-    // }
 
     Object.keys(list).forEach(function(e) {
       d = d.concat(list[e]);
@@ -86,9 +79,10 @@ $('.awesome-input').on('input', function(e) {
   for (var i = 0, len = result.length; i < len; ++i) {
     if (result[i]) {
       var id = result[i].name.replace(/\W/g, '').toLowerCase();
-      var href = id === 'nodejs' || id === 'awesome' ? '' : ' href="' + e.url + '" ';
+      var href = id === 'nodejs' || id === 'awesome' ? '' : ' href="' + result[i].url + '" ';
       description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
       $searchResult.append('<a class="' + id + '"' + href + 'target="_blank" data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</a>' + description);
+
       (function(id) {
         $('.' + id).on('click', function(e) {
           getCateList(e, id);

@@ -19,7 +19,7 @@ It is version 0.0.1 version for now, only two awesome lists we parsed for now :s
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 
 The format of awesome lists vary, so building a general parsing program is not easy for us for now.  
-We use this simple [tool]((https://github.com/lockys/awesome.json)) to parse these lists.
+We use this simple [tool](https://github.com/lockys/awesome.json) to parse these lists.
 
 Collaborator(s)
 ==

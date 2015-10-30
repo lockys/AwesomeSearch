@@ -1,6 +1,8 @@
 Contribution
 ==
 - if you are going to PR a awesome list in JSON format, please follow this format
+- The json file should be named by following this [map](https://github.com/lockys/awesome.json/blob/master/output/nameMap.json)
+- For example, the json file of awesome-nodejs repo should be named as `nodejs` (`Node.js` ==> `nodejs` and `IoT & Hybrid Apps` ==> `iothybridapps`) 
 ```
 {
   "Category": [

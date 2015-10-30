@@ -4,6 +4,8 @@ Awesome search
 A website which make you access the awesome lists more quickly.  
 [http://lockys.github.io/awesome-search](http://lockys.github.io/awesome-search)
 
+![](/media/record.gif)
+
 Why
 ==
 In a nutshell, there are too many awesome lists :)  
@@ -16,8 +18,9 @@ It is version 0.0.1 version for now, only two awesome lists we parsed for now :s
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 
-The format of different awesome list vary, so building a general parsing program is not easy for us for now.  
-We use this simple tool to parse these list [awesome.json](https://github.com/lockys/awesome.json)
+The format of awesome lists vary, so building a general parsing program is not easy for us for now.  
+We use this simple [tool]((https://github.com/lockys/awesome.json)) to parse these lists.
+
 Collaborator(s)
 ==
 - [lockys](https://github.com/lockys)

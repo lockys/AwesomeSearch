@@ -12,7 +12,7 @@ And hope this would be a helpful idea.
 
 Supported awesome lists
 ==
-Only two awesome lists we parsed for now.
+It is version 0.0.1 version for now, only two awesome lists we parsed for now :sorry:
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 

@@ -23,7 +23,6 @@ var getCateList = function(e, cate) {
       $awesome.append('<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>');
     }
 
-    $awesome.removeClass('content-hidden');
     $searchResult.html('');
 
     Object.keys(list).forEach(function(e) {
@@ -52,6 +51,8 @@ var getCateList = function(e, cate) {
           getCateList(e, cate);
         });
       });
+
+      $awesome.removeClass('content-hidden');
     });
 
     onClick = false;

@@ -1,27 +1,57 @@
-var nodejs = require('./data/awesome-nodejs.json');
+var list = {};
 var awesome = require('./data/awesome.json');
 var options = {
   keys: ['name', 'description', 'cate'],
 };
+var f;
 var d = [];
 var $awesome = $('.awesome');
 var $searchResult = $('.search-result');
+list.nodejs = require('./data/nodejs.json');
 
-Object.keys(nodejs).forEach(function(e) {
-  d = d.concat(nodejs[e]);
-});
+getAllAwesome();
 
-Object.keys(awesome).forEach(function(e) {
-  d = d.concat(awesome[e]);
-  var title = '<h2>' + e + '</h2>';
-  $awesome.append(title);
-  awesome[e].forEach(function(e) {
-    var link = '<a class="mui-btn mui-btn--small mui-btn--primary" href="' + e.url + '" target="_blank">' +  e.name + '</a>';
-    $awesome.append(link);
+function getAllAwesome(cate) {
+  $awesome.html('');
+  Object.keys(awesome).forEach(function(e) {
+    d = d.concat(awesome[e]);
+    var title = '<h2>' + e + '</h2>';
+    $awesome.append(title);
+    awesome[e].forEach(function(e) {
+      var id = e.name.replace(/\W/g, '').toLowerCase();
+      var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank">' +  e.name + '</a>';
+      $awesome.append(link);
+    });
   });
-});
 
-var f = new Fuse(d, options);
+  f = new Fuse(d, options);
+}
+
+$('#nodejs').on('click', function(e) {
+  d = [];
+  $('.cate').html('nodejs');
+  $awesome.html('');
+  $awesome.append('<a href="/"><- Back to Awesome</a>');
+
+  $('#returnAwesome').on('click', function() {
+    getAllAwesome();
+  });
+
+  Object.keys(list.nodejs).forEach(function(e) {
+    d = d.concat(list.nodejs[e]);
+    var title = '<h2>' + e + '</h2>';
+    $awesome.append(title);
+    list.nodejs[e].forEach(function(e) {
+      var id = e.name.replace(/\W/g, '').toLowerCase();
+      var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank">' +  e.name + '</a>';
+      $awesome.append(link);
+    });
+  });
+
+  f = new Fuse(d, options);
+});
 
 $('.awesome-input').on('input', function(e) {
 

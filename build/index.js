@@ -124,7 +124,7 @@ $('#nodejs').on('click', function(e) {
   d = [];
   $('.cate').html('nodejs');
   $awesome.html('');
-  $awesome.append('<a href="/"><- Back to Awesome</a>');
+  $awesome.append('<a href="/awesome-search/"><- Back to Awesome</a>');
 
   $('#returnAwesome').on('click', function() {
     getAllAwesome();

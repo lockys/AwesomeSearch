@@ -111,7 +111,7 @@ function getAllAwesome(cate) {
     awesome[e].forEach(function(e) {
       var id = e.name.replace(/\W/g, '').toLowerCase();
       var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
-      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank">' +  e.name + '</a>';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" class="' + id + '"' + href + 'target="_blank">' +  e.name + '</a>';
       $awesome.append(link);
     });
   });
@@ -119,12 +119,13 @@ function getAllAwesome(cate) {
   f = new Fuse(d, options);
 }
 
-$('#nodejs').on('click', function(e) {
+var getCateList = function(e) {
   list.nodejs = require('./data/nodejs.json');
   d = [];
   $('.cate').html('nodejs');
-  $awesome.html('');
-  $awesome.append('<a href="/awesome-search/"><- Back to Awesome</a>');
+  $awesome.html('').append('<a href="/awesome-search/"><- Back to Awesome</a>');
+  $awesome.removeClass('content-hidden');
+  $searchResult.html('');
 
   $('#returnAwesome').on('click', function() {
     getAllAwesome();
@@ -137,13 +138,15 @@ $('#nodejs').on('click', function(e) {
     list.nodejs[e].forEach(function(e) {
       var id = e.name.replace(/\W/g, '').toLowerCase();
       var href = id === 'nodejs' ? '' : ' href="' + e.url + '" ';
-      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" id="' + id + '"' + href + 'target="_blank"><span class="mui--text-black-87">' +  e.name + '</span><span class="mui--text-white"> - ' + e.description + '</span></a>';
+      var link = '<a class="mui-btn mui-btn--small mui-btn--primary" class="' + id + '"' + href + 'target="_blank"><span class="mui--text-black-87">' +  e.name + '</span><span class="mui--text-white"> - ' + e.description + '</span></a>';
       $awesome.append(link);
     });
   });
 
   f = new Fuse(d, options);
-});
+};
+
+$('.nodejs').on('click', getCateList);
 
 $('.awesome-input').on('input', function(e) {
 
@@ -160,12 +163,15 @@ $('.awesome-input').on('input', function(e) {
   var description = '';
   for (var i = 0, len = result.length; i < len; ++i) {
     if (result[i]) {
+      var id = result[i].name.replace(/\W/g, '').toLowerCase();
+      var href = id === 'nodejs' ? '' : ' href="' + result[i].url + '" ';
       description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
-      link += '<a class="" href="' + result[i].url + '" target="_blank">' +  result[i].name + '</a>' + description;
+      link += '<a class="' + id + '"' + href + 'target="_blank">' +  result[i].name + '</a>' + description;
     }
   }
 
   $searchResult.html(link);
+  $('.nodejs').on('click', getCateList);
 });
 
 }, {"./data/awesome.json":2,"./data/nodejs.json":3}],

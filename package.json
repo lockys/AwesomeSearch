@@ -1,6 +1,6 @@
 {
   "name": "awesome-search",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A website which make you access the awesome list more quickly.",
   "main": "index.js",
   "scripts": {

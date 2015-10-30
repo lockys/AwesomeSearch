@@ -11,7 +11,6 @@ var plugins = gulpLoadPlugins({
 });
 
 gulp.task('js', function() {
-  gulp.watch(path.src + '*.js', ['js']);
   return gulp.src(path.src + '*.js')
     .pipe(plugins.concat('index.js'))
     .pipe(plugins.rename({ suffix: '.min' }))

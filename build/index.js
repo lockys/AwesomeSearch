@@ -115,7 +115,8 @@ Object.keys(awesome).forEach(function(e) {
 
 var f = new Fuse(d, options);
 
-$('.awesome-input').on('input', function() {
+$('.awesome-input').on('input', function(e) {
+
   var query = $(this).val();
   $awesome.addClass('content-hidden');
   $searchResult.html('');
@@ -125,11 +126,16 @@ $('.awesome-input').on('input', function() {
   }
 
   var result = f.search(query);
-  result.forEach(function(e) {
-    var description = e.description ? ' - ' + e.description + '</br>' : '<br/>';
-    var link = '<a class="" href="' + e.url + '" target="_blank">' +  e.name + '</a>' + description;
-    $searchResult.append(link);
-  });
+  var link = '';
+  var description = '';
+  for (var i = 0, len = result.length; i < len; ++i) {
+    if (result[i]) {
+      description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
+      link += '<a class="" href="' + result[i].url + '" target="_blank">' +  result[i].name + '</a>' + description;
+    }
+  }
+
+  $searchResult.html(link);
 });
 
 }, {"./data/awesome-nodejs.json":2,"./data/awesome.json":3}],

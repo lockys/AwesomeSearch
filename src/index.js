@@ -16,7 +16,7 @@ $(document).ready(function() {
     isAwesome = cate === 'awesome' ? 1 : 0;
 
     $awesome.addClass('content-hidden');
-    $.getJSON('https://raw.githubusercontent.com/lockys/awesome-search/gh-pages/data/' + cate + '.json', function(data) {
+    $.getJSON('https://github.com/lockys/awesome.json/blob/master/output/' + cate + '.json', function(data) {
       list = data;
       $awesome.html('');
       $searchResult.html('');

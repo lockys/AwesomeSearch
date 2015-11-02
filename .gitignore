@@ -1,4 +1,5 @@
-/components
-node_modules/
+data
+components
+node_modules
 .DS_Store
 *.log

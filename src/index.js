@@ -16,7 +16,7 @@ $(document).ready(function() {
     isAwesome = cate === 'awesome' ? 1 : 0;
 
     $awesome.addClass('content-hidden');
-    $.getJSON('https://github.com/lockys/awesome.json/blob/master/output/' + cate + '.json', function(data) {
+    $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
       list = data;
       $awesome.html('');
       $searchResult.html('');
@@ -48,7 +48,7 @@ $(document).ready(function() {
 
       f = new Fuse(d, options);
 
-      $.getJSON('https://raw.githubusercontent.com/lockys/awesome-search/gh-pages/data/nameMap.json', function(data) {
+      $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/nameMap.json', function(data) {
         var idArr = Object.keys(data);
         for (var i = 0, len = idArr.length; i < len; ++i) {
           var cate = data[idArr[i]];

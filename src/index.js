@@ -19,7 +19,7 @@ $(document).ready(function() {
     $awesome.addClass('content-hidden');
     $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
       list = data;
-      haveParse = true;
+      haveParse = cate !== 'awesome' && true;
       $awesome.html('');
       $searchResult.html('');
 

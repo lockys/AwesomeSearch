@@ -2,7 +2,7 @@ Awesome search
 ==
 ![](https://img.shields.io/badge/version-0.1.0-green.svg)  
 A website which makes you access the awesome lists more quickly.  
-[http://lockys.github.io/awesome-search](http://awesomelists.me/)  
+[http://awesomelists.me/](http://awesomelists.me/)  
 The domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
 
 ![](/media/record.gif)

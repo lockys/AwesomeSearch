@@ -14,7 +14,7 @@ Maybe awesome-search would be a helpful idea. :octocat:
 
 Supported awesome lists
 ==
-In version 0.0.1, only two awesome lists we parsed for now :sorry:
+In version 0.0.1, only two awesome lists we parsed for now :sorry:, BUT you can view the original awesome list in awesome-search. 
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 - [awesome-slack](https://github.com/matiassingers/awesome-slack)

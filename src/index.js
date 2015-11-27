@@ -113,13 +113,13 @@ $(document).ready(function() {
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
         } else {
           $searchResult.append('<span class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</span>' + description);
+          (function(id) {
+            $('.' + id).on('click', function(e) {
+              getCateList(e, id);
+            });
+          })(id);
         }
 
-        (function(id) {
-          $('.' + id).on('click', function(e) {
-            getCateList(e, id);
-          });
-        })(id);
       }
     }
 

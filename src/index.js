@@ -12,9 +12,20 @@ $(document).ready(function() {
   var $innerDropDownMenu = $('.mui-dropdown__menu');
   var $dropDownMenu = $('.mui-dropdown');
 
-  var getCateList = function(e, cate) {
+  var getCateList = function(state, pushState) {
+    if (state.e) {
+      state.url = $(state.e.target).data('url');
+      state.name = $(state.e.target).data('name');
+      // Events are unserializable.
+      delete state.e;
+    }
+
+    if (pushState) {
+      window.history.pushState(state, 'Awesome ' + state.name, state.cate);
+    }
+
     var list;
-    cate = cate || 'null';
+    var cate = state.cate || 'null';
     d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
 
@@ -32,8 +43,8 @@ $(document).ready(function() {
       $searchResult.html('');
 
       if (cate !== 'awesome') {
-        var repoURL = $(e.target).data('url');
-        originalName = $(e.target).data('name');
+        var repoURL = state.url;
+        originalName = state.name;
 
         originalHTML = '<a class="back-button"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
         $awesome.append(originalHTML);
@@ -100,7 +111,7 @@ $(document).ready(function() {
               }
 
               onClick = true;
-              getCateList(e, cate);
+              getCateList({ cate: cate, e: e }, true);
             });
           })(cate);
         }
@@ -112,7 +123,8 @@ $(document).ready(function() {
     });
   };
 
-  getCateList(null, 'awesome');
+  getCateList({ cate: 'awesome' });
+  window.history.replaceState({ cate: 'awesome' }, 'Awesome Search', '');
 
   $('.awesome-input').on('input', function(e) {
 
@@ -141,14 +153,14 @@ $(document).ready(function() {
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
           (function(id) {
             $('.' + id).off('click', function(e) {
-              getCateList(e, id);
+              getCateList({ cate: id, e: e }, true);
             });
           })(id);
         } else {
           $searchResult.append('<span class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</span>' + description);
           (function(id) {
             $('.' + id).on('click', function(e) {
-              getCateList(e, id);
+              getCateList({ cate: id, e: e }, true);
             });
           })(id);
         }
@@ -177,11 +189,18 @@ $(document).ready(function() {
     return rawURL;
   }
 
+  $(window).on('popstate', function(event) {
+    var state = event.originalEvent.state;
+    if (state.cate == 'awesome') {
+      $awesome.removeClass('awesome-background');
+    }
+    getCateList(state);
+  });
+
   $awesome.click(function(event) {
     if ($(event.target).is('.back-button')) {
       event.preventDefault();
-      getCateList(null, 'awesome');
-      $awesome.removeClass('awesome-background');
+      window.history.back();
     }
   });
 

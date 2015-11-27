@@ -9,17 +9,22 @@ $(document).ready(function() {
   };
   var $awesome = $('.awesome-block');
   var $searchResult = $('.search-result');
+  var $innerDropDownMenu = $('.mui-dropdown__menu');
+  var $dropDownMenu = $('.mui-dropdown');
 
   var getCateList = function(e, cate) {
-    cate = cate || 'null';
     var list;
+    cate = cate || 'null';
     d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
 
     $awesome.addClass('content-hidden');
+    $dropDownMenu.removeClass('content-hidden');
+
     $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
       list = data;
       haveParse = cate !== 'awesome' && true;
+      var originalHTML = '<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
       $awesome.html('');
       $searchResult.html('');
 
@@ -27,24 +32,37 @@ $(document).ready(function() {
         var repoURL = $(e.target).data('url');
         var originalName = $(e.target).data('name');
         $('.cate').html(originalName);
-        $awesome.append('<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>');
+        $awesome.append(originalHTML);
       }
 
       if (Object.keys(list).length === 0) {
+        /**
+        * Category has not been parsed yet.
+        **/
         haveParse = false;
+        $awesome.html('Retrieving repos...');
+
         $.get(getRawReadme(repoURL), function(content) {
+          $awesome.html('');
+          $awesome.append(originalHTML);
           $awesome.append(marked(content));
         });
 
         $awesome.css({'background-color': '#eee', padding: '50px', 'border-radius': '5px', '-moz-border-radius': '5px', '-o-border-radius': '5px', '-webkit-border-radius': '5px'});
         $awesome.removeClass('content-hidden');
+        $dropDownMenu.addClass('content-hidden');
         return;
       }
 
+      $innerDropDownMenu.html('');
+
       Object.keys(list).forEach(function(e) {
+        var _cateID = e.replace(/\W/g, '').toLowerCase();
         d = d.concat(list[e]);
-        var title = '<h2>' + e + '</h2>';
+        var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
+        $innerDropDownMenu.append('<li><a href="#' + _cateID + '">' + e + '</a></li>');
         $awesome.append(title);
+
         list[e].forEach(function(e) {
           var id = e.name.replace(/\W/g, '').toLowerCase();
           var href = ' href="' + e.url + '" ';
@@ -54,7 +72,7 @@ $(document).ready(function() {
           }
 
           var description = e.description ? ' - ' + e.description : '';
-          var link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'target="_blank" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span class="mui--text-black-54" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
+          var link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'target="_blank" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
           $awesome.append(link);
         });
       });

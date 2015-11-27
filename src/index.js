@@ -24,13 +24,15 @@ $(document).ready(function() {
     $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
       list = data;
       haveParse = cate !== 'awesome' && true;
-      var originalHTML = '<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
+      var originalHTML;
       $awesome.html('');
       $searchResult.html('');
 
       if (cate !== 'awesome') {
         var repoURL = $(e.target).data('url');
         var originalName = $(e.target).data('name');
+        originalHTML = '<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
+
         $('.cate').html(originalName);
         $awesome.append(originalHTML);
       }

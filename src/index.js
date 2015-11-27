@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var f;
   var d;
+  var haveParse = true;
   var onClick = false;
   var isAwesome = false;
   var options = {
@@ -18,6 +19,7 @@ $(document).ready(function() {
     $awesome.addClass('content-hidden');
     $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
       list = data;
+      haveParse = true;
       $awesome.html('');
       $searchResult.html('');
 
@@ -26,6 +28,17 @@ $(document).ready(function() {
         var originalName = $(e.target).data('name');
         $('.cate').html(originalName);
         $awesome.append('<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>');
+      }
+
+      if (Object.keys(list).length === 0) {
+        haveParse = false;
+        $.get(getRawReadme(repoURL), function(content) {
+          $awesome.append(marked(content));
+        });
+
+        $awesome.css({'background-color': '#eee', padding: '50px', 'border-radius': '5px', '-moz-border-radius': '5px', '-o-border-radius': '5px', '-webkit-border-radius': '5px'});
+        $awesome.removeClass('content-hidden');
+        return;
       }
 
       Object.keys(list).forEach(function(e) {
@@ -94,8 +107,13 @@ $(document).ready(function() {
           href = '';
         }
 
+        console.log(d);
         description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
-        $searchResult.append('<a class="' + id + '"' + href + 'target="_blank" data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</a>' + description);
+        if (haveParse) {
+          $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
+        } else {
+          $searchResult.append('<span class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</span>' + description);
+        }
 
         (function(id) {
           $('.' + id).on('click', function(e) {
@@ -106,4 +124,22 @@ $(document).ready(function() {
     }
 
   });
+
+  /**
+  * @param repoURL
+  * @return rawURL
+  **/
+  function getRawReadme(repoURL) {
+    var maintainer = repoURL.split('/')[3];
+    var repo = repoURL.split('/')[4];
+    var rawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/README.md';
+    return rawURL;
+  }
+
+  $('.to-top-arrow').click(function() {
+      $('html, body').animate({
+        scrollTop: 0,
+      }, 600);
+      return false;
+    });
 });

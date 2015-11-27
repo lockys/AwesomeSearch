@@ -13,13 +13,36 @@
       background-color: #eee;
       background-image: url('https://dl.dropboxusercontent.com/u/16975922/nice_snow.png');
     }
+
     .mui-btn {
       margin: 5px 5px 0 0 !important;
       text-transform: capitalize;
     }
+
     .content-hidden {
       display: none;
     }
+
+    .to-top-arrow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 1s;
+      -webkit-transition: opacity 1s;
+      z-index: 999;
+    }
+
+    .search-repo-link {
+      color: blue;
+      cursor: pointer;
+    }
+
+    .search-repo-link::hover {
+      text-decoration: hover;
+    }
+
     a {
       cursor: pointer;
     }
@@ -46,11 +69,15 @@
     <h5 class="mui--text-black-54 mui--text-right"><a href="https://github.com/lockys/awesome-search">Awesome search</a> @ 2015 by <a href="https://github.com/lockys">lockys</a> - Credit to <a href="https://github.com/sindresorhus/awesome/graphs/contributors">all authors of awesome lists</a>, <a href="https://github.com/sindresorhus/awesome">sindresorhus/awesome</a>, <a href="https://www.muicss.com/docs/v1/css-js/buttons">mui</a> and <a href="http://kiro.me/projects/fuse.html">fuzz.js</a></h5>
   <div>
   <h5 class="mui--text-center">☺</h5>
+  <div class="to-top-arrow">
+	   <img src="http://elite.kits.tw/static/img/arrow-top.png">
+  </div>
   <script src="http://cdn.muicss.com/mui-0.2.1/js/mui.min.js"></script>
   <script src="./build/lib/fuse.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js" charset="utf-8"></script>
+  <script src="./build/lib/marked.js" charset="utf-8"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" charset="utf-8"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js" charset="utf-8"></script> -->
   <script src="./build/index.min.js" charset="utf-8"></script>
 
 </body>

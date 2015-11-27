@@ -17,6 +17,8 @@ Supported awesome lists
 In version 0.0.1, only two awesome lists we parsed for now :sorry:
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
+- [awesome-slack](https://github.com/matiassingers/awesome-slack)
+- [awesome-osx](https://github.com/iCHAIT/awesome-osx)
 
 The format of awesome lists vary, so building a general program that exacts info from them is not easy to us for now.  
 We use this simple [tool](https://github.com/lockys/awesome.json) to parse these lists.

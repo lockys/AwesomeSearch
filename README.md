@@ -1,7 +1,9 @@
 Awesome search
 ==
 ![](https://img.shields.io/badge/version-0.1.0-green.svg)  
-A website which makes you access the awesome lists more quickly.  
+A website which makes you access the awesome lists more quickly.
+Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
+
 [http://awesomelists.me/](http://awesomelists.me/)  
 The domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
 
@@ -15,7 +17,7 @@ Maybe awesome-search would be a helpful idea. :octocat:
 
 Supported awesome lists
 ==
-In version 0.0.1, only two awesome lists we parsed for now :sorry:, BUT you can still view the original awesome list in awesome-search website. 
+In version 0.0.1, only two awesome lists we parsed for now :sorry:, BUT you can still view the original awesome list in awesome-search website.
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 - [awesome-slack](https://github.com/matiassingers/awesome-slack)

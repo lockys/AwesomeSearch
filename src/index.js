@@ -33,7 +33,7 @@ $(document).ready(function() {
         var repoURL = $(e.target).data('url');
         var originalName = $(e.target).data('name');
 
-        originalHTML = '<a href="/awesome-search/"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
+        originalHTML = '<a class="back-button"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
 
         $('.cate').html(originalName);
         $awesome.append(originalHTML);
@@ -54,7 +54,7 @@ $(document).ready(function() {
           });
         });
 
-        $awesome.css({'background-color': '#eee', padding: '50px', 'border-radius': '5px', '-moz-border-radius': '5px', '-o-border-radius': '5px', '-webkit-border-radius': '5px'});
+        $awesome.addClass('awesome-background');
         $awesome.removeClass('content-hidden');
         $dropDownMenu.addClass('content-hidden');
         return;
@@ -174,6 +174,14 @@ $(document).ready(function() {
 
     return rawURL;
   }
+
+  $awesome.click(function(event) {
+    if ($(event.target).is('.back-button')) {
+      event.preventDefault();
+      getCateList(null, 'awesome');
+      $awesome.removeClass('awesome-background');
+    }
+  });
 
   $('.to-top-arrow').click(function() {
       $('html, body').animate({

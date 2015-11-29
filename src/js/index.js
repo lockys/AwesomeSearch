@@ -65,9 +65,7 @@ $(document).ready(function() {
         }
 
         Object.keys(list).forEach(function(e) {
-          var _cateID = e.replace(/\W/g, '').toLowerCase();
           d = d.concat(list[e]);
-
         });
       }else {
         Object.keys(list).forEach(function(e) {

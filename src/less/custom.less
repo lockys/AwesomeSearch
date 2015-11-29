@@ -1,0 +1,63 @@
+body {
+  font-family: "Lora", "Helvetica Neue", Helvetica, Arial;
+  background-color: #eee;
+  background-image: url('https://dl.dropboxusercontent.com/u/16975922/nice_snow.png');
+}
+
+.mui-btn {
+  margin: 5px 5px 0 0 !important;
+  text-transform: capitalize;
+}
+
+.content-hidden {
+  display: none;
+}
+
+.to-top-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  z-index: 999;
+}
+
+.search-repo-link {
+  color: blue;
+  cursor: pointer;
+  &:hover {
+    text-decoration: hover;
+  }
+}
+
+.mui-dropdown {
+  position: fixed;
+  left: -15px;
+  top: 0;
+  opacity: 0.6;
+  z-index: 999;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.mui-dropdown__menu {
+  overflow-x: auto;
+  max-height: 600px;
+}
+
+.awesome-background {
+  background-color: #eee;
+  padding: 50px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+a {
+  cursor: pointer;
+}

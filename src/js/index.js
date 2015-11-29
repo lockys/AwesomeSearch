@@ -48,8 +48,7 @@ $(document).ready(function() {
           var anchor = $('h3 a, h2 a');
           for (var i = 0, len = anchor.length; i < len; ++i) {
             anchor[i].id = anchor[i].id.replace('user-content-', '');
-            $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + anchor[i].id + '</a></li>');
-
+            $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h2, h3').text() + '</a></li>');
           }
         });
 

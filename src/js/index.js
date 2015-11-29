@@ -30,82 +30,96 @@ $(document).ready(function() {
 
       $awesome.html('');
       $searchResult.html('');
+      $('.alert').html('');
+      $innerDropDownMenu.html('');
 
-      if (cate !== 'awesome') {
+      if (!isAwesome) {
         var repoURL = $(e.target).data('url');
         originalName = $(e.target).data('name');
 
+        // Update the title
+        $('.cate').html(originalName);
+
         originalHTML = '<a class="back-button"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
-        $awesome.append(originalHTML);
-      }
-
-      $('.cate').html(originalName);
-
-      if (Object.keys(list).length === 0) {
-        /**
-        * Category has not been parsed yet.
-        **/
-        haveParse = false;
-        $awesome.html('Retrieving repos...');
+        $awesome.html('Retrieving repo...');
 
         getReadme(repoURL, function(content) {
-          $awesome.html('');
-          $awesome.append(originalHTML);
-          $awesome.append(content);
-        });
+          $awesome.html('').append(originalHTML).append(content);
+          var anchor = $('h3 a, h2 a');
+          for (var i = 0, len = anchor.length; i < len; ++i) {
+            anchor[i].id = anchor[i].id.replace('user-content-', '');
+            $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + anchor[i].id + '</a></li>');
 
-        $awesome.addClass('awesome-background');
-        $awesome.removeClass('content-hidden');
-        $dropDownMenu.addClass('content-hidden');
-        return;
-      }
-
-      $innerDropDownMenu.html('');
-
-      Object.keys(list).forEach(function(e) {
-        var _cateID = e.replace(/\W/g, '').toLowerCase();
-        var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
-        d = d.concat(list[e]);
-
-        $innerDropDownMenu.append('<li><a href="#' + _cateID + '">' + e + '</a></li>');
-        $awesome.append(title);
-
-        list[e].forEach(function(e) {
-          var id = e.name.replace(/\W/g, '').toLowerCase();
-          var href = '';
-          var link = '';
-          var description = e.description ? ' - ' + e.description : '';
-
-          if (!isAwesome) {
-            href = ' href="' + e.url + '" ';
           }
-
-          link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'target="_blank" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
-          $awesome.append(link);
         });
-      });
 
-      f = new Fuse(d, options);
+        $awesome.addClass('awesome-background').removeClass('content-hidden');
 
-      $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/nameMap.json', function(data) {
-        var idArr = Object.keys(data);
-        for (var i = 0, len = idArr.length; i < len; ++i) {
-          var cate = data[idArr[i]];
-          (function(cate) {
-            $('.' + cate).on('click', function(e) {
-              if (onClick) {
-                return false;
-              }
-
-              onClick = true;
-              getCateList(e, cate);
-            });
-          })(cate);
+        if (Object.keys(list).length === 0) {
+          /**
+          * Category has not been parsed yet.
+          **/
+          haveParse = false;
+          $('.alert').html('<span style="color: red;">This repo has not been parsing yet, so what you search is awesome repo</span><br/>');
+          return;
         }
 
-        $awesome.removeClass('content-hidden');
-      });
+        Object.keys(list).forEach(function(e) {
+          var _cateID = e.replace(/\W/g, '').toLowerCase();
+          d = d.concat(list[e]);
 
+        });
+      }else {
+        Object.keys(list).forEach(function(e) {
+          var _cateID = e.replace(/\W/g, '').toLowerCase();
+          var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
+          d = d.concat(list[e]);
+
+          // Update the title
+          $('.cate').html(originalName);
+
+          $innerDropDownMenu.append('<li><a href="#' + _cateID + '">' + e + '</a></li>');
+          $awesome.append(title);
+
+          list[e].forEach(function(e) {
+            var id = e.name.replace(/\W/g, '').toLowerCase();
+            var href = '';
+            var link = '';
+            var description = e.description ? ' - ' + e.description : '';
+
+            if (!isAwesome) {
+              href = ' href="' + e.url + '" ';
+            }
+
+            link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'target="_blank" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
+            $awesome.append(link);
+          });
+        });
+
+        $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/nameMap.json', function(data) {
+          /**
+          Register the btn by using nameMap.
+          **/
+          var idArr = Object.keys(data);
+          for (var i = 0, len = idArr.length; i < len; ++i) {
+            var cate = data[idArr[i]];
+            (function(cate) {
+              $('.' + cate).on('click', function(e) {
+                if (onClick) {
+                  return false;
+                }
+
+                onClick = true;
+                getCateList(e, cate);
+              });
+            })(cate);
+          }
+
+          $awesome.removeClass('content-hidden awesome-background');
+        });
+      }
+
+      f = new Fuse(d, options);
       onClick = false;
     });
   };
@@ -178,7 +192,6 @@ $(document).ready(function() {
     if ($(event.target).is('.back-button')) {
       event.preventDefault();
       getCateList(null, 'awesome');
-      $awesome.removeClass('awesome-background');
     }
   });
 

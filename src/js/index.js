@@ -48,12 +48,10 @@ $(document).ready(function() {
         haveParse = false;
         $awesome.html('Retrieving repos...');
 
-        getRawReadme(repoURL, function(url) {
-          $.get(url, function(content) {
-            $awesome.html('');
-            $awesome.append(originalHTML);
-            $awesome.append(marked(content));
-          });
+        getReadme(repoURL, function(content) {
+          $awesome.html('');
+          $awesome.append(originalHTML);
+          $awesome.append(content);
         });
 
         $awesome.addClass('awesome-background');
@@ -162,19 +160,18 @@ $(document).ready(function() {
   * @param repoURL
   * @return rawURL
   **/
-  function getRawReadme(repoURL, cb) {
+  function getReadme(repoURL, cb) {
     var maintainer = repoURL.split('/')[3];
     var repo = repoURL.split('/')[4];
-    var rawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/README.md';
+    var apiURL = 'https://api.github.com/repos/' + maintainer + '/' + repo + '/readme';
 
-    $.get(rawURL).done(function() {
-      cb(rawURL);
-    }).fail(function() {
-      rawURL = rawURL.replace('README', 'readme');
-      cb(rawURL);
+    $.ajax({
+      url: apiURL,
+      headers: {
+        accept: 'application/vnd.github.v3.html',
+      },
+      success: cb,
     });
-
-    return rawURL;
   }
 
   $awesome.click(function(event) {

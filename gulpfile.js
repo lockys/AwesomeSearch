@@ -16,7 +16,7 @@ gulp.task('js', function() {
     .pipe(plugins.concat('index.js'))
     .pipe(plugins.rename({ suffix: '.min' }))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest(path.dist))
+    .pipe(gulp.dest(path.dist + 'js/'))
     .pipe(plugins.notify({ message: 'Scripts Task Finished!' }));
 });
 

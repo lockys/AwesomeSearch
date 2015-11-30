@@ -36,7 +36,7 @@ body {
 .mui-dropdown {
   position: fixed;
   left: -15px;
-  top: 0;
+  top: 6%;
   opacity: 0.6;
   z-index: 999;
 }

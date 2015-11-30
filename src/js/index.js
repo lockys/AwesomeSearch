@@ -46,9 +46,12 @@ $(document).ready(function() {
         getReadme(repoURL, function(content) {
           $awesome.html('').append(originalHTML).append(content);
           var anchor = $('h3 a, h2 a, h1 a');
+          var anchorID;
           for (var i = 0, len = anchor.length; i < len; ++i) {
-            anchor[i].id = anchor[i].id.replace('user-content-', '');
-            $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h2, h3, h1').text() + '</a></li>');
+            anchorID = anchor[i].id.replace('user-content-', '');
+            if (anchorID) {
+              $innerDropDownMenu.append('<li><a href="#' + anchorID + '">' + $(anchor[i]).parent('h2, h3, h1').text() + '</a></li>');
+            }
           }
         });
 

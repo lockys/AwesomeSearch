@@ -1,9 +1,9 @@
 $(document).ready(function() {
   var f;
   var d;
-  var haveParse = true;
+  var haveParse = true; // the repos has been parsed or not ?
   var onClick = false;
-  var isAwesome = false;
+  var isAwesome = false; // is it sindre/awesome repo ?
   var options = {
     keys: ['name', 'description', 'cate'],
   };
@@ -21,9 +21,12 @@ $(document).ready(function() {
     $awesome.addClass('content-hidden');
     $dropDownMenu.removeClass('content-hidden');
 
+    /**
+    * Get JSON format of awesome list
+    **/
     $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
-      var originalHTML;
-      var originalName = 'awesome';
+      var backToAwesomeHTML;
+      var repoName = 'awesome';
 
       list = data;
       haveParse = cate !== 'awesome' && true;
@@ -35,16 +38,16 @@ $(document).ready(function() {
 
       if (!isAwesome) {
         var repoURL = $(e.target).data('url');
-        originalName = $(e.target).data('name');
+        repoName = $(e.target).data('name');
 
         // Update the title
-        $('.cate').html(originalName);
+        $('.cate').html(repoName);
 
-        originalHTML = '<a class="back-button"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
+        backToAwesomeHTML = '<a class="back-button"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
         $awesome.html('Retrieving repo...');
 
         getReadme(repoURL, function(content) {
-          $awesome.html('').append(originalHTML).append(content);
+          $awesome.html('').append(backToAwesomeHTML).append(content);
           var anchor = $('h3 a, h2 a, h1 a');
           /**
           * Build Category List.
@@ -84,7 +87,7 @@ $(document).ready(function() {
           d = d.concat(list[e]);
 
           // Update the title
-          $('.cate').html(originalName);
+          $('.cate').html(repoName);
 
           $innerDropDownMenu.append('<li><a href="#' + _cateID + '">' + e + '</a></li>');
           $awesome.append(title);

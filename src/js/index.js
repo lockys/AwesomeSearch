@@ -46,30 +46,38 @@ $(document).ready(function() {
         getReadme(repoURL, function(content) {
           $awesome.html('').append(originalHTML).append(content);
           var anchor = $('h3 a, h2 a, h1 a');
-          var anchorID;
+          /**
+          * Build Category List.
+          **/
           for (var i = 0, len = anchor.length; i < len; ++i) {
-            anchorID = anchor[i].id.replace('user-content-', '');
-            if (anchorID) {
-              $innerDropDownMenu.append('<li><a href="#' + anchorID + '">' + $(anchor[i]).parent('h2, h3, h1').text() + '</a></li>');
+            anchor[i].id = anchor[i].id.replace('user-content-', '');
+            if (anchor[i].id) {
+              $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h2, h3, h1').text() + '</a></li>');
             }
           }
         });
 
         $awesome.addClass('awesome-background').removeClass('content-hidden');
 
+        /**
+        * Category has not been parsed yet.
+        **/
         if (Object.keys(list).length === 0) {
-          /**
-          * Category has not been parsed yet.
-          **/
           haveParse = false;
-          $('.alert').html('<span style="color: red;">This repo has not been parsing yet, so what you search is awesome repo</span><br/>');
+          $('.alert').html('<span style="color: red;">This repo has not been parsed yet, so what you search is awesome repo</span><br/>');
           return;
         }
 
+        /**
+        * Fill in to data for searching
+        **/
         Object.keys(list).forEach(function(e) {
           d = d.concat(list[e]);
         });
       }else {
+        /**
+        * show awesome repo
+        **/
         Object.keys(list).forEach(function(e) {
           var _cateID = e.replace(/\W/g, '').toLowerCase();
           var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
@@ -98,7 +106,7 @@ $(document).ready(function() {
 
         $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/nameMap.json', function(data) {
           /**
-          Register the btn by using nameMap.
+          Register the btns by using nameMap.
           **/
           var idArr = Object.keys(data);
           for (var i = 0, len = idArr.length; i < len; ++i) {

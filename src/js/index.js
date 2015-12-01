@@ -92,7 +92,6 @@ $(document).ready(function() {
         * Fill in to data for searching
         **/
         list.forEach(function(e) {
-          console.log(e);
           d = d.concat(e);
         });
       }else {

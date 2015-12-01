@@ -7,6 +7,9 @@ Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/a
 [http://awesomelists.me/](http://awesomelists.me/)  
 The domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
 
+Awesome Search is under construction, more features will come out. Also, bugs and inconvenience may exit.  
+Stay tuned, and you can [file](https://github.com/lockys/awesome-search/issues) any questions to help this project become better :smile:
+
 ![](/media/record.gif)
 
 Why

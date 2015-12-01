@@ -13,17 +13,6 @@ body {
   display: none;
 }
 
-.to-top-arrow {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  opacity: 0.5;
-  cursor: pointer;
-  transition: opacity 1s;
-  -webkit-transition: opacity 1s;
-  z-index: 999;
-}
-
 .search-repo-link {
   color: blue;
   cursor: pointer;
@@ -35,18 +24,29 @@ body {
 .mui-dropdown {
   position: fixed;
   left: -15px;
-  top: 4%;
+  top: 25%;
   opacity: 0.6;
   z-index: 999;
+  transform: translate(-60px, 0);
+  -webkit-transition: transform .1s ease-in;
+     -moz-transition: transform .1s ease-in;
+       -o-transition: transform .1s ease-in;
+          transition: transform .1s ease-in;
 
   &:hover {
     opacity: 1;
+    transform: translate(0px, 0);
+  }
+  &:after {
+    background-color: black;
+    width: 10px;
+    height: 10px;
   }
 }
 
 .mui-dropdown__menu {
   overflow-x: auto;
-  max-height: 600px;
+  max-height: 400px;
 }
 
 .awesome-background {

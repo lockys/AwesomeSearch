@@ -28,12 +28,8 @@ Features
 
 Supported awesome lists
 ==
-In version 0.1.0, only two awesome lists we parsed for now :sorry:, BUT you can still view the original awesome list in awesome-search website.
-- [awesome](https://github.com/sindresorhus/awesome)
-- [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
-- [awesome-slack](https://github.com/matiassingers/awesome-slack)
-- [awesome-osx](https://github.com/iCHAIT/awesome-osx)
-
+Currently, searching `links` in most of awesome repositories is ok.  
+You can see the JSON format of links [here](https://github.com/lockys/awesome.json/tree/master/output).(Contribution is welcome)  
 We build [awesomelists-index](https://github.com/John-Lin/awesomelists-index) to parse these lists. However, we are still finding a more efficient way.
 
 Collaborator(s)

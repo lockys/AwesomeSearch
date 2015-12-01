@@ -4,7 +4,7 @@ $(document).ready(function() {
   var haveParse = true; // the repos has been parsed or not ?
   var isAwesome = false; // is it sindre/awesome repo ?
   var options = {
-    keys: ['name', 'description', 'cate'],
+    keys: ['name'],
   };
   var $awesome = $('.awesome-block');
   var $searchResult = $('.search-result');

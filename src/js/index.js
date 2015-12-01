@@ -70,7 +70,7 @@ $(document).ready(function() {
               } else if (tagLevel === 'H5') {
                 categoryStyle += '"font-size: 10px; color:#D9006C;"';
               } else if (tagLevel === 'H6') {
-                categoryStyle += '"font-size: 8px; color:#EA0000;"';
+                categoryStyle += '"font-size: 10px; color:#EA0000;"';
               }
 
               $innerDropDownMenu.append('<li><a ' + categoryStyle + ' href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');

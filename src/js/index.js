@@ -210,21 +210,23 @@ $(document).ready(function() {
 
   awesomeRouter.on('route:getRepos', function(cate) {
     var repoInfo = {};
-    var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/name-map.json';
-    var awesomeURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
+    var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
 
     $('.awesome-input').val('');
     $.getJSON(urlMap, getAwesome);
 
-    function getAwesome(map) {
-      $.getJSON(awesomeURL, function(d) {
-        repoInfo = {
-              name: map.backword[cate],
-              url: d[map.backword[cate]],
-            };
-        getCateList(repoInfo, cate);
-      });
-
+    function getAwesome(d) {
+      var k = Object.keys(d);
+      for (var i = 0, len = k.length; i < len; ++i) {
+        if (k[i].replace(/\W/g, '').toLowerCase() === cate) {
+          repoInfo = {
+                name: k[i],
+                url: d[k[i]],
+              };
+          getCateList(repoInfo, cate);
+          break;
+        }
+      }
     }
 
   });

@@ -47,14 +47,14 @@ $(document).ready(function() {
 
         getReadme(repoURL, function(content) {
           $awesome.html('').append(originRepoHTML).append(content);
-          var anchor = $('h3 a, h2 a, h1 a');
+          var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
           /**
           * Build Category List.
           **/
           for (var i = 0, len = anchor.length; i < len; ++i) {
             anchor[i].id = anchor[i].id.replace('user-content-', '');
             if (anchor[i].id) {
-              $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h2, h3, h1').text() + '</a></li>');
+              $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
             }
           }
         });

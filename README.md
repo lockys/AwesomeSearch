@@ -18,16 +18,23 @@ In a nutshell, there are too many awesome lists :)
 We hope to build a tool to access them more quickly.  
 Maybe awesome-search would be a helpful idea. :octocat:
 
+Features
+==
+ - [x] Access and search every awesome repo collected in [sindresorhus/awesome](https://github.com/sindresorhus/awesome) in one page quickly.
+ - [x] Access an awesome repo by `https://awesomelists.me/#repos/nodejs`.
+ - [x] Categories of an awesome repo is supported if the that repo uses `headings`.
+ - [x] Use Github API to retrieve README file of an awesome repo, so it's up-to-date.
+ - [x] Search in a specified repo we have parsed, see [Supported repo](#supported-awesome-lists)
+
 Supported awesome lists
 ==
-In version 0.0.1, only two awesome lists we parsed for now :sorry:, BUT you can still view the original awesome list in awesome-search website.
+In version 0.1.0, only two awesome lists we parsed for now :sorry:, BUT you can still view the original awesome list in awesome-search website.
 - [awesome](https://github.com/sindresorhus/awesome)
 - [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 - [awesome-slack](https://github.com/matiassingers/awesome-slack)
 - [awesome-osx](https://github.com/iCHAIT/awesome-osx)
 
-The format of awesome lists vary, so building a general program that exacts info from them is not easy to us for now.  
-We use this simple [tool](https://github.com/lockys/awesome.json) to parse these lists.
+We build this simple [tool](https://github.com/lockys/awesome.json) to parse these lists. However, we have been suggested that a good tool called `mdast` can process markdown efficiently, so parsing markdown of every repo is easier.
 
 Collaborator(s)
 ==

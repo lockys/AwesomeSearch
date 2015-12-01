@@ -34,7 +34,7 @@ In version 0.1.0, only two awesome lists we parsed for now :sorry:, BUT you can 
 - [awesome-slack](https://github.com/matiassingers/awesome-slack)
 - [awesome-osx](https://github.com/iCHAIT/awesome-osx)
 
-We build this simple [awesomelists-index](https://github.com/John-Lin/awesomelists-index) to parse these lists. However, we are still finding a more efficient way.
+We build [awesomelists-index](https://github.com/John-Lin/awesomelists-index) to parse these lists. However, we are still finding a more efficient way.
 
 Collaborator(s)
 ==

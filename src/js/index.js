@@ -60,17 +60,17 @@ $(document).ready(function() {
             if (anchor[i].id) {
               tagLevel = $(anchor[i]).parent()[0].nodeName;
               if (tagLevel === 'H1') {
-                categoryStyle += '"font-size: 24px;"';
+                categoryStyle += '"font-size: 18px;"';
               } else if (tagLevel === 'H2') {
-                categoryStyle += '"font-size: 20px; color:#3C3C3C;"';
+                categoryStyle += '"font-size: 16px; color:#3C3C3C;"';
               } else if (tagLevel === 'H3') {
-                categoryStyle += '"font-size: 16px; color:#7B7B7B;"';
+                categoryStyle += '"font-size: 14px; color:#7B7B7B;"';
               } else if (tagLevel === 'H4') {
                 categoryStyle += '"font-size: 12px; color:#ADADAD;"';
               } else if (tagLevel === 'H5') {
-                categoryStyle += '"font-size: 10px; color:#D9006C;"';
+                categoryStyle += '"font-size: 12px; color:#D9006C;"';
               } else if (tagLevel === 'H6') {
-                categoryStyle += '"font-size: 10px; color:#EA0000;"';
+                categoryStyle += '"font-size: 12px; color:#EA0000;"';
               }
 
               $innerDropDownMenu.append('<li><a ' + categoryStyle + ' href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');

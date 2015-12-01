@@ -42,7 +42,7 @@ $(document).ready(function() {
         // Update the title
         $('.cate').html(repoName);
 
-        originRepoHTML = '<a href="' + repoURL + '" target="_blank">Go To Original Repo</a>';
+        originRepoHTML = '<a href="' + repoURL + '" target="_blank">Go To Original Repo</a><br/><br/>';
         $awesome.html('Retrieving repo...');
 
         getReadme(repoURL, function(content) {

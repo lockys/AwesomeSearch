@@ -48,13 +48,32 @@ $(document).ready(function() {
         getReadme(repoURL, function(content) {
           $awesome.html('').append(originRepoHTML).append(content);
           var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
+          var tagLevel;
+          var categoryStyle = 'style=';
           /**
           * Build Category List.
           **/
           for (var i = 0, len = anchor.length; i < len; ++i) {
             anchor[i].id = anchor[i].id.replace('user-content-', '');
+            categoryStyle = 'style=';
+
             if (anchor[i].id) {
-              $innerDropDownMenu.append('<li><a href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+              tagLevel = $(anchor[i]).parent()[0].nodeName;
+              if (tagLevel === 'H1') {
+                categoryStyle += '"font-size: 24px;"';
+              } else if (tagLevel === 'H2') {
+                categoryStyle += '"font-size: 20px; color:#3C3C3C;"';
+              } else if (tagLevel === 'H3') {
+                categoryStyle += '"font-size: 16px; color:#7B7B7B;"';
+              } else if (tagLevel === 'H4') {
+                categoryStyle += '"font-size: 12px; color:#ADADAD;"';
+              } else if (tagLevel === 'H5') {
+                categoryStyle += '"font-size: 8px; color:#D9006C;"';
+              } else if (tagLevel === 'H6') {
+                categoryStyle += '"font-size: 4px; color:#EA0000;"';
+              }
+
+              $innerDropDownMenu.append('<li><a ' + categoryStyle + ' href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
             }
           }
         });

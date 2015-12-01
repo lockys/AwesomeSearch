@@ -37,8 +37,8 @@ $(document).ready(function() {
       $innerDropDownMenu.html('');
 
       if (!isAwesome) {
-        var repoURL = $(e.target).data('url');
-        repoName = $(e.target).data('name');
+        var repoURL = e.url;
+        repoName = e.name;
 
         // Update the title
         $('.cate').html(repoName);
@@ -102,40 +102,18 @@ $(document).ready(function() {
               href = ' href="' + e.url + '" ';
             }
 
-            link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'target="_blank" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
+            link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
             $awesome.append(link);
           });
         });
 
-        $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/nameMap.json', function(data) {
-          /**
-          Register the btns by using nameMap.
-          **/
-          var idArr = Object.keys(data);
-          for (var i = 0, len = idArr.length; i < len; ++i) {
-            var cate = data[idArr[i]];
-            (function(cate) {
-              $('.' + cate).on('click', function(e) {
-                if (onClick) {
-                  return false;
-                }
-
-                onClick = true;
-                getCateList(e, cate);
-              });
-            })(cate);
-          }
-
-          $awesome.removeClass('content-hidden awesome-background');
-        });
+        $awesome.removeClass('content-hidden awesome-background');
       }
 
       f = new Fuse(d, options);
       onClick = false;
     });
   };
-
-  getCateList(null, 'awesome');
 
   $('.awesome-input').on('input', function(e) {
 
@@ -164,14 +142,24 @@ $(document).ready(function() {
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
           (function(id) {
             $('.' + id).off('click', function(e) {
-              getCateList(e, id);
+              var repoInfo = {
+                    name: $(e.target).data('name'),
+                    url: $(e.target).data('url'),
+                  };
+
+              getCateList(repoInfo, id);
             });
           })(id);
         } else {
           $searchResult.append('<span class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</span>' + description);
           (function(id) {
             $('.' + id).on('click', function(e) {
-              getCateList(e, id);
+              var repoInfo = {
+                    name: $(e.target).data('name'),
+                    url: $(e.target).data('url'),
+                  };
+
+              getCateList(repoInfo, id);
             });
           })(id);
         }
@@ -207,9 +195,40 @@ $(document).ready(function() {
   });
 
   $('.to-top-arrow').click(function() {
-      $('html, body').animate({
-        scrollTop: 0,
-      }, 600);
-      return false;
-    });
+    $('html, body').animate({
+      scrollTop: 0,
+    }, 600);
+    return false;
+  });
+
+  var AwesomeRouter = Backbone.Router.extend({
+    routes: {
+      'repos/:cate': 'getRepos',
+    },
+  });
+
+  var awesomeRouter = new AwesomeRouter();
+
+  awesomeRouter.on('route:getRepos', function(cate) {
+    var repoInfo = {};
+    var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/name-map.json';
+    var awesomeURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
+
+    $.getJSON(urlMap, getAwesome);
+
+    function getAwesome(map) {
+      $.getJSON(awesomeURL, function(d) {
+        repoInfo = {
+              name: map.backword[cate],
+              url: d[map.backword[cate]],
+            };
+        getCateList(repoInfo, cate);
+      });
+
+    }
+
+  });
+
+  Backbone.history.start();
+  getCateList(null, 'awesome');
 });

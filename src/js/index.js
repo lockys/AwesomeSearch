@@ -93,6 +93,7 @@ $(document).ready(function() {
         * Fill in to data for searching
         **/
         list.forEach(function(e) {
+          console.log(e);
           d = d.concat(e);
         });
       }else {
@@ -214,6 +215,7 @@ $(document).ready(function() {
     var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/name-map.json';
     var awesomeURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
 
+    $('.awesome-input').val('');
     $.getJSON(urlMap, getAwesome);
 
     function getAwesome(map) {

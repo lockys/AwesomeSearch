@@ -140,28 +140,8 @@ $(document).ready(function() {
         description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
         if (haveParse) {
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
-          (function(id) {
-            $('.' + id).off('click', function(e) {
-              var repoInfo = {
-                    name: $(e.target).data('name'),
-                    url: $(e.target).data('url'),
-                  };
-
-              getCateList(repoInfo, id);
-            });
-          })(id);
         } else {
-          $searchResult.append('<span class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '">' +  result[i].name + '</span>' + description);
-          (function(id) {
-            $('.' + id).on('click', function(e) {
-              var repoInfo = {
-                    name: $(e.target).data('name'),
-                    url: $(e.target).data('url'),
-                  };
-
-              getCateList(repoInfo, id);
-            });
-          })(id);
+          $searchResult.append('<a class="' + id + ' search-repo-link" data-url="' + result[i].url + '" data-name="' + result[i].name + '" href="#/repos/' + id + '">' +  result[i].name + '</a>' + description);
         }
 
       }

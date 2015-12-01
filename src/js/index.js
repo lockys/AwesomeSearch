@@ -2,7 +2,6 @@ $(document).ready(function() {
   var f;
   var d;
   var haveParse = true; // the repos has been parsed or not ?
-  var onClick = false;
   var isAwesome = false; // is it sindre/awesome repo ?
   var options = {
     keys: ['name', 'description', 'cate'],
@@ -111,7 +110,6 @@ $(document).ready(function() {
       }
 
       f = new Fuse(d, options);
-      onClick = false;
     });
   };
 

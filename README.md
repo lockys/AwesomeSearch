@@ -2,21 +2,21 @@ Awesome search
 ==
 ![](https://img.shields.io/badge/version-0.1.0-green.svg)  
 A website which makes you access the awesome lists more quickly.  
-Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
+Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
 [http://awesomelists.me/](http://awesomelists.me/)  
 The domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
 
-Awesome Search is under construction, more features will come out. Also, bugs and inconvenience may exit.  
+Awesome Search is under construction, more features will come out. Also, bugs and inconveniences may exit.  
 Stay tuned, and you can [file](https://github.com/lockys/awesome-search/issues) any questions to help this project become better :smile:
 
 ![](/media/record.gif)
 
 Why
 ==
-In a nutshell, there are too many awesome lists :)  
-We hope to build a tool to access them more quickly.  
-Maybe awesome-search would be a helpful idea. :octocat:
+In a nutshell, there are too many awesome lists in the world :)    
+We hope to build an application to access them more quickly.  
+Maybe `awesome search` would be a helpful idea. :octocat:
 
 Features
 ==
@@ -40,6 +40,10 @@ Collaborator(s)
 ==
 - [lockys](https://github.com/lockys)
 - [John-Lin](https://github.com/John-Lin)
+
+Contributors
+==
+Thank you, [contributors](https://github.com/lockys/awesome-search/graphs/contributors)
 
 Contributions
 ==

@@ -24,7 +24,7 @@ $(document).ready(function() {
     * Get JSON format of awesome list
     **/
     $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
-      var backToAwesomeHTML;
+      var originRepoHTML;
       var repoName = 'awesome';
 
       list = data;
@@ -42,11 +42,11 @@ $(document).ready(function() {
         // Update the title
         $('.cate').html(repoName);
 
-        backToAwesomeHTML = '<a class="back-button"><- Back to Awesome</a><br/><a href="' + repoURL + '" target="_blank">-> Original Repo</a>';
+        originRepoHTML = '<a href="' + repoURL + '" target="_blank">Go To Original Repo</a>';
         $awesome.html('Retrieving repo...');
 
         getReadme(repoURL, function(content) {
-          $awesome.html('').append(backToAwesomeHTML).append(content);
+          $awesome.html('').append(originRepoHTML).append(content);
           var anchor = $('h3 a, h2 a, h1 a');
           /**
           * Build Category List.
@@ -60,7 +60,7 @@ $(document).ready(function() {
         });
 
         $awesome.addClass('awesome-background').removeClass('content-hidden');
-
+        $('.back-button').removeClass('content-hidden');
         /**
         * Category has not been parsed yet.
         **/
@@ -107,6 +107,8 @@ $(document).ready(function() {
         });
 
         $awesome.removeClass('content-hidden awesome-background');
+        $('.back-button').addClass('content-hidden');
+
       }
 
       f = new Fuse(d, options);
@@ -165,7 +167,7 @@ $(document).ready(function() {
     });
   }
 
-  $awesome.click(function(event) {
+  $('body').click(function(event) {
     if ($(event.target).is('.back-button')) {
       event.preventDefault();
       getCateList(null, 'awesome');

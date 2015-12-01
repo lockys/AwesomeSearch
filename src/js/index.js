@@ -92,8 +92,8 @@ $(document).ready(function() {
         /**
         * Fill in to data for searching
         **/
-        Object.keys(list).forEach(function(e) {
-          d = d.concat(list[e]);
+        list.forEach(function(e) {
+          d = d.concat(e);
         });
       }else {
         /**

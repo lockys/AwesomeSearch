@@ -17,19 +17,18 @@ $(document).ready(function() {
     d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
 
-    $awesome.addClass('content-hidden');
     $dropDownMenu.removeClass('content-hidden');
 
     /**
     * Get JSON format of awesome list
     **/
+    $awesome.html('Please wait a moment, it won\'t take long.');
     $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
       var originRepoHTML;
       var repoName = 'awesome';
 
       list = data;
       haveParse = cate !== 'awesome' && true;
-
       $awesome.html('');
       $searchResult.html('');
       $('.alert').html('');

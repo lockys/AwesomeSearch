@@ -10,7 +10,8 @@ The domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic]
 Awesome Search is under construction, more features will come out. Also, bugs and inconveniences may exit.  
 Stay tuned, and you can [file](https://github.com/lockys/awesome-search/issues) any questions to help this project become better :smile:
 
-![](http://i.imgur.com/ZyU0OD4.gifv)
+Screenshot: http://i.imgur.com/ZyU0OD4.gifv  
+![screenshot](http://i.imgur.com/ZyU0OD4.gifv)
 
 Why
 ==

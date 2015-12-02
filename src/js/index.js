@@ -52,20 +52,26 @@ $(document).ready(function() {
           var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
           var maintainer = repoURL.split('/')[3];
           var repo = repoURL.split('/')[4];
-          var githubRawURL = 'https://github.com/' + maintainer + '/' + repo + '/blob/master/';
+          var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
           var tagLevel;
           var categoryStyle = 'style=';
+
           /**
-          * Build Category List.
+          * Dealing with some repos use relative image path.
           **/
           var imgArr = $('img');
 
           for (var i = 0, len = imgArr.length; i < len; ++i) {
-            var relativeSrc = $(imgArr[i])[0].src;
-            console.log(relativeSrc);
-            $(imgArr[i]).attr('src', relativeSrc.replace(window.location.href, githubRawURL));
+            var relativeSrc = $(imgArr[i]).attr('src');
+            if (!isURL(relativeSrc)) {
+              console.log('!');
+              $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
+            }
           }
 
+          /**
+          * Build Category List.
+          **/
           for (var i = 0, len = anchor.length; i < len; ++i) {
             anchor[i].id = anchor[i].id.replace('user-content-', '');
             categoryStyle = 'style=';
@@ -263,6 +269,15 @@ $(document).ready(function() {
     }
 
   });
+
+  /**
+  * To check if a string is a url
+  * @return true or false
+  **/
+  function isURL(str) {
+    var pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    return pattern.test(str);
+  }
 
   Backbone.history.start();
   getCateList(null, 'awesome');

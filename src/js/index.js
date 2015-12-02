@@ -16,14 +16,14 @@ $(document).ready(function() {
     cate = cate || 'null';
     d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
-
+    jsonURL = isAwesome ? 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json' : 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
     $dropDownMenu.removeClass('content-hidden');
 
     /**
     * Get JSON format of awesome list
     **/
     $awesome.html('Please wait a moment, it won\'t take long.');
-    $.getJSON('https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json', function(data) {
+    $.getJSON(jsonURL, function(data) {
       var originRepoHTML;
       var repoName = 'awesome';
 

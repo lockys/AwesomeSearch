@@ -22,6 +22,14 @@ body {
   text-decoration: hover;
 }
 
+.search-result {
+  max-height: 300px;
+  background-color: white;
+  overflow: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 .mui-dropdown {
   position: fixed;
   left: -15px;

@@ -64,7 +64,6 @@ $(document).ready(function() {
           for (var i = 0, len = imgArr.length; i < len; ++i) {
             var relativeSrc = $(imgArr[i]).attr('src');
             if (!isURL(relativeSrc)) {
-              console.log('!');
               $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
             }
           }

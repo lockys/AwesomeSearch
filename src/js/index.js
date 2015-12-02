@@ -138,7 +138,7 @@ $(document).ready(function() {
     var query = $(this).val();
     var LENGTH_LIMIT = 10;
     $searchResult.removeClass('content-hidden');
-    $searchResult.html('No Results :(');
+    $searchResult.html('');
 
     if (!query) {
       $searchResult.addClass('content-hidden');
@@ -147,6 +147,11 @@ $(document).ready(function() {
     var result = f.search(query);
     var link = '';
     var description = '';
+
+    if (!result.length) {
+      $searchResult.html('No result :(');
+    }
+
     for (var i = 0, len = LENGTH_LIMIT; i < len; ++i) {
       if (result[i]) {
         var id = result[i].name.replace(/\W/g, '').toLowerCase();

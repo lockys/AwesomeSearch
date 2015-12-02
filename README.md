@@ -26,6 +26,21 @@ In version 0.0.1, only two awesome lists we parsed for now :sorry:, BUT you can 
 The format of awesome lists vary, so building a general program that exacts info from them is not easy to us for now.  
 We use this simple [tool](https://github.com/lockys/awesome.json) to parse these lists.
 
+Acceptance testing
+==
+We make some acceptance tests for the Web. To run the testing **Ruby** is required.
+
+Install dependency package
+```sh
+bundle install
+```
+
+Run testing
+```sh
+rake spec
+```
+
+
 Collaborator(s)
 ==
 - [lockys](https://github.com/lockys)

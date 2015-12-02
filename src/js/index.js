@@ -136,17 +136,18 @@ $(document).ready(function() {
   $('.awesome-input').on('input', function(e) {
 
     var query = $(this).val();
-    $awesome.addClass('content-hidden');
+    var LENGTH_LIMIT = 10;
+    $searchResult.removeClass('content-hidden');
     $searchResult.html('');
 
     if (!query) {
-      $awesome.removeClass('content-hidden');
+      $searchResult.addClass('content-hidden');
     }
 
     var result = f.search(query);
     var link = '';
     var description = '';
-    for (var i = 0, len = result.length; i < len; ++i) {
+    for (var i = 0, len = LENGTH_LIMIT; i < len; ++i) {
       if (result[i]) {
         var id = result[i].name.replace(/\W/g, '').toLowerCase();
         var href = ' href="' + result[i].url + '" ';
@@ -213,6 +214,8 @@ $(document).ready(function() {
     var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
 
     $('.awesome-input').val('');
+    $searchResult.addClass('content-hidden');
+
     $.getJSON(urlMap, getAwesome);
 
     function getAwesome(d) {

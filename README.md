@@ -11,7 +11,7 @@ Awesome Search is under construction, more features will come out. Also, bugs an
 Stay tuned, and you can [file](https://github.com/lockys/awesome-search/issues) any questions to help this project become better :smile:
 
 Screenshot: http://i.imgur.com/ZyU0OD4.gif  
-![screenshot](http://i.imgur.com/ZyU0OD4.gif)
+![screenshot](http://i.imgur.com/rW4KhRh.gif?1)
 
 Why
 ==

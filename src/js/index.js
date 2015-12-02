@@ -231,6 +231,7 @@ $(document).ready(function() {
                 name: k[i],
                 url: d[k[i]],
               };
+          $('.search-holder').html('Search the ' + repoInfo.name);
           getCateList(repoInfo, cate);
           break;
         }

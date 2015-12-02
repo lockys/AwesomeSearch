@@ -101,13 +101,15 @@ $(document).ready(function() {
         /**
         * show awesome repo
         **/
+        $('.search-holder').html('Search the awesome world.');
+
+        // Update the title
+        $('.cate').html(repoName);
+
         Object.keys(list).forEach(function(e) {
           var _cateID = e.replace(/\W/g, '').toLowerCase();
           var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
           d = d.concat(list[e]);
-
-          // Update the title
-          $('.cate').html(repoName);
 
           $innerDropDownMenu.append('<li><a href="#' + _cateID + '">' + e + '</a></li>');
           $awesome.append(title);

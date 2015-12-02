@@ -20,17 +20,25 @@ describe 'Awesome Search Stories' do
       @browser.h1.text.must_equal "require('awesome')"
     end
 
-    # describe 'Do Search and go back to home page' do
-    #   it 'can go back to home page' do
-    #     @browser.text_field(class: 'awesome-input').set('ruby')
-    #
-    #     @browser.link(text: 'Ruby').click
-    #
-    #     @browser.wait_until { @browser.button(class: 'mui-btn mui-btn--raised mui-btn--danger back-button').click }
-    #   end
-    # end
+  # describe 'Do search and go back to home page' do
+  #   it 'can go back to home page' do
+  #     @browser.text_field(class: 'awesome-input').set('ruby')
+  #
+  #     @browser.link(text: 'Ruby').click
+  #
+  #     @browser.wait_until { @browser.button(class: 'mui-btn mui-btn--raised mui-btn--danger back-button').click }
+  #   end
+  # end
 
-  describe 'Search' do
+  describe 'Click ios button' do
+    it 'can click a ios button' do
+      @browser.a(class: 'mui-btn mui-btn--small mui-btn--primary ios').click
+
+      @browser.wait_until { @browser.h1(class: 'mui--text-black-54 mui--text-display3 mui--text-right').text.include? "require('iOS')"}
+    end
+  end
+
+  describe 'Searching with python keyword' do
     it 'can search a awesome-python' do
       @browser.text_field(class: 'awesome-input').set('python')
 
@@ -42,8 +50,8 @@ describe 'Awesome Search Stories' do
 
   end
 
-  # after do
-  #   @browser.close
-  #   @headless.destroy
-  # end
+  after do
+    @browser.close
+    @headless.destroy
+  end
 end

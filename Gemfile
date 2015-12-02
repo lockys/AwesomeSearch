@@ -8,6 +8,7 @@ group :test do
   gem 'rack-test'
   gem 'rake'
 
+  gem 'selenium-webdriver', '2.35.0'
   gem 'watir-webdriver'
   gem 'headless'
 end

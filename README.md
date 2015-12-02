@@ -1,6 +1,6 @@
 Awesome search
 ==
-![](https://img.shields.io/badge/version-0.1.0-green.svg)  
+![](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages) ![](https://img.shields.io/badge/version-0.1.0-green.svg)  
 A website which makes you access the awesome lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 

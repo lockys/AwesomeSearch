@@ -18,6 +18,7 @@ $(document).ready(function() {
     isAwesome = cate === 'awesome' ? 1 : 0;
     jsonURL = isAwesome ? 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json' : 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
     $dropDownMenu.removeClass('content-hidden');
+    $searchResult.addClass('content-hidden');
 
     /**
     * Get JSON format of awesome list
@@ -219,7 +220,6 @@ $(document).ready(function() {
     var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
 
     $('.awesome-input').val('');
-    $searchResult.addClass('content-hidden');
 
     $.getJSON(urlMap, getAwesome);
 

@@ -17,6 +17,7 @@ $(document).ready(function() {
     d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
     jsonURL = isAwesome ? 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json' : 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
+
     $dropDownMenu.removeClass('content-hidden');
     $searchResult.addClass('content-hidden');
 
@@ -24,6 +25,7 @@ $(document).ready(function() {
     * Get JSON format of awesome list
     **/
     $awesome.html('Please wait a moment, it won\'t take long.');
+
     $.getJSON(jsonURL, function(data) {
       var originRepoHTML;
       var repoName = 'awesome';
@@ -138,6 +140,7 @@ $(document).ready(function() {
 
     var query = $(this).val();
     var LENGTH_LIMIT = 10;
+
     $searchResult.removeClass('content-hidden');
     $searchResult.html('');
 
@@ -154,15 +157,18 @@ $(document).ready(function() {
     }
 
     for (var i = 0, len = LENGTH_LIMIT; i < len; ++i) {
+
       if (result[i]) {
         var id = result[i].name.replace(/\W/g, '').toLowerCase();
         var href = ' href="' + result[i].url + '" ';
+
         if (isAwesome) {
           href = '';
         }
 
         // console.log(d);
         description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
+
         if (haveParse) {
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
         } else {
@@ -170,6 +176,7 @@ $(document).ready(function() {
         }
 
       }
+
     }
 
   });
@@ -198,6 +205,7 @@ $(document).ready(function() {
       window.location.hash = '/';
       getCateList(null, 'awesome');
     }
+
   });
 
   $('.to-top-arrow').click(function() {
@@ -225,7 +233,9 @@ $(document).ready(function() {
 
     function getAwesome(d) {
       var k = Object.keys(d);
+
       for (var i = 0, len = k.length; i < len; ++i) {
+
         if (k[i].replace(/\W/g, '').toLowerCase() === cate) {
           repoInfo = {
                 name: k[i],
@@ -235,6 +245,7 @@ $(document).ready(function() {
           getCateList(repoInfo, cate);
           break;
         }
+
       }
     }
 

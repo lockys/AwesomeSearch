@@ -24,7 +24,7 @@ Features
  - [x] Access an awesome repo by `https://awesomelists.me/#repos/nodejs`.
  - [x] Categories of an awesome repo is supported if the that repo uses `headings`.
  - [x] Use Github API to retrieve README file of an awesome repo, so it's up-to-date.
- - [x] Search in a specified repo we have parsed, see [Supported repo](#supported-awesome-lists)
+ - [x] Search links in a specified repo we have parsed, see [Supported repo](#supported-awesome-lists)
 
 Supported awesome lists
 ==

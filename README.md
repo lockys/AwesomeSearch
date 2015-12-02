@@ -46,6 +46,11 @@ Contributions
 Please refer to [contribution.md](contribution.md)    
 Filing a issue to make suggestions or complain anything is always welcome.
 
+Related
+==
+- [John-Lin/awesomelists-index](https://github.com/John-Lin/awesomelists-index)
+- [lockys/awesome.json](https://github.com/lockys/awesome.json)
+
 Credit
 ==
 Thanks all awesome authors for creating these awesome lists to make the world better.  

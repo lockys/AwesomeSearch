@@ -50,11 +50,21 @@ $(document).ready(function() {
         getReadme(repoURL, function(content) {
           $awesome.html('').append(originRepoHTML).append(content);
           var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
+          var maintainer = repoURL.split('/')[3];
+          var repo = repoURL.split('/')[4];
+          var githubRawURL = 'https://github.com/' + maintainer + '/' + repo + '/blob/master/';
           var tagLevel;
           var categoryStyle = 'style=';
           /**
           * Build Category List.
           **/
+          var imgArr = $('img');
+
+          for (var i = 0, len = imgArr.length; i < len; ++i) {
+            var relativeSrc = $(imgArr[i])[0].src;
+            $(imgArr[i]).attr('src', relativeSrc.replace(window.location.href, githubRawURL));
+          }
+
           for (var i = 0, len = anchor.length; i < len; ++i) {
             anchor[i].id = anchor[i].id.replace('user-content-', '');
             categoryStyle = 'style=';

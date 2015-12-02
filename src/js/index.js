@@ -138,7 +138,7 @@ $(document).ready(function() {
     var query = $(this).val();
     var LENGTH_LIMIT = 10;
     $searchResult.removeClass('content-hidden');
-    $searchResult.html('');
+    $searchResult.html('No Results :(');
 
     if (!query) {
       $searchResult.addClass('content-hidden');

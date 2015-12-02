@@ -34,6 +34,21 @@ You can see the JSON format of links [here](https://github.com/lockys/awesome.js
 We build [awesomelists-index](https://github.com/John-Lin/awesomelists-index) to parse these lists. However, we are still finding a more efficient way.  
 [awesome.json](https://github.com/lockys/awesome.json) is the place where the data store for now.
 
+Acceptance testing
+==
+We make some acceptance tests for the Web. To run the testing **Ruby** is required.
+
+Install dependency package
+```sh
+bundle install
+```
+
+Run testing
+```sh
+rake spec
+```
+
+
 Collaborator(s)
 ==
 - [lockys](https://github.com/lockys)

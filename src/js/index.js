@@ -11,6 +11,12 @@ $(document).ready(function() {
   var $innerDropDownMenu = $('.mui-dropdown__menu');
   var $dropDownMenu = $('.mui-dropdown');
 
+  /**
+  * Retrieve the readme file of an awesome repo from github and store the json for searching.
+  * @param e It's an object containing repo name and url.
+  * @param cate The repo name we want to get.
+  * @return null
+  **/
   var getCateList = function(e, cate) {
     var repoName = 'awesome';
     d = [];
@@ -21,16 +27,15 @@ $(document).ready(function() {
     $dropDownMenu.removeClass('content-hidden');
     $searchResult.addClass('content-hidden');
 
-    /**
-    * Get JSON format of awesome list
-    **/
-
     $awesome.html('');
     $searchResult.html('');
     $innerDropDownMenu.html('');
     $('.alert').html('');
     $('.awesome-input').val('');
 
+    /**
+    * Get readme of awesome repo
+    **/
     if (!isAwesome) {
       var repoURL = e.url;
       var originRepoHTML = '<a href="' + repoURL + '" target="_blank">Go To Original Repo</a><br/><br/>';
@@ -106,6 +111,9 @@ $(document).ready(function() {
 
     }
 
+    /**
+    * Get json format of awesome for searching.
+    **/
     $.getJSON(jsonURL, function(data) {
       var list = data;
 
@@ -153,7 +161,7 @@ $(document).ready(function() {
   $('.awesome-input').on('input', function(e) {
 
     var query = $(this).val();
-    var LENGTH_LIMIT = 10;
+    var LENGTH_LIMIT = 20;
 
     $searchResult.removeClass('content-hidden');
     $searchResult.html('');
@@ -183,8 +191,10 @@ $(document).ready(function() {
         description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
 
         if (haveParse) {
+          // if parsed(and it is not the top awesome repo), show the searching result about the current repo.
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
         } else {
+          // if not parsed or it is the top awesome repo, show the searching result about the top awesome repo.
           $searchResult.append('<a class="' + id + ' search-repo-link" data-url="' + result[i].url + '" data-name="' + result[i].name + '" href="#/repos/' + id + '">' +  result[i].name + '</a>' + description);
         }
 
@@ -195,7 +205,7 @@ $(document).ready(function() {
 
   /**
   * @param repoURL
-  * @return rawURL
+  * @param cb to dealing with html of readme.
   **/
   function getReadme(repoURL, cb) {
     var maintainer = repoURL.split('/')[3];

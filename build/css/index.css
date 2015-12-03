@@ -22,6 +22,10 @@ body {
   text-decoration: hover;
 }
 
+.search-bar {
+  margin-top: 50px;
+}
+
 .search-result {
   max-height: 300px;
   background-color: white;

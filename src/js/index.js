@@ -12,10 +12,10 @@ $(document).ready(function() {
   var $dropDownMenu = $('.mui-dropdown');
 
   var getCateList = function(e, cate) {
-    var list;
-    cate = cate || 'null';
+    var repoName = 'awesome';
     d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
+    haveParse = !isAwesome;
     jsonURL = isAwesome ? 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json' : 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
 
     $dropDownMenu.removeClass('content-hidden');
@@ -24,79 +24,92 @@ $(document).ready(function() {
     /**
     * Get JSON format of awesome list
     **/
-    $awesome.html('Please wait a moment, it won\'t take long.');
+
+    $awesome.html('');
+    $searchResult.html('');
+    $innerDropDownMenu.html('');
+    $('.alert').html('');
+    $('.awesome-input').val('');
+
+    if (!isAwesome) {
+      var repoURL = e.url;
+      var originRepoHTML = '<a href="' + repoURL + '" target="_blank">Go To Original Repo</a><br/><br/>';
+      repoName = e.name;
+
+      // Update the title
+      $('.cate').html(repoName);
+      $awesome.html('Retrieving repo...');
+
+      getReadme(repoURL, function(content) {
+        $awesome.html('').append(originRepoHTML).append(content);
+        var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
+        var maintainer = repoURL.split('/')[3];
+        var repo = repoURL.split('/')[4];
+        var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
+        var tagLevel;
+        var categoryStyle = 'style=';
+
+        /**
+        * Dealing with some repos use relative image path.
+        **/
+        var imgArr = $('img');
+
+        for (var i = 0, len = imgArr.length; i < len; ++i) {
+          var relativeSrc = $(imgArr[i]).attr('src');
+          if (!isURL(relativeSrc)) {
+            $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
+          }
+        }
+
+        /**
+        * Build Category List.
+        **/
+        for (var i = 0, len = anchor.length; i < len; ++i) {
+          anchor[i].id = anchor[i].id.replace('user-content-', '');
+          categoryStyle = 'style=';
+
+          if (anchor[i].id) {
+            tagLevel = $(anchor[i]).parent()[0].nodeName;
+            if (tagLevel === 'H1') {
+              categoryStyle += '"font-size: 18px;"';
+            } else if (tagLevel === 'H2') {
+              categoryStyle += '"font-size: 16px; color:#3C3C3C;"';
+            } else if (tagLevel === 'H3') {
+              categoryStyle += '"font-size: 14px; color:#7B7B7B;"';
+            } else if (tagLevel === 'H4') {
+              categoryStyle += '"font-size: 12px; color:#ADADAD;"';
+            } else if (tagLevel === 'H5') {
+              categoryStyle += '"font-size: 12px; color:#D9006C;"';
+            } else if (tagLevel === 'H6') {
+              categoryStyle += '"font-size: 12px; color:#EA0000;"';
+            }
+
+            $innerDropDownMenu.append('<li><a ' + categoryStyle + ' href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+          }
+        }
+      });
+
+      $awesome.addClass('awesome-background');
+
+    }else {
+      /**
+      * show awesome repo
+      **/
+      $awesome.html('Please wait a moment, it won\'t take long.');
+
+      $('.search-holder').html('Search the awesome world.');
+
+      // Update the title
+      $('.cate').html(repoName);
+
+      $awesome.removeClass('awesome-background');
+
+    }
 
     $.getJSON(jsonURL, function(data) {
-      var originRepoHTML;
-      var repoName = 'awesome';
-
-      list = data;
-      haveParse = cate !== 'awesome' && true;
-      $awesome.html('');
-      $searchResult.html('');
-      $('.alert').html('');
-      $innerDropDownMenu.html('');
+      var list = data;
 
       if (!isAwesome) {
-        var repoURL = e.url;
-        repoName = e.name;
-
-        // Update the title
-        $('.cate').html(repoName);
-
-        originRepoHTML = '<a href="' + repoURL + '" target="_blank">Go To Original Repo</a><br/><br/>';
-        $awesome.html('Retrieving repo...');
-
-        getReadme(repoURL, function(content) {
-          $awesome.html('').append(originRepoHTML).append(content);
-          var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
-          var maintainer = repoURL.split('/')[3];
-          var repo = repoURL.split('/')[4];
-          var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
-          var tagLevel;
-          var categoryStyle = 'style=';
-
-          /**
-          * Dealing with some repos use relative image path.
-          **/
-          var imgArr = $('img');
-
-          for (var i = 0, len = imgArr.length; i < len; ++i) {
-            var relativeSrc = $(imgArr[i]).attr('src');
-            if (!isURL(relativeSrc)) {
-              $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
-            }
-          }
-
-          /**
-          * Build Category List.
-          **/
-          for (var i = 0, len = anchor.length; i < len; ++i) {
-            anchor[i].id = anchor[i].id.replace('user-content-', '');
-            categoryStyle = 'style=';
-
-            if (anchor[i].id) {
-              tagLevel = $(anchor[i]).parent()[0].nodeName;
-              if (tagLevel === 'H1') {
-                categoryStyle += '"font-size: 18px;"';
-              } else if (tagLevel === 'H2') {
-                categoryStyle += '"font-size: 16px; color:#3C3C3C;"';
-              } else if (tagLevel === 'H3') {
-                categoryStyle += '"font-size: 14px; color:#7B7B7B;"';
-              } else if (tagLevel === 'H4') {
-                categoryStyle += '"font-size: 12px; color:#ADADAD;"';
-              } else if (tagLevel === 'H5') {
-                categoryStyle += '"font-size: 12px; color:#D9006C;"';
-              } else if (tagLevel === 'H6') {
-                categoryStyle += '"font-size: 12px; color:#EA0000;"';
-              }
-
-              $innerDropDownMenu.append('<li><a ' + categoryStyle + ' href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
-            }
-          }
-        });
-
-        $awesome.addClass('awesome-background').removeClass('content-hidden');
         /**
         * Category has not been parsed yet.
         **/
@@ -113,14 +126,7 @@ $(document).ready(function() {
           d = d.concat(e);
         });
       }else {
-        /**
-        * show awesome repo
-        **/
-        $('.search-holder').html('Search the awesome world.');
-
-        // Update the title
-        $('.cate').html(repoName);
-
+        $awesome.html('');
         Object.keys(list).forEach(function(e) {
           var _cateID = e.replace(/\W/g, '').toLowerCase();
           var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
@@ -131,21 +137,13 @@ $(document).ready(function() {
 
           list[e].forEach(function(e) {
             var id = e.name.replace(/\W/g, '').toLowerCase();
-            var href = '';
             var link = '';
             var description = e.description ? ' - ' + e.description : '';
 
-            if (!isAwesome) {
-              href = ' href="' + e.url + '" ';
-            }
-
-            link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '"' + href + 'href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
+            link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
             $awesome.append(link);
           });
         });
-
-        $awesome.removeClass('content-hidden awesome-background');
-
       }
 
       f = new Fuse(d, options);
@@ -173,7 +171,6 @@ $(document).ready(function() {
     }
 
     for (var i = 0, len = LENGTH_LIMIT; i < len; ++i) {
-
       if (result[i]) {
         var id = result[i].name.replace(/\W/g, '').toLowerCase();
         var href = ' href="' + result[i].url + '" ';
@@ -192,7 +189,6 @@ $(document).ready(function() {
         }
 
       }
-
     }
 
   });
@@ -242,8 +238,6 @@ $(document).ready(function() {
   awesomeRouter.on('route:getRepos', function(cate) {
     var repoInfo = {};
     var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
-
-    $('.awesome-input').val('');
 
     $.getJSON(urlMap, getAwesome);
 

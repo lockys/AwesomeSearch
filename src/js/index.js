@@ -14,8 +14,8 @@ $(document).ready(function() {
   var getCateList = function(e, cate) {
     var repoName = 'awesome';
     d = [];
-    haveParse = cate !== 'awesome' && true;
     isAwesome = cate === 'awesome' ? 1 : 0;
+    haveParse = !isAwesome;
     jsonURL = isAwesome ? 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json' : 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
 
     $dropDownMenu.removeClass('content-hidden');

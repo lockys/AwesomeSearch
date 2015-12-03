@@ -97,7 +97,6 @@ $(document).ready(function() {
         });
 
         $awesome.addClass('awesome-background').removeClass('content-hidden');
-        $('.back-button').removeClass('content-hidden');
         /**
         * Category has not been parsed yet.
         **/
@@ -146,7 +145,6 @@ $(document).ready(function() {
         });
 
         $awesome.removeClass('content-hidden awesome-background');
-        $('.back-button').addClass('content-hidden');
 
       }
 

@@ -46,12 +46,6 @@ body {
   opacity: 1;
 }
 
-.mui-dropdown:after {
-  background-color: black;
-  width: 10px;
-  height: 10px;
-}
-
 .mui-dropdown__menu {
   overflow-x: auto;
   max-height: 550px;
@@ -68,4 +62,63 @@ body {
 
 a {
   cursor: pointer;
+}
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .mui-dropdown {
+    transform: translate(-60px, 0);
+    -webkit-transition: transform 0.1s ease-in;
+    -moz-transition: transform 0.1s ease-in;
+    -o-transition: transform 0.1s ease-in;
+    transition: transform 0.1s ease-in;
+  }
+
+  .mui-dropdown:hover {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1100px) {
+  .mui-dropdown {
+    transform: translate(-60px, 0);
+    -webkit-transition: transform 0.1s ease-in;
+    -moz-transition: transform 0.1s ease-in;
+    -o-transition: transform 0.1s ease-in;
+    transition: transform 0.1s ease-in;
+  }
+
+  .mui-dropdown:hover {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .mui-dropdown {
+    transform: translate(-60px, 0);
+    -webkit-transition: transform 0.1s ease-in;
+    -moz-transition: transform 0.1s ease-in;
+    -o-transition: transform 0.1s ease-in;
+    transition: transform 0.1s ease-in;
+  }
+
+  .mui-dropdown:hover {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .mui-dropdown {
+    transform: translate(-100px, 0);
+    -webkit-transition: transform 0.1s ease-in;
+    -moz-transition: transform 0.1s ease-in;
+    -o-transition: transform 0.1s ease-in;
+    transition: transform 0.1s ease-in;
+  }
+
+  .mui-dropdown:hover {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }

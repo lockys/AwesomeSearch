@@ -165,7 +165,7 @@ $(document).ready(function() {
   $('.awesome-input').on('input', function(e) {
 
     var query = $(this).val();
-    var LENGTH_LIMIT = 20;
+    var LENGTH_LIMIT = 15;
 
     $searchResult.removeClass('content-hidden');
     $searchResult.html('');

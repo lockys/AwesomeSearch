@@ -250,6 +250,7 @@ $(document).ready(function() {
   var AwesomeRouter = Backbone.Router.extend({
     routes: {
       'repos/:cate': 'getRepos',
+      '': 'getAwesome',
     },
   });
 
@@ -278,6 +279,10 @@ $(document).ready(function() {
 
   });
 
+  awesomeRouter.on('route:getAwesome', function() {
+    getCateList(null, 'awesome');
+  });
+
   /**
   * To check if a string is a url
   * @return true or false
@@ -288,6 +293,5 @@ $(document).ready(function() {
   }
 
   Backbone.history.start();
-  getCateList(null, 'awesome');
 
 });

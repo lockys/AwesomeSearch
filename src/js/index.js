@@ -147,8 +147,12 @@ $(document).ready(function() {
             var id = e.name.replace(/\W/g, '').toLowerCase();
             var link = '';
             var description = e.description ? ' - ' + e.description : '';
+            if (e.url.split('/').indexOf('github.com') > -1) {
+              link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a>';
+            } else {
+              link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a>';
+            }
 
-            link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span><span style="color: #7CF1F7" class="" data-url="' + e.url + '" data-name="' + e.name + '">' + description + '</span></a>';
             $awesome.append(link);
           });
         });
@@ -161,7 +165,7 @@ $(document).ready(function() {
   $('.awesome-input').on('input', function(e) {
 
     var query = $(this).val();
-    var LENGTH_LIMIT = 20;
+    var LENGTH_LIMIT = 15;
 
     $searchResult.removeClass('content-hidden');
     $searchResult.html('');
@@ -195,7 +199,11 @@ $(document).ready(function() {
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
         } else {
           // if not parsed or it is the top awesome repo, show the searching result about the top awesome repo.
-          $searchResult.append('<a class="' + id + ' search-repo-link" data-url="' + result[i].url + '" data-name="' + result[i].name + '" href="#/repos/' + id + '">' +  result[i].name + '</a>' + description);
+          if (result[i].url.split('/').indexOf('github.com') > -1) {
+            $searchResult.append('<a class="' + id + ' search-repo-link" data-url="' + result[i].url + '" data-name="' + result[i].name + '" href="#/repos/' + id + '">' +  result[i].name + '</a>' + description);
+          } else {
+            $searchResult.append('<a class="' + id + ' search-repo-link" data-url="' + result[i].url + '" data-name="' + result[i].name + '" href="' + result[i].url + '" target="_blank">' +  result[i].name + '</a>' + description);
+          }
         }
 
       }

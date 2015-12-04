@@ -4,7 +4,6 @@ $(document).ready(function() {
   var haveParse = true; // the repos has been parsed or not ?
   var isAwesome = false; // is it sindre/awesome repo ?
   var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
-  var urlMapObj = {};
   var options = {
     keys: ['name'],
   };
@@ -20,6 +19,7 @@ $(document).ready(function() {
   * @return null
   **/
   var getCateList = function(e, cate) {
+    // console.log(cate);
     var repoName = 'awesome';
     d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
@@ -257,21 +257,24 @@ $(document).ready(function() {
 
   awesomeRouter.on('route:getRepos', function(cate) {
     var repoInfo = {};
-    var k = Object.keys(urlMapObj);
+    $.getJSON(urlMap, function(d) {
+      var urlMapObj = d;
+      var k = Object.keys(urlMapObj);
 
-    for (var i = 0, len = k.length; i < len; ++i) {
+      for (var i = 0, len = k.length; i < len; ++i) {
 
-      if (k[i].replace(/\W/g, '').toLowerCase() === cate) {
-        repoInfo = {
-              name: k[i],
-              url: urlMapObj[k[i]],
-            };
-        $('.search-holder').html('Search the ' + repoInfo.name);
-        getCateList(repoInfo, cate);
-        break;
+        if (k[i].replace(/\W/g, '').toLowerCase() === cate) {
+          repoInfo = {
+                name: k[i],
+                url: urlMapObj[k[i]],
+              };
+          $('.search-holder').html('Search the ' + repoInfo.name);
+          getCateList(repoInfo, cate);
+          break;
+        }
+
       }
-
-    }
+    });
 
   });
 
@@ -286,9 +289,5 @@ $(document).ready(function() {
 
   Backbone.history.start();
   getCateList(null, 'awesome');
-
-  $.getJSON(urlMap, function(d) {
-    urlMapObj = d;
-  });
 
 });

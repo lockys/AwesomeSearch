@@ -21,7 +21,6 @@ $(document).ready(function() {
   var getCateList = function(e, cate) {
     // console.log(cate);
     var repoName = 'awesome';
-    d = [];
     isAwesome = cate === 'awesome' ? 1 : 0;
     haveParse = !isAwesome;
     jsonURL = isAwesome ? 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json' : 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
@@ -118,6 +117,7 @@ $(document).ready(function() {
     **/
     $.getJSON(jsonURL, function(data) {
       var list = data;
+      d = [];
 
       if (!isAwesome) {
         /**

@@ -133,6 +133,7 @@ $(document).ready(function() {
       var list = data;
       var awesomeData = [];
       var $awesomeCate = $('.awesome-cate');
+      $awesomeCate.html('');
 
       Object.keys(list).forEach(function(e) {
         var _cateID = e.replace(/\W/g, '').toLowerCase();

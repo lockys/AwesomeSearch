@@ -282,8 +282,7 @@ $(document).ready(function() {
   $('body').click(function(event) {
     if ($(event.target).hasClass('home-button')) {
       event.preventDefault();
-      window.location.hash = '/';
-      getCateList(null, 'awesome');
+      location.reload();
     }
 
     if (!$(event.target).hasClass('awesome-input') || !$(event.target).hasClass('search-result')) {

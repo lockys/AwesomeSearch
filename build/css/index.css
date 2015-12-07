@@ -1,16 +1,21 @@
-body {
-  font-family: "Lora", "Helvetica Neue", Helvetica, Arial;
-  background-color: #eee;
-  background-image: url("../img/geometry2.png");
-}
-
 .mui-btn {
   margin: 5px 5px 0 0 !important;
   text-transform: capitalize;
 }
 
-.content-hidden {
-  display: none;
+.alert {
+  display: table;
+  margin: 20px auto;
+}
+
+.origin-repo-btn {
+  font-size: 2em;
+}
+
+#readme {
+  background-color: white;
+  padding: 10px 60px;
+  box-sizing: border-box;
 }
 
 .search-repo-link {
@@ -22,103 +27,312 @@ body {
   text-decoration: hover;
 }
 
-.search-bar {
-  margin-top: 50px;
+.search-input {
+  position: fixed;
+  width: 500px;
+  top: 100px;
+  right: 1%;
+  color: black;
+}
+
+.search-input .search-inner-input {
+  float: right;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 3px;
+  -o-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+.search-input .search-inner-input:focus {
+  outline: 0;
+  border: 1px solid gray;
+  border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+.search-input .search-inner-input::before {
+  content: '<i class="fa fa-search"></i>';
+}
+
+.cate-input {
+  border: 1px solid #eee;
+  padding: 5px;
+  font-size: 12px;
+  line-height: normal;
+}
+
+.cate-input:focus {
+  outline: 0;
 }
 
 .search-result {
   max-height: 300px;
+  width: 500px;
   background-color: white;
   overflow: auto;
   padding: 10px;
   margin-bottom: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
 }
 
-.mui-dropdown {
+.cate-search-result {
+  position: absolute;
+  top: 50px;
+  padding: 5px;
+  right: 0px;
+  width: 200px;
+  max-height: 300px;
+  background-color: white;
+  border: 1px solid #eee;
+  font-size: 12px;
+  line-height: normal;
+  z-index: 9999;
+}
+
+.to-top-arrow {
   position: fixed;
-  left: -15px;
-  top: 1%;
-  opacity: 0.6;
-  z-index: 999;
-}
-
-.mui-dropdown:hover {
-  opacity: 1;
+  bottom: 10px;
+  right: 10px;
 }
 
 .mui-dropdown__menu {
   overflow-x: auto;
   max-height: 550px;
 }
-
-.awesome-background {
+body,
+html {
+  font-family: "Lora", "Helvetica Neue", Helvetica, Arial;
   background-color: #eee;
-  padding: 50px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+html,
+body,
+input,
+textarea,
+buttons {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
 
 a {
   cursor: pointer;
 }
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-  .mui-dropdown {
-    transform: translate(-60px, 0);
-    -webkit-transition: transform 0.1s ease-in;
-    -moz-transition: transform 0.1s ease-in;
-    -o-transition: transform 0.1s ease-in;
-    transition: transform 0.1s ease-in;
+/*
+ *  Usage:
+ *
+      <div class="sk-spinner sk-spinner-pulse"></div>
+ *
+ */
+
+.sk-spinner-pulse {
+  width: 40px;
+  height: 40px;
+  margin: 40px auto;
+  background-color: skyblue;
+  border-radius: 100%;
+  -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+  animation: sk-pulseScaleOut 1s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
   }
 
-  .mui-dropdown:hover {
-    opacity: 1;
-    transform: translate(0, 0);
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
   }
 }
 
-@media screen and (min-width: 993px) and (max-width: 1100px) {
-  .mui-dropdown {
-    transform: translate(-60px, 0);
-    -webkit-transition: transform 0.1s ease-in;
-    -moz-transition: transform 0.1s ease-in;
-    -o-transition: transform 0.1s ease-in;
-    transition: transform 0.1s ease-in;
+@keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
   }
 
-  .mui-dropdown:hover {
-    opacity: 1;
-    transform: translate(0, 0);
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
   }
 }
 
-@media screen and (max-width: 900px) {
-  .mui-dropdown {
-    transform: translate(-60px, 0);
-    -webkit-transition: transform 0.1s ease-in;
-    -moz-transition: transform 0.1s ease-in;
-    -o-transition: transform 0.1s ease-in;
-    transition: transform 0.1s ease-in;
+/**
+ * Layout CSS
+ */
+
+#header {
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  transition: left 0.2s;
+  border-bottom: 1px solid gray;
+}
+
+#header .mui-appbar {
+  background-color: #78909C;
+}
+
+#header:hover {
+  opacity: 1;
+}
+
+#sidedrawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  left: -300px;
+  overflow: auto;
+  z-index: 2;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+#content-wrapper {
+  display: block;
+  height: 90%;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+}
+
+#content-wrapper .readme-container {
+  padding: 10px 100px 150px 100px;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+  z-index: 99;
+}
+
+@media (min-width: 768px) {
+  #header {
+    left: 300px;
   }
 
-  .mui-dropdown:hover {
-    opacity: 1;
-    transform: translate(0, 0);
+  #sidedrawer {
+    transform: translate(300px);
+  }
+
+  #content-wrapper {
+    margin-left: 300px;
+  }
+
+  #footer {
+    margin-left: 300px;
+  }
+
+  body.hide-sidedrawer #header {
+    left: 0;
+  }
+
+  body.hide-sidedrawer #sidedrawer {
+    transform: translate(0px);
+  }
+
+  body.hide-sidedrawer #content-wrapper {
+    margin-left: 0;
+  }
+
+  body.hide-sidedrawer #footer {
+    margin-left: 0;
   }
 }
 
-@media screen and (max-width: 810px) {
-  .mui-dropdown {
-    transform: translate(-100px, 0);
-    -webkit-transition: transform 0.1s ease-in;
-    -moz-transition: transform 0.1s ease-in;
-    -o-transition: transform 0.1s ease-in;
-    transition: transform 0.1s ease-in;
-  }
+/**
+ * Toggle Sidedrawer
+ */
 
-  .mui-dropdown:hover {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
+#sidedrawer.active {
+  transform: translate(300px);
+}
+
+/**
+ * Header CSS
+ */
+
+.sidedrawer-toggle {
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 10px;
+}
+
+.sidedrawer-toggle:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/**
+ * Sidedrawer CSS
+ */
+
+#sidedrawer-brand {
+  padding-left: 20px;
+}
+
+#sidedrawer ul {
+  list-style: none;
+}
+
+#sidedrawer > ul {
+  padding-left: 0px;
+}
+
+#sidedrawer > ul > li:first-child {
+  padding-top: 15px;
+}
+
+#sidedrawer strong {
+  display: block;
+  padding: 15px 22px;
+  cursor: pointer;
+}
+
+#sidedrawer strong:hover {
+  background-color: #E0E0E0;
+}
+
+#sidedrawer strong + ul > li {
+  padding: 6px 0px;
+}
+
+/**
+ * Footer CSS
+ */
+
+#footer {
+  background-color: #78909C;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+.content-hidden {
+  display: none;
 }

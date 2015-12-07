@@ -1,14 +1,15 @@
 $(document).ready(function() {
-  var f;
-  var d;
+  var repoFinder;
+  var awesomeFinder;
   var haveParse = true; // the repos has been parsed or not ?
   var isAwesome = false; // is it sindre/awesome repo ?
   var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
   var options = {
     keys: ['name'],
   };
-  var $awesome = $('.awesome-block');
+  var $awesome = $('.readme-container');
   var $searchResult = $('.search-result');
+  var $searchBlock = $('.search-input');
   var $innerDropDownMenu = $('.mui-dropdown__menu');
   var $dropDownMenu = $('.mui-dropdown');
 
@@ -23,12 +24,11 @@ $(document).ready(function() {
     var repoName = 'awesome';
     isAwesome = cate === 'awesome' ? 1 : 0;
     haveParse = !isAwesome;
-    jsonURL = isAwesome ? 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json' : 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
-
+    jsonURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
+    awesomeJsonURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json';
     $dropDownMenu.removeClass('content-hidden');
     $searchResult.addClass('content-hidden');
 
-    $awesome.html('');
     $searchResult.html('');
     $innerDropDownMenu.html('');
     $('.alert').html('');
@@ -39,12 +39,12 @@ $(document).ready(function() {
     **/
     if (!isAwesome) {
       var repoURL = e.url;
-      var originRepoHTML = '<a href="' + repoURL + '" target="_blank">Go To Original Repo</a><br/><br/>';
+      var originRepoHTML = '<a href="' + repoURL + '" class="origin-repo-btn" target="_blank">View on <i class="fa fa-github"></i></a><br/><br/>';
       repoName = e.name;
 
       // Update the title
       $('.cate').html(repoName);
-      $awesome.html('Retrieving repo...');
+      $awesome.html('<div class="sk-spinner sk-spinner-pulse"></div>');
 
       getReadme(repoURL, function(content) {
         $awesome.html('').append(originRepoHTML).append(content);
@@ -73,7 +73,6 @@ $(document).ready(function() {
         for (var i = 0, len = anchor.length; i < len; ++i) {
           anchor[i].id = anchor[i].id.replace('user-content-', '');
           categoryStyle = 'style=';
-
           if (anchor[i].id) {
             tagLevel = $(anchor[i]).parent()[0].nodeName;
             if (tagLevel === 'H1') {
@@ -93,39 +92,22 @@ $(document).ready(function() {
             $innerDropDownMenu.append('<li><a ' + categoryStyle + ' href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
           }
         }
+
+        $dropDownMenu.removeClass('content-hidden');
       });
 
-      $awesome.addClass('awesome-background');
-
-    }else {
-      /**
-      * show awesome repo
-      **/
-      $awesome.html('Please wait a moment, it won\'t take long.');
-
-      $('.search-holder').html('Search the awesome world.');
-
-      // Update the title
-      $('.cate').html(repoName);
-
-      $awesome.removeClass('awesome-background');
-
-    }
-
-    /**
-    * Get json format of awesome for searching.
-    **/
-    $.getJSON(jsonURL, function(data) {
-      var list = data;
-      d = [];
-
-      if (!isAwesome) {
+      $.getJSON(jsonURL, function(data) {
+        var list = data;
+        var d = [];
         /**
         * Category has not been parsed yet.
         **/
+        $searchBlock.removeClass('content-hidden');
+
         if (Object.keys(list).length === 0) {
           haveParse = false;
           $('.alert').html('<span style="color: red;">This repo has not been parsed yet, so what you search is awesome repo</span><br/>');
+          $searchBlock.addClass('content-hidden');
           return;
         }
 
@@ -135,39 +117,65 @@ $(document).ready(function() {
         list.forEach(function(e) {
           d = d.concat(e);
         });
-      }else {
-        $awesome.html('');
-        Object.keys(list).forEach(function(e) {
-          var _cateID = e.replace(/\W/g, '').toLowerCase();
-          var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
-          d = d.concat(list[e]);
 
-          $innerDropDownMenu.append('<li><a href="#' + _cateID + '">' + e + '</a></li>');
-          $awesome.append(title);
+        repoFinder = new Fuse(d, options);
+      });
+    }else {
+      // Update the title
+      $('.cate').html(repoName);
+      $dropDownMenu.addClass('content-hidden');
+    }
 
-          list[e].forEach(function(e) {
-            var id = e.name.replace(/\W/g, '').toLowerCase();
-            var link = '';
-            var description = e.description ? ' - ' + e.description : '';
-            if (e.url.split('/').indexOf('github.com') > -1) {
-              link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a>';
-            } else {
-              link = '<a class="mui-btn mui-btn--small mui-btn--primary ' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="mui--text-white" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a>';
-            }
+    /**
+    * Get json format of awesome for searching.
+    **/
+    $.getJSON(awesomeJsonURL, function(data) {
+      var list = data;
+      var awesomeData = [];
+      var $awesomeCate = $('.awesome-cate');
 
-            $awesome.append(link);
-          });
+      Object.keys(list).forEach(function(e) {
+        var _cateID = e.replace(/\W/g, '').toLowerCase();
+        var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
+        awesomeData = awesomeData.concat(list[e]);
+
+        $awesomeCate.append('<strong>' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
+
+        list[e].forEach(function(e) {
+          var $cateUl = $('.' + _cateID + '-ul');
+          var id = e.name.replace(/\W/g, '').toLowerCase();
+          var link = '';
+          var description = e.description ? ' - ' + e.description : '';
+          if (e.url.split('/').indexOf('github.com') > -1) {
+            link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
+          } else {
+            link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
+          }
+
+          $cateUl.append(link);
         });
-      }
 
-      f = new Fuse(d, options);
+      });
+
+      var $sidedrawerEl = $('#sidedrawer');
+      var $titleEls = $('strong', $sidedrawerEl);
+      $titleEls.next().hide();
+      $titleEls.off('click');
+      $titleEls.on('click', function() {
+        $titleEls.not(this).next().hide();
+        $(this).next().slideToggle(300);
+      });
+
+      awesomeFinder = new Fuse(awesomeData, options);
     });
+
   };
 
-  $('.awesome-input').on('input', function(e) {
-
+  $('input').on('input', function(e) {
+    var isCateInput = $(e.target).hasClass('cate-input');
     var query = $(this).val();
     var LENGTH_LIMIT = 15;
+    $searchResult = isCateInput ? $('.cate-search-result') : $('.search-result');
 
     $searchResult.removeClass('content-hidden');
     $searchResult.html('');
@@ -176,10 +184,9 @@ $(document).ready(function() {
       $searchResult.addClass('content-hidden');
     }
 
-    var result = f.search(query);
+    var result = isCateInput ? awesomeFinder.search(query) : repoFinder.search(query);
     var link = '';
     var description = '';
-
     if (!result.length) {
       $searchResult.html('No result :(');
     }
@@ -196,7 +203,7 @@ $(document).ready(function() {
         // console.log(d);
         description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
 
-        if (haveParse) {
+        if (haveParse && !isCateInput) {
           // if parsed(and it is not the top awesome repo), show the searching result about the current repo.
           $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
         } else {
@@ -231,22 +238,6 @@ $(document).ready(function() {
     });
   }
 
-  $('body').click(function(event) {
-    if ($(event.target).is('.back-button')) {
-      event.preventDefault();
-      window.location.hash = '/';
-      getCateList(null, 'awesome');
-    }
-
-  });
-
-  $('.to-top-arrow').click(function() {
-    $('html, body').animate({
-      scrollTop: 0,
-    }, 600);
-    return false;
-  });
-
   var AwesomeRouter = Backbone.Router.extend({
     routes: {
       'repos/:cate': 'getRepos',
@@ -258,6 +249,7 @@ $(document).ready(function() {
 
   awesomeRouter.on('route:getRepos', function(cate) {
     var repoInfo = {};
+
     $.getJSON(urlMap, function(d) {
       var urlMapObj = d;
       var k = Object.keys(urlMapObj);
@@ -283,6 +275,25 @@ $(document).ready(function() {
     getCateList(null, 'awesome');
   });
 
+  $('body').click(function(event) {
+    if ($(event.target).hasClass('home-button')) {
+      event.preventDefault();
+      window.location.hash = '/';
+      getCateList(null, 'awesome');
+    }
+
+    if (!$(event.target).hasClass('awesome-input') || !$(event.target).hasClass('search-result')) {
+      $('.awesome-input').val('');
+      $('.search-result').addClass('content-hidden');
+    }
+
+    if (!$(event.target).hasClass('cate-input') || !$(event.target).hasClass('cate-search-result')) {
+      $('.cate-input').val('');
+      $('.cate-search-result').addClass('content-hidden');
+    }
+
+  });
+
   /**
   * To check if a string is a url
   * @return true or false
@@ -292,6 +303,8 @@ $(document).ready(function() {
     return pattern.test(str);
   }
 
+  getCateList(null, 'awesome');
+  window.location.hash = '/';
   Backbone.history.start();
 
 });

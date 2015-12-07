@@ -120,6 +120,7 @@ $(document).ready(function() {
 
         repoFinder = new Fuse(d, options);
       });
+
     }else {
       // Update the title
       $('.cate').html(repoName);

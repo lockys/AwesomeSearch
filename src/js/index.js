@@ -123,52 +123,54 @@ $(document).ready(function() {
     }else {
       // Update the title
       $('.cate').html(repoName);
+
+      $.getJSON(awesomeJsonURL, function(data) {
+        var list = data;
+        var awesomeData = [];
+        var $awesomeCate = $('.awesome-cate');
+        $awesomeCate.html('');
+
+        Object.keys(list).forEach(function(e) {
+          var _cateID = e.replace(/\W/g, '').toLowerCase();
+          var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
+          awesomeData = awesomeData.concat(list[e]);
+
+          $awesomeCate.append('<strong>' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
+
+          list[e].forEach(function(e) {
+            var $cateUl = $('.' + _cateID + '-ul');
+            var id = e.name.replace(/\W/g, '').toLowerCase();
+            var link = '';
+            var description = e.description ? ' - ' + e.description : '';
+            if (e.url.split('/').indexOf('github.com') > -1) {
+              link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
+            } else {
+              link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
+            }
+
+            $cateUl.append(link);
+          });
+
+        });
+
+        var $sidedrawerEl = $('#sidedrawer');
+        var $titleEls = $('strong', $sidedrawerEl);
+        $titleEls.next().hide();
+        $titleEls.off('click');
+        $titleEls.on('click', function() {
+          $titleEls.not(this).next().hide();
+          $(this).next().slideToggle(300);
+        });
+
+        awesomeFinder = new Fuse(awesomeData, options);
+      });
+
       $dropDownMenu.addClass('content-hidden');
     }
 
     /**
     * Get json format of awesome for searching.
     **/
-    $.getJSON(awesomeJsonURL, function(data) {
-      var list = data;
-      var awesomeData = [];
-      var $awesomeCate = $('.awesome-cate');
-      $awesomeCate.html('');
-
-      Object.keys(list).forEach(function(e) {
-        var _cateID = e.replace(/\W/g, '').toLowerCase();
-        var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
-        awesomeData = awesomeData.concat(list[e]);
-
-        $awesomeCate.append('<strong>' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
-
-        list[e].forEach(function(e) {
-          var $cateUl = $('.' + _cateID + '-ul');
-          var id = e.name.replace(/\W/g, '').toLowerCase();
-          var link = '';
-          var description = e.description ? ' - ' + e.description : '';
-          if (e.url.split('/').indexOf('github.com') > -1) {
-            link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
-          } else {
-            link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
-          }
-
-          $cateUl.append(link);
-        });
-
-      });
-
-      var $sidedrawerEl = $('#sidedrawer');
-      var $titleEls = $('strong', $sidedrawerEl);
-      $titleEls.next().hide();
-      $titleEls.off('click');
-      $titleEls.on('click', function() {
-        $titleEls.not(this).next().hide();
-        $(this).next().slideToggle(300);
-      });
-
-      awesomeFinder = new Fuse(awesomeData, options);
-    });
 
   };
 

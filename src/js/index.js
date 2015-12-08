@@ -47,7 +47,8 @@ $(document).ready(function() {
       $awesome.html('<div class="sk-spinner sk-spinner-pulse"></div>');
 
       getReadme(repoURL, function(content) {
-        $awesome.html('').append(originRepoHTML).append(content);
+        $awesome.html('').append(content);
+        $('#readme').prepend(originRepoHTML);
         var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
         var maintainer = repoURL.split('/')[3];
         var repo = repoURL.split('/')[4];

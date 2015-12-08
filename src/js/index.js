@@ -329,6 +329,10 @@ $(document).ready(function() {
     }, 300);
   }
 
+  $('.search-icon').click(function(e) {
+    $('.search-input').toggleClass('hovered');
+  });
+
   getCateList(null, 'awesome');
 
   // window.location.hash = '/';

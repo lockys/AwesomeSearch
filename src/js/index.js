@@ -39,7 +39,7 @@ $(document).ready(function() {
     **/
     if (!isAwesome) {
       var repoURL = e.url;
-      var originRepoHTML = '<a href="' + repoURL + '" class="origin-repo-btn" target="_blank">View on <i class="fa fa-github"></i></a><br/><br/>';
+      var originRepoHTML = '<a href="' + repoURL + '" class="origin-repo-btn" target="_blank">View On <i class="fa fa-github"></i></a><br/><br/>';
       repoName = e.name;
 
       // Update the title
@@ -282,6 +282,7 @@ $(document).ready(function() {
   $('body').click(function(event) {
     if ($(event.target).hasClass('home-button')) {
       event.preventDefault();
+      window.location.hash = '/';
       location.reload();
     }
 

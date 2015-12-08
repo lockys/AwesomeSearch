@@ -50,6 +50,7 @@ $(document).ready(function() {
         $awesome.html('').append(content);
         $('#readme').prepend(originRepoHTML);
         var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
+        var anchorLink = $('#readme a[href^="#"]').not('.anchor');
         var maintainer = repoURL.split('/')[3];
         var repo = repoURL.split('/')[4];
         var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
@@ -66,6 +67,16 @@ $(document).ready(function() {
           if (!isURL(relativeSrc)) {
             $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
           }
+        }
+
+        /**
+          insert data-anchor and class cate-anchor so that when the link is clicked, the page will be scroll the position of anchor.
+        **/
+        for (var i = 0, len = anchorLink.length; i < len; ++i) {
+          var $anchorEle = $(anchorLink[i]);
+          $anchorEle.attr('class', 'cate-anchor');
+          $anchorEle.attr('data-anchor', $(anchorLink[i]).attr('href'));
+          $anchorEle.removeAttr('href');
         }
 
         /**

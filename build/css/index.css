@@ -18,6 +18,7 @@
   margin-bottom: 100px;
   overflow: hidden;
   box-sizing: border-box;
+  font-size: 1.2em;
 }
 
 .search-repo-link {
@@ -31,7 +32,7 @@
 
 .search-input {
   position: fixed;
-  width: 500px;
+  width: 300px;
   top: 100px;
   right: 1%;
   color: black;
@@ -75,7 +76,7 @@
 
 .search-result {
   max-height: 300px;
-  width: 500px;
+  width: 300px;
   background-color: white;
   overflow: auto;
   padding: 10px;
@@ -100,7 +101,7 @@
 
 .to-top-arrow {
   position: fixed;
-  bottom: 80px;
+  bottom: 50px;
   right: 0px;
 }
 
@@ -220,9 +221,10 @@ a {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 80px;
   width: 100%;
   margin-left: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   transition: margin-left 0.2s;
   z-index: 99;
 }
@@ -258,6 +260,14 @@ a {
 
   body.hide-sidedrawer #footer {
     margin-left: 0;
+  }
+
+  .search-input {
+    width: 500px;
+  }
+
+  .search-result {
+    width: 500px;
   }
 }
 

@@ -307,7 +307,8 @@ $(document).ready(function() {
   }
 
   getCateList(null, 'awesome');
-  window.location.hash = '/';
+
+  // window.location.hash = '/';
   Backbone.history.start();
 
 });

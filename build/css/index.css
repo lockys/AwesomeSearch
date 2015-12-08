@@ -10,12 +10,29 @@
 
 .origin-repo-btn {
   font-size: 2em;
+  background-color: white;
+  color: black;
+  padding: 5px 20px;
+  border: 2px solid #e6e6e6;
+  border-radius: 5px;
+  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.origin-repo-btn:hover {
+  text-decoration: none;
+}
+
+.awesome-cate strong {
+  padding: 10px 22px !important;
 }
 
 #readme {
   background-color: white;
   padding: 10px 60px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+  border: 1px solid #e6e6e6;
   overflow: hidden;
   box-sizing: border-box;
   font-size: 1.2em;
@@ -101,8 +118,8 @@
 
 .to-top-arrow {
   position: fixed;
-  bottom: 50px;
-  right: 0px;
+  bottom: 5px;
+  right: 5px;
 }
 
 .mui-dropdown__menu {
@@ -201,8 +218,8 @@ a {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 250px;
-  left: -250px;
+  width: 220px;
+  left: -220px;
   overflow: auto;
   z-index: 2;
   background-color: #fff;
@@ -231,19 +248,19 @@ a {
 
 @media (min-width: 768px) {
   #header {
-    left: 250px;
+    left: 220px;
   }
 
   #sidedrawer {
-    transform: translate(250px);
+    transform: translate(220px);
   }
 
   #content-wrapper {
-    margin-left: 250px;
+    margin-left: 220px;
   }
 
   #footer {
-    margin-left: 250px;
+    margin-left: 220px;
   }
 
   body.hide-sidedrawer #header {
@@ -276,10 +293,10 @@ a {
  */
 
 #sidedrawer.active {
-  -moz-transform: translate(250px);
-  -o-transform: translate(250px);
-  -webkit-transform: translate(250px);
-  transform: translate(250px);
+  -moz-transform: translate(220px);
+  -o-transform: translate(220px);
+  -webkit-transform: translate(220px);
+  transform: translate(220px);
 }
 
 /**

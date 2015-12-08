@@ -15,6 +15,8 @@
 #readme {
   background-color: white;
   padding: 10px 60px;
+  margin-bottom: 100px;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -98,8 +100,8 @@
 
 .to-top-arrow {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 80px;
+  right: 0px;
 }
 
 .mui-dropdown__menu {
@@ -112,6 +114,7 @@ html {
   background-color: #eee;
   height: 100%;
   width: 100%;
+  padding-bottom: 150px;
 }
 
 html,
@@ -202,7 +205,8 @@ a {
   overflow: auto;
   z-index: 2;
   background-color: #fff;
-  transition: transform 0.2s;
+  transition: transform .2s;
+  transition: -webkit-transform 0.2s;
 }
 
 #content-wrapper {
@@ -212,15 +216,11 @@ a {
   transition: margin-left 0.2s;
 }
 
-#content-wrapper .readme-container {
-  padding: 10px 100px 150px 100px;
-}
-
 #footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 10%;
+  height: 80px;
   width: 100%;
   margin-left: 0px;
   transition: margin-left 0.2s;
@@ -266,6 +266,9 @@ a {
  */
 
 #sidedrawer.active {
+  -moz-transform: translate(350px);
+  -o-transform: translate(350px);
+  -webkit-transform: translate(350px);
   transform: translate(350px);
 }
 

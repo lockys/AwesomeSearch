@@ -30,7 +30,8 @@
   overflow: auto;
   z-index: 2;
   background-color: #fff;
-  transition: transform 0.2s;
+  transition: transform .2s;
+  transition: -webkit-transform .2s;
 }
 
 #content-wrapper {
@@ -38,16 +39,13 @@
   height: 90%;
   margin-left: 0px;
   transition: margin-left 0.2s;
-  & .readme-container {
-    padding: 10px 100px 150px 100px;
-  }
 }
 
 #footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 10%;
+  height: 80px;
   width: 100%;
   margin-left: 0px;
   transition: margin-left 0.2s;
@@ -93,6 +91,9 @@
  * Toggle Sidedrawer
  */
 #sidedrawer.active {
+  -moz-transform: translate(350px);
+  -o-transform: translate(350px);
+  -webkit-transform: translate(350px);
   transform: translate(350px);
 }
 

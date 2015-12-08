@@ -40,15 +40,22 @@
 .search-input {
   position: fixed;
   width: 300px;
-  top: 20%;
+  top: 30%;
   right: 0;
   color: black;
   transform: translate(201px);
+  -webkit-transform: translate(201px);
+  -o-transform: translate(201px);
+  -moz-transform: translate(201px);
+
   transition: transform .2s;
   transition: -webkit-transform .2s;
 
   &:hover {
-    transform: translate(0);
+    transform: translate(0px);
+    -webkit-transform: translate(0px);
+    -o-transform: translate(0px);
+    -moz-transform: translate(0px);
   }
 
   & .awesome-input {

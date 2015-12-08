@@ -28,7 +28,7 @@
 
 #readme {
   background-color: white;
-  padding: 10px 60px;
+  padding: 10px 20px;
   margin-bottom: 80px;
   border: 1px solid #e6e6e6;
   overflow: hidden;
@@ -48,34 +48,41 @@
 .search-input {
   position: fixed;
   width: 300px;
-  top: 50%;
+  top: 20%;
   right: 0;
   color: black;
+  transform: translate(201px);
+  transition: transform .2s;
+  transition: -webkit-transform 0.2s;
 }
 
-.search-input .search-inner-input {
-  float: right;
-  border: 1px solid gray;
+.search-input:hover {
+  transform: translate(0);
+}
+
+.search-input .awesome-input {
+  border: 0;
   padding: 10px;
-  border-radius: 3px;
-  -o-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  width: 200px;
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
 
-.search-input .search-inner-input:focus {
+.search-input .awesome-input:focus {
   outline: 0;
-  border: 1px solid gray;
-  border-radius: 10px;
-  -o-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
 }
 
-.search-input .search-inner-input::before {
-  content: '<i class="fa fa-search"></i>';
+.search-input .input-group {
+  float: right;
+  box-shadow: 5px 5px 5px #888888;
+  border: 1px solid #b3b3b3;
+}
+
+.search-input .input-group .search-icon {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ff5a92;
+  color: white;
 }
 
 .cate-input {
@@ -278,7 +285,6 @@ a {
   }
 
   .search-input {
-    top: 25%;
     width: 500px;
   }
 

@@ -286,12 +286,12 @@ $(document).ready(function() {
       location.reload();
     }
 
-    if (!$(event.target).hasClass('awesome-input') || !$(event.target).hasClass('search-result')) {
+    if (!$(event.target).hasClass('awesome-input') && !$(event.target).hasClass('search-result')) {
       $('.awesome-input').val('');
       $('.search-result').addClass('content-hidden');
     }
 
-    if (!$(event.target).hasClass('cate-input') || !$(event.target).hasClass('cate-search-result')) {
+    if (!$(event.target).hasClass('cate-input') && !$(event.target).hasClass('cate-search-result')) {
       $('.cate-input').val('');
       $('.cate-search-result').addClass('content-hidden');
     }

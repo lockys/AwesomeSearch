@@ -13,15 +13,14 @@
   background-color: white;
   color: black;
   padding: 5px 20px;
-  border: 2px solid #e6e6e6;
-  border-radius: 5px;
-  -o-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  border-bottom: 2px solid #e6e6e6;
+  transition: all 0.5s ease;
 }
 
 .origin-repo-btn:hover {
   text-decoration: none;
+  color: gray;
+  border-bottom: 2px solid #9a9a9a;
 }
 
 .awesome-cate strong {
@@ -50,8 +49,8 @@
 .search-input {
   position: fixed;
   width: 300px;
-  top: 100px;
-  right: 1%;
+  top: 20%;
+  right: 0;
   color: black;
 }
 

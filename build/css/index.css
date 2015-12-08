@@ -200,8 +200,8 @@ a {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 350px;
-  left: -350px;
+  width: 250px;
+  left: -250px;
   overflow: auto;
   z-index: 2;
   background-color: #fff;
@@ -229,19 +229,19 @@ a {
 
 @media (min-width: 768px) {
   #header {
-    left: 350px;
+    left: 250px;
   }
 
   #sidedrawer {
-    transform: translate(350px);
+    transform: translate(250px);
   }
 
   #content-wrapper {
-    margin-left: 350px;
+    margin-left: 250px;
   }
 
   #footer {
-    margin-left: 350px;
+    margin-left: 250px;
   }
 
   body.hide-sidedrawer #header {
@@ -266,10 +266,10 @@ a {
  */
 
 #sidedrawer.active {
-  -moz-transform: translate(350px);
-  -o-transform: translate(350px);
-  -webkit-transform: translate(350px);
-  transform: translate(350px);
+  -moz-transform: translate(250px);
+  -o-transform: translate(250px);
+  -webkit-transform: translate(250px);
+  transform: translate(250px);
 }
 
 /**

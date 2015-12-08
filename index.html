@@ -11,14 +11,13 @@
   <body>
     <div id="sidedrawer" class="mui--no-user-select">
       <div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title">
-        <a><img class="home-button" src="https://img.shields.io/badge/Awesome-Search-green.svg?style=flat-square" alt="awesome search" /></a>
-        <div style="display: inline-block; position: relative;">
+        <div style="float: right; padding-right: 20px;">
           <input class="cate-input" type="text" placeholder="Find Awesome Repos..">
           <div class="cate-search-result content-hidden">
           </div>
         </div>
       </div>
-      <div class="mui-divider"></div>
+      <div class="mui-divider" style="clear: both;"></div>
       <ul class="awesome-cate">
 
       </ul>
@@ -29,6 +28,7 @@
         <div class="mui-container-fluid">
           <a class="sidedrawer-toggle mui--visible-xs-inline-block js-show-sidedrawer">☰</a>
           <a class="sidedrawer-toggle mui--hidden-xs js-hide-sidedrawer">☰</a>
+          <a style="float: right;"><img class="home-button" src="https://img.shields.io/badge/Awesome-Search-green.svg?style=flat-square" alt="awesome search" /></a>
           <div class="mui-dropdown">
             <button class="mui-btn mui-btn--raised mui-btn--accent" data-mui-toggle="dropdown">
               Categories
@@ -41,7 +41,7 @@
               <li><a href="#">Option 4</a></li>
             </ul>
           </div>
-          <h3 style="float: right;" class="mui--text-white-54 mui--text-right">require('<span class="cate">awesome</span>')</h3>
+          <!-- <h3 style="float: right;" class="mui--text-white-54 mui--text-right">require('<span class="cate">awesome</span>')</h3> -->
         </div>
       </div>
     </header>

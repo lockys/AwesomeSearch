@@ -3,9 +3,23 @@
   text-transform: capitalize;
 }
 
+.awesome-cate strong {
+  padding: 10px 22px !important;
+}
+
 .alert {
   display: table;
   margin: 20px auto;
+}
+
+#readme {
+  background-color: white;
+  padding: 10px 20px;
+  margin-bottom: 80px;
+  border: 1px solid #e6e6e6;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 1.2em;
 }
 
 .origin-repo-btn {
@@ -20,29 +34,6 @@
   text-decoration: none;
   color: gray;
   border-bottom: 2px solid #9a9a9a;
-}
-
-.awesome-cate strong {
-  padding: 10px 22px !important;
-}
-
-#readme {
-  background-color: white;
-  padding: 10px 20px;
-  margin-bottom: 80px;
-  border: 1px solid #e6e6e6;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-size: 1.2em;
-}
-
-.search-repo-link {
-  color: blue;
-  cursor: pointer;
-}
-
-.search-repo-link:hover {
-  text-decoration: hover;
 }
 
 .search-input {
@@ -119,6 +110,15 @@
   font-size: 12px;
   line-height: normal;
   z-index: 9999;
+}
+
+.search-repo-link {
+  color: blue;
+  cursor: pointer;
+}
+
+.search-repo-link:hover {
+  text-decoration: hover;
 }
 
 .to-top-arrow {
@@ -201,7 +201,7 @@ a {
  */
 
 #header {
-  opacity: 0.5;
+  opacity: 0.8;
   position: fixed;
   top: 0;
   right: 0;

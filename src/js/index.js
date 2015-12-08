@@ -90,10 +90,11 @@ $(document).ready(function() {
               categoryStyle += '"font-size: 12px; color:#EA0000;"';
             }
 
-            $innerDropDownMenu.append('<li><a ' + categoryStyle + ' href="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+            $innerDropDownMenu.append('<li><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
           }
         }
 
+        $('.cate-anchor').click(scrollToAnchor);
         $dropDownMenu.removeClass('content-hidden');
       });
 
@@ -306,6 +307,15 @@ $(document).ready(function() {
   function isURL(str) {
     var pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
     return pattern.test(str);
+  }
+
+  function scrollToAnchor(e) {
+    var anchor = $(e.target).data('anchor');
+    var offset = $(anchor).offset().top - $('#header').height();
+    console.log(offset);
+    $('html, body').animate({
+      scrollTop: offset,
+    }, 300);
   }
 
   getCateList(null, 'awesome');

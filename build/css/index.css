@@ -48,7 +48,7 @@
 .search-input {
   position: fixed;
   width: 300px;
-  top: 25%;
+  top: 50%;
   right: 0;
   color: black;
 }
@@ -278,6 +278,7 @@ a {
   }
 
   .search-input {
+    top: 25%;
     width: 500px;
   }
 

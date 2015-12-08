@@ -50,7 +50,8 @@
   transition: -webkit-transform 0.2s;
 }
 
-.search-input:hover {
+.search-input:hover,
+.search-input.hovered {
   transform: translate(0px);
   -webkit-transform: translate(0px);
   -o-transform: translate(0px);

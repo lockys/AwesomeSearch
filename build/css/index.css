@@ -15,7 +15,10 @@
 #readme {
   background-color: white;
   padding: 10px 60px;
+  margin-bottom: 100px;
+  overflow: hidden;
   box-sizing: border-box;
+  font-size: 1.2em;
 }
 
 .search-repo-link {
@@ -29,7 +32,7 @@
 
 .search-input {
   position: fixed;
-  width: 500px;
+  width: 300px;
   top: 100px;
   right: 1%;
   color: black;
@@ -73,7 +76,7 @@
 
 .search-result {
   max-height: 300px;
-  width: 500px;
+  width: 300px;
   background-color: white;
   overflow: auto;
   padding: 10px;
@@ -98,8 +101,8 @@
 
 .to-top-arrow {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 50px;
+  right: 0px;
 }
 
 .mui-dropdown__menu {
@@ -112,6 +115,7 @@ html {
   background-color: #eee;
   height: 100%;
   width: 100%;
+  padding-bottom: 150px;
 }
 
 html,
@@ -197,12 +201,13 @@ a {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 300px;
-  left: -300px;
+  width: 250px;
+  left: -250px;
   overflow: auto;
   z-index: 2;
   background-color: #fff;
-  transition: transform 0.2s;
+  transition: transform .2s;
+  transition: -webkit-transform 0.2s;
 }
 
 #content-wrapper {
@@ -212,36 +217,33 @@ a {
   transition: margin-left 0.2s;
 }
 
-#content-wrapper .readme-container {
-  padding: 10px 100px 150px 100px;
-}
-
 #footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 10%;
   width: 100%;
   margin-left: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   transition: margin-left 0.2s;
   z-index: 99;
 }
 
 @media (min-width: 768px) {
   #header {
-    left: 300px;
+    left: 250px;
   }
 
   #sidedrawer {
-    transform: translate(300px);
+    transform: translate(250px);
   }
 
   #content-wrapper {
-    margin-left: 300px;
+    margin-left: 250px;
   }
 
   #footer {
-    margin-left: 300px;
+    margin-left: 250px;
   }
 
   body.hide-sidedrawer #header {
@@ -259,6 +261,14 @@ a {
   body.hide-sidedrawer #footer {
     margin-left: 0;
   }
+
+  .search-input {
+    width: 500px;
+  }
+
+  .search-result {
+    width: 500px;
+  }
 }
 
 /**
@@ -266,7 +276,10 @@ a {
  */
 
 #sidedrawer.active {
-  transform: translate(300px);
+  -moz-transform: translate(250px);
+  -o-transform: translate(250px);
+  -webkit-transform: translate(250px);
+  transform: translate(250px);
 }
 
 /**

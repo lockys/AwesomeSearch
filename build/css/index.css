@@ -14,30 +14,6 @@
   margin: 20px auto;
 }
 
-#readme {
-  background-color: white;
-  padding: 10px 20px;
-  margin-bottom: 80px;
-  border: 1px solid #e6e6e6;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-size: 1.2em;
-}
-
-.origin-repo-btn {
-  background-color: white;
-  color: black;
-  padding: 5px 20px;
-  border-bottom: 2px solid #e6e6e6;
-  transition: all 0.5s ease;
-}
-
-.origin-repo-btn:hover {
-  text-decoration: none;
-  color: gray;
-  border-bottom: 2px solid #9a9a9a;
-}
-
 .search-input {
   width: 100%;
   margin-top: 100px;
@@ -70,17 +46,6 @@
   color: white;
 }
 
-.cate-input {
-  border: 1px solid #eee;
-  padding: 5px;
-  font-size: 12px;
-  line-height: normal;
-}
-
-.cate-input:focus {
-  outline: 0;
-}
-
 .search-result {
   max-height: 300px;
   width: 100%;
@@ -90,6 +55,17 @@
   margin-bottom: 10px;
   border: 1px solid lightgray;
   border-radius: 3px;
+}
+
+.cate-input {
+  border: 1px solid #eee;
+  padding: 5px;
+  font-size: 12px;
+  line-height: normal;
+}
+
+.cate-input:focus {
+  outline: 0;
 }
 
 .cate-search-result {
@@ -115,15 +91,50 @@
   text-decoration: hover;
 }
 
-.to-top-arrow {
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
+#content-wrapper {
+  display: block;
+  height: 90%;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+}
+
+#content-wrapper .mui--appbar-height {
+  display: none;
+}
+
+#readme {
+  background-color: white;
+  padding: 10px 20px;
+  margin-bottom: 80px;
+  border: 1px solid #e6e6e6;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 1.2em;
+}
+
+.origin-repo-btn {
+  background-color: white;
+  color: black;
+  padding: 5px 20px;
+  border-bottom: 2px solid #e6e6e6;
+  transition: all 0.5s ease;
+}
+
+.origin-repo-btn:hover {
+  text-decoration: none;
+  color: gray;
+  border-bottom: 2px solid #9a9a9a;
 }
 
 .mui-dropdown__menu {
   overflow-x: auto;
   max-height: 550px;
+}
+
+.to-top-arrow {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
 }
 body,
 html {
@@ -189,7 +200,6 @@ a {
     opacity: 0;
   }
 }
-
 /**
  * Layout CSS
  */
@@ -224,17 +234,6 @@ a {
   background-color: #fff;
   transition: transform .2s;
   transition: -webkit-transform 0.2s;
-}
-
-#content-wrapper {
-  display: block;
-  height: 90%;
-  margin-left: 0px;
-  transition: margin-left 0.2s;
-}
-
-#content-wrapper .mui--appbar-height {
-  display: none;
 }
 
 #footer {
@@ -399,6 +398,7 @@ a {
   color: #fff;
   text-decoration: underline;
 }
+
 .content-hidden {
   display: none;
 }

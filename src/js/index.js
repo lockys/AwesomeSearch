@@ -62,14 +62,12 @@ $(document).ready(function() {
         * Dealing with some repos use relative image path.
         **/
         var imgArr = $('img');
-        var linksArr = $('#readme a');
+        var linksArr = $('#readme a[href^="/"]');
 
         for (var i = 0, len = linksArr.length; i < len; ++i) {
           var relativeSrc = $(linksArr[i]).attr('href');
           if (!isURL(relativeSrc)) {
             $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
-          } else {
-            $(linksArr[i]).attr({target: '_blank'});
           }
         }
 

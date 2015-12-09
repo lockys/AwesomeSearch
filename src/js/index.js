@@ -9,7 +9,7 @@ $(document).ready(function() {
   };
   var $awesome = $('.readme-container');
   var $searchResult = $('.search-result');
-  var $searchBlock = $('.search-input');
+  var $searchBlock = $('.search-input-section');
   var $innerDropDownMenu = $('.mui-dropdown__menu');
   var $dropDownMenu = $('.mui-dropdown');
 

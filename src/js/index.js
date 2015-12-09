@@ -54,6 +54,7 @@ $(document).ready(function() {
         var maintainer = repoURL.split('/')[3];
         var repo = repoURL.split('/')[4];
         var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
+        var githubURL = 'https://github.com/' + maintainer + '/' + repo + '/blob/master';
         var tagLevel;
         var categoryStyle = 'style=';
 
@@ -61,6 +62,16 @@ $(document).ready(function() {
         * Dealing with some repos use relative image path.
         **/
         var imgArr = $('img');
+        var linksArr = $('#readme a');
+
+        for (var i = 0, len = linksArr.length; i < len; ++i) {
+          var relativeSrc = $(linksArr[i]).attr('href');
+          if (!isURL(relativeSrc)) {
+            $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
+          } else {
+            $(linksArr[i]).attr({target: '_blank'});
+          }
+        }
 
         for (var i = 0, len = imgArr.length; i < len; ++i) {
           var relativeSrc = $(imgArr[i]).attr('src');

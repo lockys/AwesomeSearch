@@ -208,6 +208,9 @@ $(document).ready(function() {
       $searchResult.html('No result :(');
     }
 
+    /**
+    List the searching result.
+    **/
     for (var i = 0, len = LENGTH_LIMIT; i < len; ++i) {
       if (result[i]) {
         var id = result[i].name.replace(/\W/g, '').toLowerCase();
@@ -233,7 +236,7 @@ $(document).ready(function() {
         }
 
       }
-    }
+    } // end of for loop
 
   });
 
@@ -254,6 +257,8 @@ $(document).ready(function() {
       success: cb,
     });
   }
+
+  // The Backbone router configuration.
 
   var AwesomeRouter = Backbone.Router.extend({
     routes: {
@@ -299,6 +304,8 @@ $(document).ready(function() {
       location.reload();
     }
 
+    // Close the search result when click outside of the div
+
     if (!$(event.target).hasClass('awesome-input') && !$(event.target).hasClass('search-result') && !$(event.target).hasClass('search-icon')) {
       $('.awesome-input').val('');
       $('.search-result').addClass('content-hidden');
@@ -324,15 +331,10 @@ $(document).ready(function() {
   function scrollToAnchor(e) {
     var anchor = $(e.target).data('anchor');
     var offset = $(anchor).offset().top - $('#header').height();
-    console.log(offset);
     $('html, body').animate({
       scrollTop: offset,
     }, 300);
   }
-
-  $('.search-icon').on('touchend', function(e) {
-    $('.search-input').toggleClass('hovered');
-  });
 
   getCateList(null, 'awesome');
 

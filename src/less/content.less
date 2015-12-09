@@ -1,6 +1,8 @@
 .mui-btn {
-  margin: 5px 5px 0 0 !important;
+  margin: 0 !important;
   text-transform: capitalize;
+  padding: 0 5px;
+  font-size: 12px;
 }
 
 .awesome-cate strong {
@@ -38,25 +40,12 @@
 }
 
 .search-input {
-  position: fixed;
-  width: 300px;
-  top: 30%;
-  right: 0;
+  width: 100%;
+  margin-top: 100px;
   color: black;
-  transform: translate(201px);
-  -webkit-transform: translate(201px);
-  -o-transform: translate(201px);
-  -moz-transform: translate(201px);
 
   transition: transform .2s;
   transition: -webkit-transform .2s;
-
-  &:hover, &.hovered{
-    transform: translate(0px);
-    -webkit-transform: translate(0px);
-    -o-transform: translate(0px);
-    -moz-transform: translate(0px);
-  }
 
   & .awesome-input {
     border: 0;
@@ -80,8 +69,8 @@
 
   & .input-group {
     float: right;
-    box-shadow: 5px 5px 5px #888888;
     border: 1px solid lighten(gray, 20%);
+
     & .search-icon {
       display: inline-block;
       padding: 10px 15px;
@@ -103,7 +92,7 @@
 
 .search-result {
   max-height: 300px;
-  width: 300px;
+  width: 100%;
   background-color: white;
   overflow: auto;
   padding: 10px;

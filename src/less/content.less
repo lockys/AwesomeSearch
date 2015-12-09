@@ -14,31 +14,6 @@
   margin: 20px auto;
 }
 
-#readme {
-  background-color: white;
-  padding: 10px 20px;
-  margin-bottom: 80px;
-  border: 1px solid lighten(gray, 40%);
-  overflow: hidden; // or auto;
-  box-sizing: border-box;
-  font-size: 1.2em;
-}
-
-.origin-repo-btn {
-  background-color: white;
-  color: black;
-  padding: 5px 20px;
-  border-bottom: 2px solid lighten(gray, 40%);
-  transition: all 0.5s ease;
-
-  &:hover {
-    text-decoration: none;
-    color: gray;
-    border-bottom: 2px solid lighten(gray, 10%);
-  }
-
-}
-
 .search-input {
   width: 100%;
   margin-top: 100px;
@@ -80,16 +55,6 @@
   }
 }
 
-.cate-input {
-  border: 1px solid #eee;
-  padding: 5px;
-  font-size: 12px;
-  line-height: normal;
-  &:focus {
-    outline: 0;
-  }
-}
-
 .search-result {
   max-height: 300px;
   width: 100%;
@@ -99,6 +64,16 @@
   margin-bottom: 10px;
   border: 1px solid lightgray;
   border-radius: 3px;
+}
+
+.cate-input {
+  border: 1px solid #eee;
+  padding: 5px;
+  font-size: 12px;
+  line-height: normal;
+  &:focus {
+    outline: 0;
+  }
 }
 
 .cate-search-result {
@@ -123,13 +98,49 @@
   }
 }
 
-.to-top-arrow {
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
+#content-wrapper {
+  display: block;
+  height: 90%;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+
+  & .mui--appbar-height{
+    display: none;
+  }
+}
+
+#readme {
+  background-color: white;
+  padding: 10px 20px;
+  margin-bottom: 80px;
+  border: 1px solid lighten(gray, 40%);
+  overflow: hidden; // or auto;
+  box-sizing: border-box;
+  font-size: 1.2em;
+}
+
+.origin-repo-btn {
+  background-color: white;
+  color: black;
+  padding: 5px 20px;
+  border-bottom: 2px solid lighten(gray, 40%);
+  transition: all 0.5s ease;
+
+  &:hover {
+    text-decoration: none;
+    color: gray;
+    border-bottom: 2px solid lighten(gray, 10%);
+  }
+
 }
 
 .mui-dropdown__menu {
   overflow-x: auto;
   max-height: 550px;
+}
+
+.to-top-arrow {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
 }

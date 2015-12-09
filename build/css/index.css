@@ -95,7 +95,6 @@
 
 #content-wrapper {
   display: block;
-  height: 90%;
   margin-left: 0px;
   transition: margin-left 0.2s;
 }
@@ -103,7 +102,7 @@
 #readme {
   background-color: white;
   padding: 10px 20px;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
   border: 1px solid #e6e6e6;
   overflow: hidden;
   box-sizing: border-box;
@@ -131,8 +130,8 @@
 
 .to-top-arrow {
   position: fixed;
-  bottom: 5px;
-  right: 5px;
+  bottom: 20px;
+  right: 20px;
 }
 body,
 html {

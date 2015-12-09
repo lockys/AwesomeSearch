@@ -149,7 +149,7 @@ $(document).ready(function() {
           var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
           awesomeData = awesomeData.concat(list[e]);
 
-          $awesomeCate.append('<strong>' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
+          $awesomeCate.append('<strong><i class="fa fa-terminal" style="color: gray;"></i> ' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
 
           list[e].forEach(function(e) {
             var $cateUl = $('.' + _cateID + '-ul');

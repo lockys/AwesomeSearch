@@ -329,7 +329,7 @@ $(document).ready(function() {
     }, 300);
   }
 
-  $('.search-icon').click(function(e) {
+  $('.search-icon').on('touch', function(e) {
     $('.search-input').toggleClass('hovered');
   });
 

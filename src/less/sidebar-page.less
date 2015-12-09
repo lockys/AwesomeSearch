@@ -39,10 +39,10 @@
   height: 90%;
   margin-left: 0px;
   transition: margin-left 0.2s;
-}
 
-#content-wrapper .mui--appbar-height{
-  display: none;
+  & .mui--appbar-height{
+    display: none;
+  }
 }
 
 #footer {
@@ -56,6 +56,10 @@
   transition: margin-left 0.2s;
   z-index: 99;
 }
+
+/**
+  screen width bigger than 768px
+**/
 
 @media (min-width: 768px) {
   #header {
@@ -90,8 +94,10 @@
     margin-left: 0;
   }
 
-  #content-wrapper .mui--appbar-height{
-    display: block;
+  #content-wrapper {
+    & .mui--appbar-height {
+      display: block;
+    }
   }
 
   .search-input {

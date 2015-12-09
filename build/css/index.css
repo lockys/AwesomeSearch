@@ -249,6 +249,10 @@ a {
   z-index: 99;
 }
 
+/**
+  screen width bigger than 768px
+**/
+
 @media (min-width: 768px) {
   #header {
     left: 220px;

@@ -14,7 +14,7 @@
   margin: 20px auto;
 }
 
-.search-input {
+.search-input-section {
   width: 100%;
   margin-top: 100px;
   color: black;
@@ -22,31 +22,33 @@
   transition: -webkit-transform 0.2s;
 }
 
-.search-input .awesome-input {
-  border: 0;
-  padding: 10px;
-  width: 200px;
-  transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-}
-
-.search-input .awesome-input:focus {
-  outline: 0;
-}
-
-.search-input .input-group {
-  float: right;
+.search-input-section .input-group {
+  display: table;
+  margin: 0 auto;
   border: 1px solid #b3b3b3;
 }
 
-.search-input .input-group .search-icon {
+.search-input-section .input-group .search-icon {
   display: inline-block;
   padding: 10px 15px;
   background-color: #ff5a92;
   color: white;
 }
 
-.search-result {
+.search-input-section .input-group .awesome-input {
+  border: 0;
+  padding: 10px;
+  width: 200px;
+  float: right;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+.search-input-section .input-group .awesome-input:focus {
+  outline: 0;
+}
+
+.search-input-section .search-result {
   max-height: 300px;
   width: 100%;
   background-color: white;
@@ -93,19 +95,14 @@
 
 #content-wrapper {
   display: block;
-  height: 90%;
   margin-left: 0px;
   transition: margin-left 0.2s;
-}
-
-#content-wrapper .mui--appbar-height {
-  display: none;
 }
 
 #readme {
   background-color: white;
   padding: 10px 20px;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
   border: 1px solid #e6e6e6;
   overflow: hidden;
   box-sizing: border-box;
@@ -133,8 +130,8 @@
 
 .to-top-arrow {
   position: fixed;
-  bottom: 5px;
-  right: 5px;
+  bottom: 20px;
+  right: 20px;
 }
 body,
 html {
@@ -285,11 +282,7 @@ a {
     margin-left: 0;
   }
 
-  #content-wrapper .mui--appbar-height {
-    display: block;
-  }
-
-  .search-input {
+  .search-input-section {
     position: fixed;
     width: 500px;
     transform: translate(201px);
@@ -301,15 +294,16 @@ a {
     right: 0;
   }
 
-  .search-input:hover,
-  .search-input.hovered {
+  .search-input-section:hover,
+  .search-input-section.hovered {
     transform: translate(0px);
     -webkit-transform: translate(0px);
     -o-transform: translate(0px);
     -moz-transform: translate(0px);
   }
 
-  .search-input .input-group {
+  .search-input-section .input-group {
+    float: right;
     box-shadow: 5px 5px 5px #888888;
   }
 

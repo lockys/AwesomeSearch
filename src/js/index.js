@@ -299,9 +299,10 @@ $(document).ready(function() {
       location.reload();
     }
 
-    if (!$(event.target).hasClass('awesome-input') && !$(event.target).hasClass('search-result')) {
+    if (!$(event.target).hasClass('awesome-input') && !$(event.target).hasClass('search-result') && !$(event.target).hasClass('search-icon')) {
       $('.awesome-input').val('');
       $('.search-result').addClass('content-hidden');
+      $('.search-input').removeClass('hovered');
     }
 
     if (!$(event.target).hasClass('cate-input') && !$(event.target).hasClass('cate-search-result')) {
@@ -329,7 +330,7 @@ $(document).ready(function() {
     }, 300);
   }
 
-  $('.search-icon').on('touchstart', function(e) {
+  $('.search-icon').on('touchend', function(e) {
     $('.search-input').toggleClass('hovered');
   });
 

@@ -39,7 +39,7 @@ $(document).ready(function() {
     **/
     if (!isAwesome) {
       var repoURL = e.url;
-      var originRepoHTML = '<a href="' + repoURL + '" class="origin-repo-btn" target="_blank">View On <i class="fa fa-github"></i></a><br/><br/>';
+      var originRepoHTML = '<a href="' + repoURL + '" class="origin-repo-btn" target="_blank">View On <i class="fa fa-github"></i></a><a href="https://github.com/lockys/awesome-search/issues/new" target="_blank" class="origin-repo-btn"><i class="fa fa-exclamation-circle"></i> This Repo Has Some Issues</a><br/><br/>';
       repoName = e.name;
 
       // Update the title
@@ -128,7 +128,7 @@ $(document).ready(function() {
 
         if (Object.keys(list).length === 0) {
           haveParse = false;
-          $('.alert').html('<span style="color: red;">This repo has not been parsed yet, so what you search is awesome repo</span><br/>');
+          $('.alert').html('<span style="color: red;">This repo has not been parsed yet, we will support it soon.</span><br/>');
           $searchBlock.addClass('content-hidden');
           return;
         }
@@ -166,9 +166,9 @@ $(document).ready(function() {
             var link = '';
             var description = e.description ? ' - ' + e.description : '';
             if (e.url.split('/').indexOf('github.com') > -1) {
-              link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
+              link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
             } else {
-              link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '">' +  e.name + '</span></a></li>';
+              link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
             }
 
             $cateUl.append(link);

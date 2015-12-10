@@ -32,7 +32,7 @@ jQuery(function($) {
   $('.js-hide-sidedrawer').on('click', hideSidedrawer);
 
   $('.to-top-arrow').click(function() {
-    console.log($('html, body'));
+    // console.log($('html, body'));
     $('html, body').animate({
       scrollTop: 0,
     }, 600);

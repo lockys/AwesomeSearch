@@ -64,6 +64,9 @@ $(document).ready(function() {
         var imgArr = $('img');
         var linksArr = $('#readme a[href^="/"]');
 
+        // decorate the table
+        $('#readme table').addClass('mui-table mui-table--bordered');
+
         for (var i = 0, len = linksArr.length; i < len; ++i) {
           var relativeSrc = $(linksArr[i]).attr('href');
           if (!isURL(relativeSrc)) {

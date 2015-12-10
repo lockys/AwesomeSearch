@@ -13,6 +13,122 @@ $(document).ready(function() {
   var $innerDropDownMenu = $('.mui-dropdown__menu');
   var $dropDownMenu = $('.mui-dropdown');
 
+  function processReadMe(content, repoURL, originRepoHTML) {
+    $awesome.html('').append(content);
+    $('#readme').prepend(originRepoHTML);
+    var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
+    var anchorLink = $('#readme a[href^="#"]').not('.anchor');
+    var maintainer = repoURL.split('/')[3];
+    var repo = repoURL.split('/')[4];
+    var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
+    var githubURL = 'https://github.com/' + maintainer + '/' + repo + '/blob/master';
+    var tagLevel;
+    var categoryStyle = 'style=';
+
+    /**
+    * Dealing with some repos use relative image path.
+    **/
+    var imgArr = $('img');
+    var linksArr = $('#readme a[href^="/"]');
+
+    // decorate the table
+    $('#readme table').addClass('mui-table mui-table--bordered');
+
+    for (var i = 0, len = linksArr.length; i < len; ++i) {
+      var relativeSrc = $(linksArr[i]).attr('href');
+      if (!isURL(relativeSrc)) {
+        $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
+      }
+    }
+
+    for (var i = 0, len = imgArr.length; i < len; ++i) {
+      var relativeSrc = $(imgArr[i]).attr('src');
+      if (!isURL(relativeSrc)) {
+        $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
+      }
+    }
+
+    /**
+      insert data-anchor and class cate-anchor so that when the link is clicked, the page will be scroll the position of anchor.
+    **/
+    for (var i = 0, len = anchorLink.length; i < len; ++i) {
+      var $anchorEle = $(anchorLink[i]);
+      $anchorEle.attr('class', 'cate-anchor');
+      $anchorEle.attr('data-anchor', $(anchorLink[i]).attr('href'));
+      $anchorEle.removeAttr('href');
+    }
+
+    /**
+    * Build Category List.
+    **/
+    for (var i = 0, len = anchor.length; i < len; ++i) {
+      anchor[i].id = anchor[i].id.replace('user-content-', '');
+      categoryStyle = 'style=';
+      if (anchor[i].id) {
+        tagLevel = $(anchor[i]).parent()[0].nodeName;
+        if (tagLevel === 'H1') {
+          categoryStyle += '"font-size: 18px;"';
+        } else if (tagLevel === 'H2') {
+          categoryStyle += '"font-size: 16px; color:#3C3C3C;"';
+        } else if (tagLevel === 'H3') {
+          categoryStyle += '"font-size: 14px; color:#7B7B7B;"';
+        } else if (tagLevel === 'H4') {
+          categoryStyle += '"font-size: 12px; color:#ADADAD;"';
+        } else if (tagLevel === 'H5') {
+          categoryStyle += '"font-size: 12px; color:#D9006C;"';
+        } else if (tagLevel === 'H6') {
+          categoryStyle += '"font-size: 12px; color:#EA0000;"';
+        }
+
+        $innerDropDownMenu.append('<li><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+      }
+    }
+
+    $('.cate-anchor').click(scrollToAnchor);
+    $dropDownMenu.removeClass('content-hidden');
+  };
+
+  function processAwesomeJSON(data) {
+    var list = data;
+    var awesomeData = [];
+    var $awesomeCate = $('.awesome-cate');
+    $awesomeCate.html('');
+
+    Object.keys(list).forEach(function generateTheAwesomeList(e) {
+      var _cateID = e.replace(/\W/g, '').toLowerCase();
+      var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
+      awesomeData = awesomeData.concat(list[e]);
+
+      $awesomeCate.append('<strong><i class="fa fa-terminal" style="color: gray;"></i> ' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
+
+      list[e].forEach(function(e) {
+        var $cateUl = $('.' + _cateID + '-ul');
+        var id = e.name.replace(/\W/g, '').toLowerCase();
+        var link = '';
+        var description = e.description ? ' - ' + e.description : '';
+        if (e.url.split('/').indexOf('github.com') > -1) {
+          link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
+        } else {
+          link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
+        }
+
+        $cateUl.append(link);
+      });
+
+    });
+
+    var $sidedrawerEl = $('#sidedrawer');
+    var $titleEls = $('strong', $sidedrawerEl);
+    $titleEls.next().hide();
+    $titleEls.off('click');
+    $titleEls.on('click', function() {
+      $titleEls.not(this).next().hide();
+      $(this).next().slideToggle(300);
+    });
+
+    awesomeFinder = new Fuse(awesomeData, options);
+  }
+
   /**
   * Retrieve the readme file of an awesome repo from github and store the json for searching.
   * @param e It's an object containing repo name and url.
@@ -46,80 +162,7 @@ $(document).ready(function() {
       $('.cate').html(repoName);
       $awesome.html('<div class="sk-spinner sk-spinner-pulse"></div>');
 
-      getReadme(repoURL, function(content) {
-        $awesome.html('').append(content);
-        $('#readme').prepend(originRepoHTML);
-        var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
-        var anchorLink = $('#readme a[href^="#"]').not('.anchor');
-        var maintainer = repoURL.split('/')[3];
-        var repo = repoURL.split('/')[4];
-        var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
-        var githubURL = 'https://github.com/' + maintainer + '/' + repo + '/blob/master';
-        var tagLevel;
-        var categoryStyle = 'style=';
-
-        /**
-        * Dealing with some repos use relative image path.
-        **/
-        var imgArr = $('img');
-        var linksArr = $('#readme a[href^="/"]');
-
-        // decorate the table
-        $('#readme table').addClass('mui-table mui-table--bordered');
-
-        for (var i = 0, len = linksArr.length; i < len; ++i) {
-          var relativeSrc = $(linksArr[i]).attr('href');
-          if (!isURL(relativeSrc)) {
-            $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
-          }
-        }
-
-        for (var i = 0, len = imgArr.length; i < len; ++i) {
-          var relativeSrc = $(imgArr[i]).attr('src');
-          if (!isURL(relativeSrc)) {
-            $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
-          }
-        }
-
-        /**
-          insert data-anchor and class cate-anchor so that when the link is clicked, the page will be scroll the position of anchor.
-        **/
-        for (var i = 0, len = anchorLink.length; i < len; ++i) {
-          var $anchorEle = $(anchorLink[i]);
-          $anchorEle.attr('class', 'cate-anchor');
-          $anchorEle.attr('data-anchor', $(anchorLink[i]).attr('href'));
-          $anchorEle.removeAttr('href');
-        }
-
-        /**
-        * Build Category List.
-        **/
-        for (var i = 0, len = anchor.length; i < len; ++i) {
-          anchor[i].id = anchor[i].id.replace('user-content-', '');
-          categoryStyle = 'style=';
-          if (anchor[i].id) {
-            tagLevel = $(anchor[i]).parent()[0].nodeName;
-            if (tagLevel === 'H1') {
-              categoryStyle += '"font-size: 18px;"';
-            } else if (tagLevel === 'H2') {
-              categoryStyle += '"font-size: 16px; color:#3C3C3C;"';
-            } else if (tagLevel === 'H3') {
-              categoryStyle += '"font-size: 14px; color:#7B7B7B;"';
-            } else if (tagLevel === 'H4') {
-              categoryStyle += '"font-size: 12px; color:#ADADAD;"';
-            } else if (tagLevel === 'H5') {
-              categoryStyle += '"font-size: 12px; color:#D9006C;"';
-            } else if (tagLevel === 'H6') {
-              categoryStyle += '"font-size: 12px; color:#EA0000;"';
-            }
-
-            $innerDropDownMenu.append('<li><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
-          }
-        }
-
-        $('.cate-anchor').click(scrollToAnchor);
-        $dropDownMenu.removeClass('content-hidden');
-      });
+      getReadme(repoURL, originRepoHTML, processReadMe);
 
       $.getJSON(jsonURL, function(data) {
         var list = data;
@@ -140,6 +183,13 @@ $(document).ready(function() {
         * Fill in to data for searching
         **/
         list.forEach(function(e) {
+          if (!isURL(e.url)) {
+            var maintainer = repoURL.split('/')[3];
+            var repo = repoURL.split('/')[4];
+            var repoUrlPrefix = 'https://github.com/' + maintainer + '/' + repo + '/blob/master';
+            e.url = repoUrlPrefix + e.url;
+          }
+
           d = d.concat(e);
         });
 
@@ -150,53 +200,10 @@ $(document).ready(function() {
       // Update the title
       $('.cate').html(repoName);
 
-      $.getJSON(awesomeJsonURL, function(data) {
-        var list = data;
-        var awesomeData = [];
-        var $awesomeCate = $('.awesome-cate');
-        $awesomeCate.html('');
-
-        Object.keys(list).forEach(function(e) {
-          var _cateID = e.replace(/\W/g, '').toLowerCase();
-          var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
-          awesomeData = awesomeData.concat(list[e]);
-
-          $awesomeCate.append('<strong><i class="fa fa-terminal" style="color: gray;"></i> ' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
-
-          list[e].forEach(function(e) {
-            var $cateUl = $('.' + _cateID + '-ul');
-            var id = e.name.replace(/\W/g, '').toLowerCase();
-            var link = '';
-            var description = e.description ? ' - ' + e.description : '';
-            if (e.url.split('/').indexOf('github.com') > -1) {
-              link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
-            } else {
-              link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
-            }
-
-            $cateUl.append(link);
-          });
-
-        });
-
-        var $sidedrawerEl = $('#sidedrawer');
-        var $titleEls = $('strong', $sidedrawerEl);
-        $titleEls.next().hide();
-        $titleEls.off('click');
-        $titleEls.on('click', function() {
-          $titleEls.not(this).next().hide();
-          $(this).next().slideToggle(300);
-        });
-
-        awesomeFinder = new Fuse(awesomeData, options);
-      });
+      $.getJSON(awesomeJsonURL, processAwesomeJSON);
 
       $dropDownMenu.addClass('content-hidden');
     }
-
-    /**
-    * Get json format of awesome for searching.
-    **/
 
   };
 
@@ -256,7 +263,7 @@ $(document).ready(function() {
   * @param repoURL
   * @param cb to dealing with html of readme.
   **/
-  function getReadme(repoURL, cb) {
+  function getReadme(repoURL, originRepoHTML, cb) {
     var maintainer = repoURL.split('/')[3];
     var repo = repoURL.split('/')[4];
     var apiURL = 'https://api.github.com/repos/' + maintainer + '/' + repo + '/readme';
@@ -266,7 +273,9 @@ $(document).ready(function() {
       headers: {
         accept: 'application/vnd.github.v3.html',
       },
-      success: cb,
+      success: function(content) {
+        cb(content, repoURL, originRepoHTML);
+      },
     });
   }
 

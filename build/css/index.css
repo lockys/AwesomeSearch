@@ -121,6 +121,7 @@
   background-color: white;
   color: black;
   padding: 5px 20px;
+  margin-right: 5px;
   border-bottom: 2px solid #e6e6e6;
   transition: all 0.5s ease;
 }

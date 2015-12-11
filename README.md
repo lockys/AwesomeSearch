@@ -1,6 +1,6 @@
 Awesome search
 ==
-[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-0.1.1-green.svg)  
+[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
 A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
@@ -12,7 +12,7 @@ Awesome Search is under construction, more features will come out. Also, **bugs*
 Stay tuned, and you can [file](https://github.com/lockys/awesome-search/issues) any questions to help this project become better :smile:
 
 Screenshot: http://i.imgur.com/ZyU0OD4.gif  
-![screenshot](http://i.imgur.com/rW4KhRh.gif?1)
+![screenshot](http://g.recordit.co/LkyiGw1q6c.gif)
 
 Why
 ==

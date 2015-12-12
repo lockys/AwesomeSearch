@@ -231,7 +231,7 @@ $(document).ready(function() {
 
         if (haveParse && !isCateInput) {
           // if parsed(and it is not the top awesome repo), show the searching result about the current repo.
-          $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
+          $searchResult.append('<a href="' + result[i].url + '" class="search-repo-link"' + href + 'target="_blank">' +  result[i].name + '</a>' + description);
         } else {
           // if not parsed or it is the top awesome repo, show the searching result about the top awesome repo.
           if (result[i].url.split('/').indexOf('github.com') > -1) {

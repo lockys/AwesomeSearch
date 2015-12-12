@@ -3,7 +3,8 @@ $(document).ready(function() {
   var awesomeFinder;
   var haveParse = true; // the repos has been parsed or not ?
   var isAwesome = false; // is it sindre/awesome repo ?
-  var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/name-map/awesome.json';
+  var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json';
+  var urlMapObj = {};
   var options = {
     keys: ['name'],
   };
@@ -88,28 +89,24 @@ $(document).ready(function() {
     $dropDownMenu.removeClass('content-hidden');
   };
 
-  function processAwesomeJSON(data) {
-    var list = data;
+  function processAwesomeJSON() {
     var awesomeData = [];
     var $awesomeCate = $('.awesome-cate');
     $awesomeCate.html('');
+    Object.keys(urlMapObj).forEach(function generateTheAwesomeList(e) {
 
-    Object.keys(list).forEach(function generateTheAwesomeList(e) {
       var _cateID = e.replace(/\W/g, '').toLowerCase();
-      var title = '<h2 id="' + _cateID + '">' + e + '</h2>';
-      awesomeData = awesomeData.concat(list[e]);
+      awesomeData = awesomeData.concat(urlMapObj[e]);
 
       $awesomeCate.append('<strong><i class="fa fa-terminal" style="color: gray;"></i> ' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
 
-      list[e].forEach(function(e) {
+      urlMapObj[e].forEach(function(e) {
         var $cateUl = $('.' + _cateID + '-ul');
-        var id = e.name.replace(/\W/g, '').toLowerCase();
         var link = '';
-        var description = e.description ? ' - ' + e.description : '';
         if (e.url.split('/').indexOf('github.com') > -1) {
-          link = '<li><a class="' + id + '" href="#repos/' + id + '" data-url="' + e.url + '" data-name="' + e.name + '"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
+          link = '<li><a href="#repos/' + e.repo + '"><span><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
         } else {
-          link = '<li><a class="' + id + '" href="' + e.url + '" data-name="' + e.name + '" target="_blank"><span class="" data-url="' + e.url + '" data-name="' + e.name + '"><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
+          link = '<li><a href="' + e.url + '" target="_blank"><span><i class="fa fa-bookmark"></i> ' +  e.name + '</span></a></li>';
         }
 
         $cateUl.append(link);
@@ -135,13 +132,11 @@ $(document).ready(function() {
   * @param cate The repo name we want to get.
   * @return null
   **/
-  var getCateList = function(e, cate) {
-    // console.log(cate);
-    var repoName = 'awesome';
-    isAwesome = cate === 'awesome' ? 1 : 0;
+  var getCateList = function(maintainer, repo) {
+    var repoURL = 'https://github.com/' + maintainer + '/' + repo;
+    isAwesome = repo === 'awesome' ? 1 : 0;
     haveParse = !isAwesome;
-    jsonURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/output/' + cate + '.json';
-    awesomeJsonURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json';
+    jsonURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/repo-json/' + maintainer + '-' + repo + '.json';
     $dropDownMenu.removeClass('content-hidden');
     $searchResult.addClass('content-hidden');
 
@@ -154,15 +149,11 @@ $(document).ready(function() {
     * Get readme of awesome repo
     **/
     if (!isAwesome) {
-      var repoURL = e.url;
       var originRepoHTML = '<a href="' + repoURL + '" class="origin-repo-btn" target="_blank">View On <i class="fa fa-github"></i></a><a href="https://github.com/lockys/awesome-search/issues/new" target="_blank" class="origin-repo-btn"><i class="fa fa-exclamation-circle"></i> This Repo Has Some Issues</a><br/><br/>';
-      repoName = e.name;
 
-      // Update the title
-      $('.cate').html(repoName);
       $awesome.html('<div class="sk-spinner sk-spinner-pulse"></div>');
 
-      getReadme(repoURL, originRepoHTML, processReadMe);
+      getReadme(maintainer, repo, repoURL, originRepoHTML, processReadMe);
 
       $.getJSON(jsonURL, function(data) {
         var list = data;
@@ -197,11 +188,7 @@ $(document).ready(function() {
       });
 
     }else {
-      // Update the title
-      $('.cate').html(repoName);
-
-      $.getJSON(awesomeJsonURL, processAwesomeJSON);
-
+      processAwesomeJSON();
       $dropDownMenu.addClass('content-hidden');
     }
 
@@ -244,13 +231,13 @@ $(document).ready(function() {
 
         if (haveParse && !isCateInput) {
           // if parsed(and it is not the top awesome repo), show the searching result about the current repo.
-          $searchResult.append('<a class="' + id + ' search-repo-link"' + href + 'data-url="' + result[i].url + '" data-name="' + result[i].name + '" target="_blank">' +  result[i].name + '</a>' + description);
+          $searchResult.append('<a href="' + result[i].url + '" class="search-repo-link"' + href + 'target="_blank">' +  result[i].name + '</a>' + description);
         } else {
           // if not parsed or it is the top awesome repo, show the searching result about the top awesome repo.
           if (result[i].url.split('/').indexOf('github.com') > -1) {
-            $searchResult.append('<a class="' + id + ' search-repo-link" data-url="' + result[i].url + '" data-name="' + result[i].name + '" href="#/repos/' + id + '">' +  result[i].name + '</a>' + description);
+            $searchResult.append('<a href="#/repos/' + result[i].repo + '">' +  result[i].name + '</a>' + description);
           } else {
-            $searchResult.append('<a class="' + id + ' search-repo-link" data-url="' + result[i].url + '" data-name="' + result[i].name + '" href="' + result[i].url + '" target="_blank">' +  result[i].name + '</a>' + description);
+            $searchResult.append('<a href="' + result[i].url + '" target="_blank">' +  result[i].name + '</a>' + description);
           }
         }
 
@@ -263,9 +250,7 @@ $(document).ready(function() {
   * @param repoURL
   * @param cb to dealing with html of readme.
   **/
-  function getReadme(repoURL, originRepoHTML, cb) {
-    var maintainer = repoURL.split('/')[3];
-    var repo = repoURL.split('/')[4];
+  function getReadme(maintainer, repo, repoURL, originRepoHTML, cb) {
     var apiURL = 'https://api.github.com/repos/' + maintainer + '/' + repo + '/readme';
 
     $.ajax({
@@ -283,39 +268,20 @@ $(document).ready(function() {
 
   var AwesomeRouter = Backbone.Router.extend({
     routes: {
-      'repos/:cate': 'getRepos',
+      'repos/:maintainer/:repo': 'getRepos',
       '': 'getAwesome',
     },
   });
 
   var awesomeRouter = new AwesomeRouter();
 
-  awesomeRouter.on('route:getRepos', function(cate) {
-    var repoInfo = {};
-
-    $.getJSON(urlMap, function(d) {
-      var urlMapObj = d;
-      var k = Object.keys(urlMapObj);
-
-      for (var i = 0, len = k.length; i < len; ++i) {
-
-        if (k[i].replace(/\W/g, '').toLowerCase() === cate) {
-          repoInfo = {
-                name: k[i],
-                url: urlMapObj[k[i]],
-              };
-          $('.search-holder').html('Search the ' + repoInfo.name);
-          getCateList(repoInfo, cate);
-          break;
-        }
-
-      }
-    });
-
+  awesomeRouter.on('route:getRepos', function(maintainer, repo) {
+    $('.search-holder').html('Search ' + repo);
+    getCateList(maintainer, repo);
   });
 
   awesomeRouter.on('route:getAwesome', function() {
-    getCateList(null, 'awesome');
+    getCateList('sindresorhus', 'awesome');
   });
 
   $('body').click(function(event) {
@@ -357,7 +323,10 @@ $(document).ready(function() {
     }, 300);
   }
 
-  getCateList(null, 'awesome');
+  $.getJSON(urlMap, function(d) {
+    urlMapObj = d;
+    getCateList('sindresorhus', 'awesome');
+  });
 
   // window.location.hash = '/';
   Backbone.history.start();

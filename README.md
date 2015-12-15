@@ -4,8 +4,9 @@ Awesome search
 A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
-[https://awesomelists.me](https://awesomelists.me)  
-The domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
+[https://awesomelists.top](https://awesomelists.top)  
+The domain name has been changed to `https://awesomelists.top` from `http://awesomelists.me/` now.  
+The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
 
 ##### Under development
 Awesome Search is under construction, more features will come out. Also, **bugs** and **inconveniences** may exit.  

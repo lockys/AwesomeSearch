@@ -32,7 +32,7 @@ describe 'Awesome Search Stories' do
 
     describe 'Click JavaScript button' do
       it 'should click a JavaScript link' do
-        @browser.li(text: 'Programming Languages').click
+        @browser.strong(text: 'Programming Languages').click
         @browser.link(text: 'JavaScript').when_present.click
 
         @browser.wait_until { @browser.h1.text.include? "Awesome JavaScript"}

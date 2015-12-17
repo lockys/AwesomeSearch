@@ -15,39 +15,39 @@ describe 'Awesome Search Stories' do
     end
 
     it 'check home page' do
-      @browser.link(text: 'Awesome Search').click
+      @browser.image(class: 'home-button').click
 
-      @browser.h1.text.must_equal "require('awesome')"
+      @browser.wait_until { @browser.h1.text.must_equal "Hi, this is Awesome Search" }
     end
 
-  describe 'Do search and go back to home page' do
-    it 'can go back to home page' do
-      @browser.text_field(class: 'awesome-input').set('ruby')
+    describe 'Do search' do
+      it 'should show awesome ruby' do
+        @browser.text_field(class: 'cate-input').set('ruby')
 
-      @browser.link(text: 'Ruby').click
+        @browser.link(text: 'Ruby').when_present.click
 
-      @browser.wait_until { @browser.h1(class: 'mui--text-black-54 mui--text-display3 mui--text-right').text.include? "require('Ruby')"}
-      @browser.button(class: 'mui-btn mui-btn--raised mui-btn--danger back-button').click
+        # @browser.wait_until { @browser.h1.text.include? "Awesome Ruby"}
+      end
     end
-  end
 
-  describe 'Click ios button' do
-    it 'can click a ios button' do
-      @browser.a(class: 'mui-btn mui-btn--small mui-btn--primary ios').click
+    describe 'Click JavaScript button' do
+      it 'should click a JavaScript link' do
+        # @browser.strong(text: ' Programming Languages').click
+        # @browser.link(text: ' JavaScript').when_present.click
 
-      @browser.wait_until { @browser.h1(class: 'mui--text-black-54 mui--text-display3 mui--text-right').text.include? "require('iOS')"}
+        # @browser.wait_until { @browser.h1.text.include? "Awesome JavaScript"}
+      end
     end
-  end
 
-  describe 'Searching with python keyword' do
-    it 'can search a awesome-python' do
-      @browser.text_field(class: 'awesome-input').set('python')
+    describe 'Searching with python keyword' do
+      it 'can search a awesome-python' do
+        @browser.text_field(class: 'cate-input').set('python')
 
-      @browser.link(text: 'Python').when_present.click
+        @browser.link(text: 'Python').when_present.click
 
-      @browser.wait_until { @browser.h1(class: 'mui--text-black-54 mui--text-display3 mui--text-right').text.include? "require('Python')"}
+        # @browser.wait_until { @browser.h1.text.include? "Awesome Python"}
+      end
     end
-  end
 
   end
 

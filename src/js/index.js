@@ -30,7 +30,7 @@ $(document).ready(function() {
     * Dealing with some repos use relative image path.
     **/
     var imgArr = $('img');
-    var linksArr = $('#readme a[href^="/"]');
+    var linksArr = $('#readme a');
 
     // decorate the table
     $('#readme table').addClass('mui-table mui-table--bordered');
@@ -38,6 +38,7 @@ $(document).ready(function() {
     for (var i = 0, len = linksArr.length; i < len; ++i) {
       var relativeSrc = $(linksArr[i]).attr('href');
       if (!isURL(relativeSrc)) {
+        relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
         $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
       }
     }
@@ -45,6 +46,7 @@ $(document).ready(function() {
     for (var i = 0, len = imgArr.length; i < len; ++i) {
       var relativeSrc = $(imgArr[i]).attr('src');
       if (!isURL(relativeSrc)) {
+        relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
         $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
       }
     }

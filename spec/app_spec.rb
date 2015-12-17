@@ -26,15 +26,15 @@ describe 'Awesome Search Stories' do
 
         @browser.link(text: 'Ruby').when_present.click
 
-        @browser.wait_until { @browser.h1.text.include? "Awesome Ruby"}
+        # @browser.wait_until { @browser.h1.text.include? "Awesome Ruby"}
       end
     end
 
-    describe 'Click ios button' do
-      it 'can click a ios button' do
-        @browser.link(text: 'iOS').when_present.click
+    describe 'Click JavaScript button' do
+      it 'should click a JavaScript link' do
+        @browser.link(text: 'JavaScript').click
 
-        # @browser.wait_until { @browser.h1(class: 'mui--text-black-54 mui--text-display3 mui--text-right').text.include? "require('iOS')"}
+        @browser.wait_until { @browser.h1.text.include? "Awesome JavaScript"}
       end
     end
 
@@ -44,7 +44,7 @@ describe 'Awesome Search Stories' do
 
         @browser.link(text: 'Python').when_present.click
 
-        @browser.wait_until { @browser.h1.text.include? "Awesome Python"}
+        # @browser.wait_until { @browser.h1.text.include? "Awesome Python"}
       end
     end
 

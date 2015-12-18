@@ -111,11 +111,15 @@
   background-color: white;
   padding: 10px 20px;
   margin-bottom: 30px;
-  border: 1px solid lighten(gray, 40%);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.16),0 0 2px 0 rgba(0,0,0,.12);
   // for main page
   overflow: hidden; // or auto;
   box-sizing: border-box;
   font-size: 1.2em;
+
+  & .home-page-title {
+    font-variant: small-caps;
+  }
 }
 
 .origin-repo-btn {

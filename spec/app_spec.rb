@@ -17,7 +17,7 @@ describe 'Awesome Search Stories' do
     it 'check home page' do
       @browser.image(class: 'home-button').click
 
-      @browser.wait_until { @browser.h1.text.must_equal "Hi, this is Awesome Search" }
+      @browser.wait_until { @browser.h1.text.must_equal "Awesome Search" }
     end
 
     describe 'Do search' do

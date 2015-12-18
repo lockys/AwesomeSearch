@@ -111,10 +111,14 @@
   background-color: white;
   padding: 10px 20px;
   margin-bottom: 30px;
-  border: 1px solid #e6e6e6;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   overflow: hidden;
   box-sizing: border-box;
   font-size: 1.2em;
+}
+
+#readme .home-page-title {
+  font-variant: small-caps;
 }
 
 .origin-repo-btn {
@@ -145,7 +149,7 @@
 }
 body,
 html {
-  font-family: "Lora", "Helvetica Neue", Helvetica, Arial;
+  font-family: "Vollkorn", "Helvetica Neue", Helvetica, Arial;
   background-color: #eee;
   height: 100%;
   width: 100%;

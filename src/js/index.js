@@ -30,18 +30,10 @@ $(document).ready(function() {
     * Dealing with some repos use relative image path.
     **/
     var imgArr = $('img');
-    var linksArr = $('#readme a');
+    var linksArr = {};
 
     // decorate the table
     $('#readme table').addClass('mui-table mui-table--bordered');
-
-    for (var i = 0, len = linksArr.length; i < len; ++i) {
-      var relativeSrc = $(linksArr[i]).attr('href');
-      if (!isURL(relativeSrc)) {
-        relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
-        $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
-      }
-    }
 
     for (var i = 0, len = imgArr.length; i < len; ++i) {
       var relativeSrc = $(imgArr[i]).attr('src');
@@ -84,6 +76,18 @@ $(document).ready(function() {
         }
 
         $innerDropDownMenu.append('<li><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+      }
+    }
+
+    linksArr = $('#readme a').not('.cate-anchor');
+
+    // the relatvie src to absolute src.
+    for (var i = 0, len = linksArr.length; i < len; ++i) {
+      var relativeSrc = $(linksArr[i]).attr('href');
+
+      if (!isURL(relativeSrc)) {
+        relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
+        $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
       }
     }
 

@@ -11,13 +11,13 @@ describe 'Awesome Search Stories' do
 
   describe 'Visiting the home page' do
     it 'finds the title' do
-      @browser.title.must_equal 'Awesome-Search'
+      @browser.title.must_equal 'Awesome Search'
     end
 
     it 'check home page' do
       @browser.image(class: 'home-button').click
 
-      @browser.wait_until { @browser.h1.text.must_equal "Awesome-Search" }
+      @browser.wait_until { @browser.h1.text.must_equal 'Awesome-Search' }
     end
 
     describe 'Do search' do

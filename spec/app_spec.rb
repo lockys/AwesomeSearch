@@ -11,7 +11,7 @@ describe 'Awesome Search Stories' do
 
   describe 'Visiting the home page' do
     it 'finds the title' do
-      @browser.title.must_equal 'Awesome Search'
+      @browser.title.must_equal 'Awesome-Search'
     end
 
     it 'check home page' do

@@ -51,8 +51,8 @@ describe 'Awesome Search Stories' do
 
   end
 
-  # after do
-  #   @browser.close
-  #   @headless.destroy
-  # end
+  after do
+    @browser.close
+    # @headless.destroy
+  end
 end

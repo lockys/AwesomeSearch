@@ -19,7 +19,9 @@
   margin-top: 100px;
   color: black;
   transition: transform .2s;
-  transition: -webkit-transform 0.2s;
+  -webkit-transition: transform .2s;
+  -moz-transition: transform .2s;
+  -o-transition: transform .2s;
 }
 
 .search-input-section .input-group {
@@ -42,6 +44,8 @@
   float: right;
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .search-input-section .input-group .awesome-input:focus {
@@ -259,18 +263,6 @@ a {
   transition: -webkit-transform 0.2s;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  margin-left: 0px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  transition: margin-left 0.2s;
-  z-index: 99;
-}
-
 /**
   screen width bigger than 768px
 **/
@@ -403,20 +395,6 @@ a {
 
 #sidedrawer strong + ul > li {
   padding: 6px 0px;
-}
-
-/**
- * Footer CSS
- */
-
-#footer {
-  background-color: #78909C;
-  color: #fff;
-}
-
-#footer a {
-  color: #fff;
-  text-decoration: underline;
 }
 
 .content-hidden {

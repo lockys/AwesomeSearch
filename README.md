@@ -1,6 +1,6 @@
 Awesome search
 ==
-[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
+[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-1.0.0-green.svg) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lockys/awesome-search/trend.png)](https://bitdeli.com/free "Bitdeli Badge")  
 A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 

@@ -1,0 +1,197 @@
+/**
+ * Layout CSS
+ */
+
+#header {
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  transition: left 0.2s;
+  border-bottom: 1px solid gray;
+
+  & .mui-appbar {
+    background-color: #78909C;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#sidedrawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  left: -220px;
+  overflow: auto;
+  z-index: 2;
+  background-color: #fff;
+  transition: transform .2s;
+  transition: -webkit-transform .2s;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-left: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  transition: margin-left 0.2s;
+  z-index: 99;
+}
+
+/**
+  screen width bigger than 768px
+**/
+
+@media (min-width: 768px) {
+  #header {
+    left: 220px;
+  }
+
+  #sidedrawer {
+    transform: translate(220px);
+  }
+
+  #content-wrapper {
+    margin-left: 220px;
+  }
+
+  #footer {
+    margin-left: 220px;
+  }
+
+  body.hide-sidedrawer #header {
+    left: 0;
+  }
+
+  body.hide-sidedrawer #sidedrawer {
+    transform: translate(0px);
+  }
+
+  body.hide-sidedrawer #content-wrapper {
+    margin-left: 0;
+  }
+
+  body.hide-sidedrawer #footer {
+    margin-left: 0;
+  }
+
+  .search-input-section {
+    position: fixed;
+    width: 500px;
+    transform: translate(201px);
+    -webkit-transform: translate(201px);
+    -o-transform: translate(201px);
+    -moz-transform: translate(201px);
+    margin-top: 0px;
+    top: 30%;
+    right: 0;
+
+    &:hover, &.hovered{
+      transform: translate(0px);
+      -webkit-transform: translate(0px);
+      -o-transform: translate(0px);
+      -moz-transform: translate(0px);
+    }
+
+    & .input-group {
+      float: right;
+      box-shadow: 5px 5px 5px #888888;
+    }
+  }
+
+  .search-result {
+    width: 500px;
+  }
+
+  .mui-btn {
+    padding: 0 10px;
+    font-size: 16px;
+  }
+}
+
+
+/**
+ * Toggle Sidedrawer
+ */
+#sidedrawer.active {
+  -moz-transform: translate(220px);
+  -o-transform: translate(220px);
+  -webkit-transform: translate(220px);
+  transform: translate(220px);
+}
+
+
+/**
+ * Header CSS
+ */
+
+.sidedrawer-toggle {
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 10px;
+}
+
+.sidedrawer-toggle:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/**
+ * Sidedrawer CSS
+ */
+
+#sidedrawer-brand {
+  padding-left: 20px;
+}
+
+#sidedrawer ul {
+  list-style: none;
+}
+
+#sidedrawer > ul {
+  padding-left: 0px;
+}
+
+#sidedrawer > ul > li:first-child {
+  padding-top: 15px;
+}
+
+#sidedrawer strong {
+  display: block;
+  padding: 15px 22px;
+  cursor: pointer;
+}
+
+#sidedrawer strong:hover {
+  background-color: #E0E0E0;
+}
+
+#sidedrawer strong + ul > li {
+  padding: 6px 0px;
+}
+
+
+/**
+ * Footer CSS
+ */
+
+#footer {
+  background-color: #78909C;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: underline;
+}

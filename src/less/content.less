@@ -1,0 +1,165 @@
+.mui-btn {
+  margin: 0 !important;
+  text-transform: capitalize;
+  padding: 0 5px;
+  font-size: 12px;
+}
+
+.awesome-cate strong {
+  padding: 10px 22px !important;
+}
+
+.alert {
+  display: table;
+  margin: 20px auto;
+}
+
+.search-input-section {
+  width: 100%;
+  margin-top: 100px;
+  color: black;
+  transition: transform .2s;
+  transition: -webkit-transform .2s;
+
+  & .input-group {
+    display: table;
+    margin: 0 auto;
+    border: 1px solid lighten(gray, 20%);
+
+    & .search-icon {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #ff5a92;
+      color: white;
+    }
+
+    & .awesome-input {
+      border: 0;
+      padding: 10px;
+      width: 200px;
+      float: right;
+
+      transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+
+      &:focus {
+         outline: 0;
+      }
+    }
+  }
+
+  & .search-result {
+    max-height: 300px;
+    width: 100%; // can inherit!
+    background-color: white;
+    overflow: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+  }
+}
+
+.cate-input {
+  padding: 5px;
+  font-size: 12px;
+  line-height: normal;
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 3px;
+  -moz-border-raius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.cate-search-result {
+  position: absolute;
+  opacity: 0.978;
+  top: 50px;
+  padding: 5px;
+  right: 0px;
+  width: 200px;
+  max-height: 300px;
+  background-color: white;
+  border: 1px solid lighten(gray, 40%);
+  border-radius: 3px;
+  -moz-border-raius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  margin: 3px;
+  font-size: 12px;
+  line-height: normal;
+  z-index: 999;
+
+  a {
+    color: black;
+    font-size: 13px;
+  }
+}
+
+.search-repo-link {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: hover;
+  }
+}
+
+#content-wrapper {
+  display: block;
+  // height: 90%;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+}
+
+#readme {
+  background-color: white;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.16),0 0 2px 0 rgba(0,0,0,.12);
+  // for main page
+  overflow: hidden; // or auto;
+  box-sizing: border-box;
+  font-size: 1.2em;
+
+  & .home-page-title {
+    font-variant: small-caps;
+  }
+}
+
+.origin-repo-btn {
+  background-color: white;
+  color: black;
+  padding: 5px 20px;
+  margin-right: 5px;
+  border-bottom: 2px solid lighten(gray, 40%);
+  transition: all 0.5s ease;
+
+  &:hover {
+    text-decoration: none;
+    color: gray;
+    border-bottom: 2px solid lighten(gray, 10%);
+  }
+
+}
+
+.mui-dropdown__menu {
+  overflow-x: auto;
+  max-height: 550px;
+}
+
+.to-top-arrow {
+  position: fixed;
+  font-size: 2em !important;
+  bottom: 20px;
+  right: 20px;
+}

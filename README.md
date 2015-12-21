@@ -1,18 +1,18 @@
 Awesome search
 ==
-[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-0.1.0-green.svg)  
+[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
 A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
-[https://awesomelists.me](https://awesomelists.me)  
-The domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
+[https://awesomelists.top](https://awesomelists.top)  
+The domain name has been changed to `https://awesomelists.top` from `http://awesomelists.me/` now.  
+The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
 
 ##### Under development
 Awesome Search is under construction, more features will come out. Also, **bugs** and **inconveniences** may exit.  
 Stay tuned, and you can [file](https://github.com/lockys/awesome-search/issues) any questions to help this project become better :smile:
 
-Screenshot: http://i.imgur.com/ZyU0OD4.gif  
-![screenshot](http://i.imgur.com/rW4KhRh.gif?1)
+![screenshot](http://g.recordit.co/LkyiGw1q6c.gif)
 
 Why
 ==
@@ -23,7 +23,7 @@ That's why `awesome search` was born. :octocat:
 Features
 ==
  - [x] Access and search every awesome repo collected in [sindresorhus/awesome](https://github.com/sindresorhus/awesome) in one page quickly.
- - [x] Access an awesome repo by `https://awesomelists.me/#repos/nodejs`. (yuo can bookmark it!)
+ - [x] Access an awesome repo by `https://awesomelists.top/#repos/sindresorhus/awesome-nodejs`. (yuo can bookmark it!)
  - [x] Categories of an awesome repo is supported if the that repo uses `headings`.
  - [x] Use Github API to retrieve README file of an awesome repo, so it's up-to-date.
  - [x] Search links in a specified repo we have parsed, see [supported repo](#supported-awesome-lists)
@@ -74,7 +74,8 @@ Credit
 ==
 Thanks all awesome authors for creating these awesome lists to make the world better.  
 - [sindresorhus/awesome](https://github.com/sindresorhus/awesome)  
-- [All awesome list contributors](https://github.com/sindresorhus/awesome/graphs/contributors)
+- [All awesome list contributors](https://github.com/sindresorhus/awesome/graphs/contributors)  
+![awesome](http://i.imgur.com/qcroMhk.gif)
 
 LICENSE
 ==
@@ -99,3 +100,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lockys/awesome-search/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

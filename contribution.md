@@ -1,8 +1,9 @@
 Contribution
 ==
-- if you are going to PR a awesome list in JSON format, please follow this format
-- The json file should be named by following this [map](https://github.com/lockys/awesome.json/blob/master/output/nameMap.json)
-- For example, the json file of awesome-nodejs repo should be named as `nodejs` (`Node.js` ==> `nodejs` and `IoT & Hybrid Apps` ==> `iothybridapps`) 
+- If you are going to PR a awesome list in JSON format, please follow this format
+- For example, the JSON file of `sindresorhus/awesome-nodejs` repo should be named as `sindresorhus-awesome-nodejs.json`
+- Also, the content should follow the following format.
+
 ```
 [
     {
@@ -19,5 +20,6 @@ Contribution
     }
 ]
 ```
-You can see the full example [here](https://github.com/lockys/awesome-search/blob/master/data/awesome-nodejs.json)
+
+You can see the full example [here](https://github.com/lockys/awesome.json/blob/master/repo-json/sindresorhus-awesome-nodejs.json)
 - Any patch about UI, UX improvement is welcome, just be aware of the coding style.

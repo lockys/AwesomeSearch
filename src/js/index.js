@@ -32,9 +32,6 @@ $(document).ready(function() {
     var imgArr = $('img');
     var linksArr = {};
 
-    // decorate the table
-    $('#readme table').addClass('mui-table mui-table--bordered');
-
     for (var i = 0, len = imgArr.length; i < len; ++i) {
       var relativeSrc = $(imgArr[i]).attr('src');
       if (!isURL(relativeSrc)) {

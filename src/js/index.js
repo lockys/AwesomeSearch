@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var repoFinder;
   var awesomeFinder;
-  var haveParse = true; // the repos has been parsed or not ?
   var isAwesome = false; // is it sindre/awesome repo ?
   var urlMap = 'https://raw.githubusercontent.com/lockys/awesome.json/master/awesome/awesome.json';
   var urlMapObj = {};
@@ -138,7 +137,6 @@ $(document).ready(function() {
   var getCateList = function(maintainer, repo) {
     var repoURL = 'https://github.com/' + maintainer + '/' + repo;
     isAwesome = repo === 'awesome' ? 1 : 0;
-    haveParse = !isAwesome;
     jsonURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/repo-json/' + maintainer + '-' + repo + '.json';
     $dropDownMenu.removeClass('content-hidden');
     $searchResult.addClass('content-hidden');
@@ -147,7 +145,7 @@ $(document).ready(function() {
     $innerDropDownMenu.html('');
     $('.alert').html('');
     $('.awesome-input').val('');
-
+    console.log(isAwesome);
     /**
     * Get readme of awesome repo
     **/
@@ -167,7 +165,6 @@ $(document).ready(function() {
         $searchBlock.removeClass('content-hidden');
 
         if (Object.keys(list).length === 0) {
-          haveParse = false;
           $('.alert').html('<span style="color: red;">This repo has not been parsed yet, we will support it soon.</span><br/>');
           $searchBlock.addClass('content-hidden');
           return;
@@ -184,7 +181,7 @@ $(document).ready(function() {
             e.url = repoUrlPrefix + e.url;
           }
 
-          d = d.concat(e);
+          d = d.concat(e);;
         });
 
         repoFinder = new Fuse(d, options);
@@ -232,7 +229,7 @@ $(document).ready(function() {
         // console.log(d);
         description = result[i].description ? ' - ' + result[i].description + '</br>' : '<br/>';
 
-        if (haveParse && !isCateInput) {
+        if (!isCateInput) {
           // if parsed(and it is not the top awesome repo), show the searching result about the current repo.
           $searchResult.append('<a href="' + result[i].url + '" class="search-repo-link"' + href + 'target="_blank">' +  result[i].name + '</a>' + description);
         } else {

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var repoFinder;
   var awesomeFinder;
   var isAwesome = false; // is it sindre/awesome repo ?
@@ -28,14 +28,14 @@ $(document).ready(function() {
     /**
     * Dealing with some repos use relative image path.
     **/
-    var imgArr = $('img');
+    var $imgArr = $('img');
     var linksArr = {};
 
-    for (var i = 0, len = imgArr.length; i < len; ++i) {
-      var relativeSrc = $(imgArr[i]).attr('src');
+    for (var i = 0, len = $imgArr.length; i < len; ++i) {
+      var relativeSrc = $($imgArr[i]).attr('src');
       if (!isURL(relativeSrc)) {
         relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
-        $(imgArr[i]).attr('src', githubRawURL + relativeSrc);
+        $($imgArr[i]).attr('src', githubRawURL + relativeSrc);
       }
     }
 
@@ -83,7 +83,7 @@ $(document).ready(function() {
 
       if (!isURL(relativeSrc)) {
         relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
-        $(linksArr[i]).attr({href: githubURL + relativeSrc, target: '_blank'});
+        $(linksArr[i]).attr({ href: githubURL + relativeSrc, target: '_blank' });
       }
     }
 
@@ -91,18 +91,22 @@ $(document).ready(function() {
     $dropDownMenu.removeClass('content-hidden');
   };
 
+  /**
+  * Generate the array of awesome repos for search and display
+  * the Category on the left sidedrawer using urlMapObj
+  **/
   function processAwesomeJSON() {
     var awesomeData = [];
     var $awesomeCate = $('.awesome-cate');
     $awesomeCate.html('');
-    Object.keys(urlMapObj).forEach(function generateTheAwesomeList(e) {
+    Object.keys(urlMapObj).forEach(function (e) {
 
       var _cateID = e.replace(/\W/g, '').toLowerCase();
       awesomeData = awesomeData.concat(urlMapObj[e]);
 
       $awesomeCate.append('<strong><i class="fa fa-terminal" style="color: gray;"></i> ' + e + '</strong><li><ul class="' + _cateID + '-ul"></ul></li>');
 
-      urlMapObj[e].forEach(function(e) {
+      urlMapObj[e].forEach(function (e) {
         var $cateUl = $('.' + _cateID + '-ul');
         var link = '';
         if (e.url.split('/').indexOf('github.com') > -1) {
@@ -120,7 +124,7 @@ $(document).ready(function() {
     var $titleEls = $('strong', $sidedrawerEl);
     $titleEls.next().hide();
     $titleEls.off('click');
-    $titleEls.on('click', function() {
+    $titleEls.on('click', function () {
       $titleEls.not(this).next().hide();
       $(this).next().slideToggle(300);
     });
@@ -134,7 +138,7 @@ $(document).ready(function() {
   * @param cate The repo name we want to get.
   * @return null
   **/
-  var getCateList = function(maintainer, repo) {
+  var getCateList = function (maintainer, repo) {
     var repoURL = 'https://github.com/' + maintainer + '/' + repo;
     isAwesome = repo === 'awesome' ? 1 : 0;
     jsonURL = 'https://raw.githubusercontent.com/lockys/awesome.json/master/repo-json/' + maintainer + '-' + repo + '.json';
@@ -156,7 +160,7 @@ $(document).ready(function() {
 
       getReadme(maintainer, repo, repoURL, originRepoHTML, processReadMe);
 
-      $.getJSON(jsonURL, function(data) {
+      $.getJSON(jsonURL, function (data) {
         var list = data;
         var d = [];
         /**
@@ -173,7 +177,7 @@ $(document).ready(function() {
         /**
         * Fill in to data for searching
         **/
-        list.forEach(function(e) {
+        list.forEach(function (e) {
           if (!isURL(e.url)) {
             var maintainer = repoURL.split('/')[3];
             var repo = repoURL.split('/')[4];
@@ -194,7 +198,10 @@ $(document).ready(function() {
 
   };
 
-  $('input').on('input', function(e) {
+  /**
+  * Show search result when users search.
+  **/
+  $('input').on('input', function (e) {
     var isCateInput = $(e.target).hasClass('cate-input');
     var query = $(this).val();
     var LENGTH_LIMIT = 15;
@@ -258,14 +265,13 @@ $(document).ready(function() {
       headers: {
         accept: 'application/vnd.github.v3.html',
       },
-      success: function(content) {
+      success: function (content) {
         cb(content, repoURL, originRepoHTML);
       },
     });
   }
 
   // The Backbone router configuration.
-
   var AwesomeRouter = Backbone.Router.extend({
     routes: {
       'repos/:maintainer/:repo': 'getRepos',
@@ -275,24 +281,29 @@ $(document).ready(function() {
 
   var awesomeRouter = new AwesomeRouter();
 
-  awesomeRouter.on('route:getRepos', function(maintainer, repo) {
+  // Execute when route matches the awesomelist.top/#repos/<maintainer>/<repo-name>
+  awesomeRouter.on('route:getRepos', function (maintainer, repo) {
     $('.search-holder').html('Search ' + repo);
     getCateList(maintainer, repo);
   });
 
-  awesomeRouter.on('route:getAwesome', function() {
+  // Root Route, get the sindresorhus/awesome repo.
+  awesomeRouter.on('route:getAwesome', function () {
     getCateList('sindresorhus', 'awesome');
   });
 
-  $('body').click(function(event) {
+  /**
+  * Judge what users click, if user clicks home button, return to home page.
+  * if users click the body not input area, hide the input.
+  **/
+  $('body').click(function (event) {
     if ($(event.target).hasClass('home-button')) {
       event.preventDefault();
       window.location.hash = '/';
       location.reload();
     }
 
-    // Close the search result when click outside of the div
-
+    // Close the search result when click outside of the input div
     if (!$(event.target).hasClass('awesome-input') && !$(event.target).hasClass('search-result') && !$(event.target).hasClass('search-icon')) {
       $('.awesome-input').val('');
       $('.search-result').addClass('content-hidden');
@@ -305,6 +316,19 @@ $(document).ready(function() {
     }
 
   });
+
+  /**
+  * Generate urlMapObj for building sidedrawer.
+  **/
+  $.getJSON(urlMap, function (d) {
+    urlMapObj = d;
+    getCateList('sindresorhus', 'awesome');
+  });
+
+  // window.location.hash = '/';
+  Backbone.history.start();
+
+  // ============= Some Helper function ==================
 
   /**
   * To check if a string is a url
@@ -322,13 +346,5 @@ $(document).ready(function() {
       scrollTop: offset,
     }, 300);
   }
-
-  $.getJSON(urlMap, function(d) {
-    urlMapObj = d;
-    getCateList('sindresorhus', 'awesome');
-  });
-
-  // window.location.hash = '/';
-  Backbone.history.start();
 
 });

@@ -92,7 +92,6 @@
   padding: 5px;
   right: 0px;
   width: 200px;
-  max-height: 300px;
   background-color: white;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
@@ -103,6 +102,7 @@
   font-size: 12px;
   line-height: normal;
   z-index: 999;
+  overflow: hidden;
 }
 
 .cate-search-result a {

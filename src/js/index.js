@@ -57,23 +57,29 @@ $(document).ready(function () {
       $anchor[i].id = $anchor[i].id.replace('user-content-', '');
       if ($anchor[i].id) {
         var anchorClass = '';
+        var anchorPrefix = '━ ';
         tagLevel = $($anchor[i]).parent()[0].nodeName;
 
         if (tagLevel === 'H1') {
           anchorClass = 'cate-anchor-h1';
+          anchorPrefix = '';
         } else if (tagLevel === 'H2') {
           anchorClass = 'cate-anchor-h2';
         } else if (tagLevel === 'H3') {
           anchorClass = 'cate-anchor-h3';
+          anchorPrefix = '╰ ';
         } else if (tagLevel === 'H4') {
           anchorClass = 'cate-anchor-h4';
+          anchorPrefix = '╰ ';
         } else if (tagLevel === 'H5') {
           anchorClass = 'cate-anchor-h5';
+          anchorPrefix = '┈ ';
         } else if (tagLevel === 'H6') {
           anchorClass = 'cate-anchor-h6';
+          anchorPrefix = '┈ ';
         }
 
-        $innerDropDownMenu.append('<li class="' + anchorClass + '"><a class="cate-anchor" data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+        $innerDropDownMenu.append('<li class="' + anchorClass + '"><a class="cate-anchor" data-anchor="#' + $anchor[i].id + '">' + anchorPrefix + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
       }
     }
 
@@ -317,9 +323,8 @@ $(document).ready(function () {
 
   });
 
-  $('.home-button').click(function () {
+  $('.home-button').click(function (event) {
     event.preventDefault();
-    console.log('');
     window.location.hash = '/';
     location.reload();
   });

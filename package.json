@@ -14,7 +14,6 @@
   "license": "MIT",
   "dependencies": {
     "del": "^1.2.1",
-    "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.2.0",
     "gulp-jshint": "^1.11.2",

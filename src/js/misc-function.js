@@ -1,4 +1,4 @@
-jQuery(function($) {
+jQuery(function ($) {
   var $bodyEl = $('body');
   var $sidedrawerEl = $('#sidedrawer');
 
@@ -8,7 +8,7 @@ jQuery(function($) {
   function showSidedrawer() {
     // show overlay
     var options = {
-      onclose: function() {
+      onclose: function () {
         $sidedrawerEl
           .removeClass('active')
           .appendTo(document.body);
@@ -19,7 +19,7 @@ jQuery(function($) {
 
     // show element
     $sidedrawerEl.appendTo($overlayEl);
-    setTimeout(function() {
+    setTimeout(function () {
       $sidedrawerEl.addClass('active');
     }, 20);
   }
@@ -31,7 +31,7 @@ jQuery(function($) {
   $('.js-show-sidedrawer').on('click', showSidedrawer);
   $('.js-hide-sidedrawer').on('click', hideSidedrawer);
 
-  $('.to-top-arrow').click(function() {
+  $('.to-top-arrow').click(function () {
     // console.log($('html, body'));
     $('html, body').animate({
       scrollTop: 0,

@@ -16,7 +16,7 @@ $(document).ready(function () {
   function processReadMe(content, repoURL, originRepoHTML) {
     $awesome.html('').append(content);
     $('#readme').prepend(originRepoHTML);
-    var anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
+    var $anchor = $('h6 a, h5 a, h4 a, h3 a, h2 a, h1 a');
     var anchorLink = $('#readme a[href^="#"]').not('.anchor');
     var maintainer = repoURL.split('/')[3];
     var repo = repoURL.split('/')[4];
@@ -29,7 +29,7 @@ $(document).ready(function () {
     * Dealing with some repos use relative image path.
     **/
     var $imgArr = $('img');
-    var linksArr = {};
+    var linksArr = [];
 
     for (var i = 0, len = $imgArr.length; i < len; ++i) {
       var relativeSrc = $($imgArr[i]).attr('src');
@@ -40,7 +40,8 @@ $(document).ready(function () {
     }
 
     /**
-      insert data-anchor and class cate-anchor so that when the link is clicked, the page will be scroll the position of anchor.
+      insert data-anchor and class cate-anchor so that when the link is clicked,
+      the page will be scroll the position of anchor.
     **/
     for (var i = 0, len = anchorLink.length; i < len; ++i) {
       var $anchorEle = $(anchorLink[i]);
@@ -52,26 +53,29 @@ $(document).ready(function () {
     /**
     * Build Category List.
     **/
-    for (var i = 0, len = anchor.length; i < len; ++i) {
-      anchor[i].id = anchor[i].id.replace('user-content-', '');
+    for (var i = 0, len = $anchor.length; i < len; ++i) {
+      $anchor[i].id = $anchor[i].id.replace('user-content-', '');
       categoryStyle = 'style=';
-      if (anchor[i].id) {
-        tagLevel = $(anchor[i]).parent()[0].nodeName;
+      if ($anchor[i].id) {
+        tagLevel = $($anchor[i]).parent()[0].nodeName;
         if (tagLevel === 'H1') {
           categoryStyle += '"font-size: 18px;"';
         } else if (tagLevel === 'H2') {
           categoryStyle += '"font-size: 16px; color:#3C3C3C;"';
+          $innerDropDownMenu.append('<li class="cate-anchor-h2"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
         } else if (tagLevel === 'H3') {
           categoryStyle += '"font-size: 14px; color:#7B7B7B;"';
+          $innerDropDownMenu.append('<li class="cate-anchor-h3"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
         } else if (tagLevel === 'H4') {
           categoryStyle += '"font-size: 12px; color:#ADADAD;"';
+          $innerDropDownMenu.append('<li class="cate-anchor-h4"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
         } else if (tagLevel === 'H5') {
           categoryStyle += '"font-size: 12px; color:#D9006C;"';
+          $innerDropDownMenu.append('<li class="cate-anchor-h5"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
         } else if (tagLevel === 'H6') {
           categoryStyle += '"font-size: 12px; color:#EA0000;"';
+          $innerDropDownMenu.append('<li class="cate-anchor-h6"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
         }
-
-        $innerDropDownMenu.append('<li><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + anchor[i].id + '">' + $(anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
       }
     }
 
@@ -81,10 +85,12 @@ $(document).ready(function () {
     for (var i = 0, len = linksArr.length; i < len; ++i) {
       var relativeSrc = $(linksArr[i]).attr('href');
 
-      if (!isURL(relativeSrc)) {
+      if (relativeSrc && !isURL(relativeSrc)) {
         relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
-        $(linksArr[i]).attr({ href: githubURL + relativeSrc, target: '_blank' });
+        $(linksArr[i]).attr({ href: githubURL + relativeSrc });
       }
+
+      $(linksArr[i]).attr({ target: '_blank' });
     }
 
     $('.cate-anchor').click(scrollToAnchor);
@@ -149,7 +155,7 @@ $(document).ready(function () {
     $innerDropDownMenu.html('');
     $('.alert').html('');
     $('.awesome-input').val('');
-    console.log(isAwesome);
+
     /**
     * Get readme of awesome repo
     **/

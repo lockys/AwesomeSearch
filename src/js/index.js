@@ -23,7 +23,6 @@ $(document).ready(function () {
     var githubRawURL = 'https://raw.githubusercontent.com/' + maintainer + '/' + repo + '/master/';
     var githubURL = 'https://github.com/' + maintainer + '/' + repo + '/blob/master';
     var tagLevel;
-    var categoryStyle = 'style=';
 
     /**
     * Dealing with some repos use relative image path.
@@ -45,9 +44,10 @@ $(document).ready(function () {
     **/
     for (var i = 0, len = anchorLink.length; i < len; ++i) {
       var $anchorEle = $(anchorLink[i]);
-      $anchorEle.attr('class', 'cate-anchor');
-      $anchorEle.attr('data-anchor', $(anchorLink[i]).attr('href'));
-      $anchorEle.removeAttr('href');
+      $anchorEle.attr({
+        class: 'cate-anchor',
+        'data-anchor': $(anchorLink[i]).attr('href'),
+      }).removeAttr('href');
     }
 
     /**
@@ -55,46 +55,45 @@ $(document).ready(function () {
     **/
     for (var i = 0, len = $anchor.length; i < len; ++i) {
       $anchor[i].id = $anchor[i].id.replace('user-content-', '');
-      categoryStyle = 'style=';
       if ($anchor[i].id) {
+        var anchorClass = '';
         tagLevel = $($anchor[i]).parent()[0].nodeName;
+
         if (tagLevel === 'H1') {
-          categoryStyle += '"font-size: 18px;"';
+          anchorClass = 'cate-anchor-h1';
         } else if (tagLevel === 'H2') {
-          categoryStyle += '"font-size: 16px; color:#3C3C3C;"';
-          $innerDropDownMenu.append('<li class="cate-anchor-h2"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+          anchorClass = 'cate-anchor-h2';
         } else if (tagLevel === 'H3') {
-          categoryStyle += '"font-size: 14px; color:#7B7B7B;"';
-          $innerDropDownMenu.append('<li class="cate-anchor-h3"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+          anchorClass = 'cate-anchor-h3';
         } else if (tagLevel === 'H4') {
-          categoryStyle += '"font-size: 12px; color:#ADADAD;"';
-          $innerDropDownMenu.append('<li class="cate-anchor-h4"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+          anchorClass = 'cate-anchor-h4';
         } else if (tagLevel === 'H5') {
-          categoryStyle += '"font-size: 12px; color:#D9006C;"';
-          $innerDropDownMenu.append('<li class="cate-anchor-h5"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+          anchorClass = 'cate-anchor-h5';
         } else if (tagLevel === 'H6') {
-          categoryStyle += '"font-size: 12px; color:#EA0000;"';
-          $innerDropDownMenu.append('<li class="cate-anchor-h6"><a class="cate-anchor" ' + categoryStyle + ' data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
+          anchorClass = 'cate-anchor-h6';
         }
+
+        $innerDropDownMenu.append('<li class="' + anchorClass + '"><a class="cate-anchor" data-anchor="#' + $anchor[i].id + '">' + $($anchor[i]).parent('h6, h5, h4, h3, h2, h1').text() + '</a></li>');
       }
     }
 
+    $('.cate-anchor').click(scrollToAnchor);
+    $dropDownMenu.removeClass('content-hidden');
+
+    // Filter all links in readme but not anchor.
     linksArr = $('#readme a').not('.cate-anchor');
 
     // the relatvie src to absolute src.
     for (var i = 0, len = linksArr.length; i < len; ++i) {
       var relativeSrc = $(linksArr[i]).attr('href');
 
-      if (relativeSrc && !isURL(relativeSrc)) {
+      if (relativeSrc !== undefined && !isURL(relativeSrc)) {
         relativeSrc = relativeSrc.startsWith('/') ? relativeSrc : '/' + relativeSrc;
         $(linksArr[i]).attr({ href: githubURL + relativeSrc });
       }
 
       $(linksArr[i]).attr({ target: '_blank' });
     }
-
-    $('.cate-anchor').click(scrollToAnchor);
-    $dropDownMenu.removeClass('content-hidden');
   };
 
   /**
@@ -303,11 +302,6 @@ $(document).ready(function () {
   * if users click the body not input area, hide the input.
   **/
   $('body').click(function (event) {
-    if ($(event.target).hasClass('home-button')) {
-      event.preventDefault();
-      window.location.hash = '/';
-      location.reload();
-    }
 
     // Close the search result when click outside of the input div
     if (!$(event.target).hasClass('awesome-input') && !$(event.target).hasClass('search-result') && !$(event.target).hasClass('search-icon')) {
@@ -321,6 +315,13 @@ $(document).ready(function () {
       $('.cate-search-result').addClass('content-hidden');
     }
 
+  });
+
+  $('.home-button').click(function () {
+    event.preventDefault();
+    console.log('');
+    window.location.hash = '/';
+    location.reload();
   });
 
   /**

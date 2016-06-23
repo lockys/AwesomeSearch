@@ -1,6 +1,6 @@
 Awesome search
 ==
-[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-1.0.0-green.svg) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lockys/awesome-search/trend.png)](https://bitdeli.com/free "Bitdeli Badge")  
+[![Build Status](https://travis-ci.org/lockys/awesome-search.svg?branch=gh-pages)](https://travis-ci.org/lockys/awesome-search) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
 A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
@@ -8,15 +8,11 @@ Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.gi
 The domain name has been changed to `https://awesomelists.top` from `http://awesomelists.me/` now.  
 The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
 
-##### Under development
-Awesome Search is under construction, more features will come out. Also, **bugs** and **inconveniences** may exit.  
-Stay tuned, and you can [file](https://github.com/lockys/awesome-search/issues) any questions to help this project become better :smile:
-
 ![screenshot](http://g.recordit.co/LkyiGw1q6c.gif)
 
 Why
 ==
-In a nutshell, there are many awesome lists in the world :)    
+In a nutshell, there are many awesome lists in the Awesome :)    
 We hope to build an application to access them more quickly.  
 That's why `awesome search` was born. :octocat:
 

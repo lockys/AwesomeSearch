@@ -110,6 +110,7 @@ $(document).ready(function () {
     var awesomeData = [];
     var $awesomeCate = $('.awesome-cate');
     $awesomeCate.html('');
+
     Object.keys(urlMapObj).forEach(function (e) {
 
       var _cateID = e.replace(/\W/g, '').toLowerCase();
@@ -140,6 +141,7 @@ $(document).ready(function () {
       $(this).next().slideToggle(300);
     });
 
+    $('.repo-count-number').html(awesomeData.length);
     awesomeFinder = new Fuse(awesomeData, options);
   }
 
@@ -202,7 +204,7 @@ $(document).ready(function () {
         repoFinder = new Fuse(d, options);
       });
 
-    }else {
+    } else {
       processAwesomeJSON();
       $dropDownMenu.addClass('content-hidden');
     }
@@ -337,10 +339,9 @@ $(document).ready(function () {
     getCateList('sindresorhus', 'awesome');
   });
 
-  // window.location.hash = '/';
   Backbone.history.start();
 
-  // ============= Some Helper function ==================
+  // ============= Some Helper functions ==================
 
   /**
   * To check if a string is a url
@@ -351,6 +352,9 @@ $(document).ready(function () {
     return pattern.test(str);
   }
 
+  /**
+    Back to top button.
+  **/
   function scrollToAnchor(e) {
     var anchor = $(e.target).data('anchor');
     var offset = $(anchor).offset().top - $('#header').height();

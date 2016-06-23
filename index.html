@@ -42,7 +42,7 @@
           <a class="sidedrawer-toggle mui--visible-xs-inline-block js-show-sidedrawer"><i class="fa fa-list-ul"></i></a>
           <a class="sidedrawer-toggle mui--hidden-xs js-hide-sidedrawer"><i class="fa fa-list-ul"></i></a>
           <a class="home-button" style="float: right;" src="/">
-            <h1><span style="color: #F8BBD0;">Awesome</span><span style="color: #BBDEFB;">Search</span></h1>
+            <h1><span style="color: #F8BBD0;"><i class="fa fa-search" aria-hidden="true"></i> Awesome</span><span style="color: #BBDEFB;">Search</span></h1>
           </a>
           <div class="mui-dropdown content-hidden">
             <button class="mui-btn mui-btn--raised mui-btn--accent" data-mui-toggle="dropdown">
@@ -62,7 +62,7 @@
         <div class="search-icon">
           <i class="fa fa-search"></i>
         </div>
-        <input class="awesome-input" type="text" placeholder="search this repo.">
+        <input class="awesome-input" type="text" placeholder="Search This Repo.">
       </div>
       <div class="search-result content-hidden">
 
@@ -79,18 +79,20 @@
       <div class="mui-container-fluid readme-container">
         <div id="readme">
           <div class="mui--text-black-54 mui--text-body6">
-             <h1><span style="color: #e67e22;">Awesome</span>-<span style="color: #8e44ad;">Search</span></h1>
+             <h1><i class="fa fa-search" aria-hidden="true"></i> <span style="color: #F8BBD0;">Awesome</span><span style="color: #BBDEFB;">Search</span></h1>
              <sup>Makes you find what you want in awesome lists more quickly.</sup>
           </div>
           <iframe src="https://ghbtns.com/github-btn.html?user=lockys&repo=awesome-search&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
           <p>
             <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="awesome badge." />
           </p>
+          <p>
+            <span class="repo-count-number" style="color: red;"> </span> awesome lists can be found by AwesomeSearch now.
+          </p>
           <h2 class="home-page-title"><i class="fa fa-question"></i> Why</h2>
           <p>
-            In a nutshell, there are many awesome lists in the world :)<br/>
-            We hope to build an application to access them more quickly.<br/>
-            That's why awesome search was born.
+            There are many awesome lists in the Awesome <i class="fa fa-smile-o" aria-hidden="true"></i><br/>
+            We hope to build an application to access them more quickly <i class="fa fa-rocket" aria-hidden="true"></i>.<br/>
           </p>
           <h2 class="home-page-title">
             <i class="fa fa-hashtag"></i> Features
@@ -98,9 +100,7 @@
           <p>
             <i class="fa fa-check"></i> Access and search every awesome repo collected in <a href="https://github.com/sindresorhus/awesome">sindresorhus/awesome</a> in one page without pain.<br/>
             <i class="fa fa-check"></i> Access an awesome repo by <a href="https://awesomelists.top/#repos/sindresorhus/awesome-nodejs">https://awesomelists.top/#repos/sindresorhus/awesome-nodejs</a>.(you can bookmark your favorite!)<br/>
-            <i class="fa fa-check"></i> We run schedule workers in the background to parse the links in every awesome list, so it's up-to-date :)<br/>
             <i class="fa fa-check"></i> Categories of an awesome repo is supported if the that repo uses headings.<br/>
-            <i class="fa fa-check"></i> Use Github API to retrieve README file of an awesome repo, so it's up-to-date.<br/>
             <i class="fa fa-check"></i> Search links in a specified repo(support most of repos) and repos listed in sindresorhus/awesome.
           </p>
           <h2 class="home-page-title">
@@ -113,23 +113,21 @@
             <i class="fa fa-check-square-o"></i> Credit to.
           </h2>
           <p>
-            <a href="https://github.com/sindresorhus/awesome">sindresorhus/awesome</a><br/>
-            <a href="https://www.muicss.com/docs/v1/css-js/buttons">mui</a><br/>
-            <a href="http://kiro.me/projects/fuse.html">fuse.js</a><br/>
-            <a href="https://github.com/sindresorhus/awesome/graphs/contributors">all authors of awesome lists</a>
+            <a href="https://github.com/sindresorhus/awesome">sindresorhus/awesome</a>
+            , <a href="https://github.com/sindresorhus/awesome/graphs/contributors">all authors of awesome lists</a>
           </p>
-          <h2 class="home-page-title">
-            <i class="fa fa-users"></i> Contributors
-          </h2>
+          <hr>
           <p>
-            <a href="https://github.com/lockys/awesome-search">Awesome search</a> is started by <a href="https://github.com/lockys">lockys</a>, <a href="https://github.com/John-Lin">John-Lin</a> <br/>
-            PRs and suggestions are always welcome!
+            <a href="https://github.com/lockys/awesome-search">Awesome search</a> is built with <i class="fa fa-heart"></i> by <a href="https://github.com/lockys">lockys</a>, <a href="https://github.com/John-Lin">John-Lin</a>
+          </p>
+          <p>
+            Made with <a href="https://www.muicss.com/docs/v1/css-js/buttons">mui</a>, <a href="http://kiro.me/projects/fuse.html">fuse.js</a>
           </p>
         </div>
       </div>
     </div>
 
-    <button class="mui-btn mui-btn--raised mui-btn--primary to-top-arrow"><i class="fa fa-arrow-up"></i></button>
+    <button class="to-top-arrow"><i class="fa fa-arrow-up"></i></button>
 
     <script src="./build/lib/fuse.min.js" charset="utf-8"></script>
     <script src="https://cdn.muicss.com/mui-0.2.1/js/mui.min.js"></script>

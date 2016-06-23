@@ -90,6 +90,9 @@
   margin-bottom: 10px;
   border: 1px solid lightgray;
   border-radius: 3px;
+  -moz-border-raius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 .cate-input {
@@ -190,8 +193,12 @@
 }
 
 .to-top-arrow {
+  background: transparent;
+  border: 0px;
+  padding: 10px 20px;
   position: fixed;
-  font-size: 2em !important;
+  font-size: 3em !important;
+  color: gray;
   bottom: 20px;
   right: 20px;
 }

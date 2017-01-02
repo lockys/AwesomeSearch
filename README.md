@@ -5,8 +5,11 @@ A website which makes you access the [awesome](https://github.com/sindresorhus/a
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
 [https://awesomelists.top](https://awesomelists.top)  
-The domain name has been changed to `https://awesomelists.top` from `http://awesomelists.me/` now.  
-The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!
+The domain name has been changed to `https://awesomelists.top` from `http://awesomelists.me/` now. 
+
+### kudos
+The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!  
+Thanks [bashooka](http://bashooka.com/coding/35-best-css-tools-for-2017/) for recommendation.
 
 ### Support our work
 Buy me a coffee if you are willing to. :), I will add your link to the supporter section. Big thanks!  

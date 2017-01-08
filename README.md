@@ -8,8 +8,9 @@ Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.gi
 The domain name has been changed to `https://awesomelists.top` from `http://awesomelists.me/` now. 
 
 ### kudos
-The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!  
-Thanks [bashooka](http://bashooka.com/coding/35-best-css-tools-for-2017/) for recommendation.
+- [John-Lin](https://github.com/John-Lin)'s powerful support.
+- The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!  
+- Thanks [bashooka](http://bashooka.com/coding/35-best-css-tools-for-2017/) for recommendation.
 
 ### Support our work
 Buy me a coffee if you are willing to. :), I will add your link to the supporter section. Big thanks!  

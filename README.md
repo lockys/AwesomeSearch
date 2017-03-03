@@ -1,15 +1,13 @@
 Awesome search
 ==
-[![Build Status](https://travis-ci.org/lockys/AwesomeSearch.svg?branch=gh-pages)](https://travis-ci.org/lockys/AwesomeSearch) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
-A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
+[![Build Status](https://travis-ci.org/lockys/AwesomeSearch.svg?branch=gh-pages)](https://travis-ci.org/lockys/AwesomeSearch) ![](https://img.shields.io/badge/version-1.0.0-green.svg)[![Join the chat at https://gitter.im/lockys/AwesomeSearch](https://badges.gitter.im/lockys/AwesomeSearch.svg)](https://gitter.im/lockys/AwesomeSearch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
+A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
 [https://awesomelists.top](https://awesomelists.top)  
 The domain name has been changed to `https://awesomelists.top` from `http://awesomelists.me/` now. 
 
 ### kudos
-
-[![Join the chat at https://gitter.im/lockys/AwesomeSearch](https://badges.gitter.im/lockys/AwesomeSearch.svg)](https://gitter.im/lockys/AwesomeSearch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 - [John-Lin](https://github.com/John-Lin)'s powerful support.
 - The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!  
 - Thanks [bashooka](http://bashooka.com/coding/35-best-css-tools-for-2017/) for recommendation.

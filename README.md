@@ -1,7 +1,7 @@
 Awesome search
 ==
 [![Build Status](https://travis-ci.org/lockys/AwesomeSearch.svg?branch=gh-pages)](https://travis-ci.org/lockys/AwesomeSearch) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
-A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
+A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 Original Github Page: [http://lockys.github.io/awesome-search/](http://lockys.github.io/awesome-search/)  
 
 [https://awesomelists.top](https://awesomelists.top)  

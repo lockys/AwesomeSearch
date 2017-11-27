@@ -73,8 +73,9 @@ Filing a issue to make suggestions or complain anything is always welcome.
 
 Related Projects
 ==
-- [John-Lin/awesomelists-index](https://github.com/John-Lin/awesomelists-index)
-- [lockys/awesome.json](https://github.com/lockys/awesome.json)
+- [John-Lin/awesomelists-index](https://github.com/John-Lin/awesomelists-index) - converts an awesome list into a JSON file
+- [lockys/awesome.json](https://github.com/lockys/awesome.json) - converts [sindresorhus's awesome](https://github.com/sindresorhus/awesome) to json
+- [getAwesomeness()](https://github.com/panzhangwang/getAwesomeness) - search engine based on local JSON data
 
 Credit
 ==

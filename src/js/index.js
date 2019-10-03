@@ -172,6 +172,7 @@ $(document).ready(function () {
       $awesome.html('<div class="sk-spinner sk-spinner-pulse"></div>');
 
       getReadme(maintainer, repo, repoURL, originRepoHTML, processReadMe);
+      updatePageTitle(repo);
 
       $.getJSON(jsonURL, function (data) {
         var list = data;
@@ -282,6 +283,16 @@ $(document).ready(function () {
         cb(content, repoURL, originRepoHTML);
       },
     });
+  }
+
+  function updatePageTitle(repo) {
+    var formattedRepoName = repo.replace(/-/g, ' ');
+
+    formattedRepoName = formattedRepoName.split(' ').map(function(word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+
+    document.title = 'Awesome Search - ' + formattedRepoName;
   }
 
   // The Backbone router configuration.

@@ -1,9 +1,10 @@
-Awesome search
+Awesome Search
 ==
 [![Build Status](https://travis-ci.org/lockys/AwesomeSearch.svg?branch=gh-pages)](https://travis-ci.org/lockys/AwesomeSearch) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
 A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 [https://awesomelists.top](https://awesomelists.top)  
-### Make suggestions :)
+
+### Make some suggestions
 [![Join the chat at https://gitter.im/lockys/AwesomeSearch](https://badges.gitter.im/lockys/AwesomeSearch.svg)](https://gitter.im/lockys/AwesomeSearch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
 
 ### kudos
@@ -11,7 +12,7 @@ A website which makes you access the [awesome](https://github.com/sindresorhus/a
 - The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!  
 - Thanks [bashooka](http://bashooka.com/coding/35-best-css-tools-for-2017/) for recommendation.
 
-### Support our work
+### Support our works
 Buy me a coffee if you are willing to. :), I will add your link to the supporter section. Big thanks!  
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVV57KZ6F6S34)
 
@@ -21,7 +22,7 @@ Why
 ==
 In a nutshell, there are many awesome lists in the Awesome :)    
 We hope to build an application to access them more quickly.  
-That's why `awesome search` was born. :octocat:
+That's why "Awesome Search" was born. :octocat:
 
 Features
 ==

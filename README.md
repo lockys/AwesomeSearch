@@ -1,7 +1,6 @@
 Awesome Search
 ==
-[![Build Status](https://travis-ci.org/lockys/AwesomeSearch.svg?branch=gh-pages)](https://travis-ci.org/lockys/AwesomeSearch) ![](https://img.shields.io/badge/version-1.0.0-green.svg)  
-A website which makes you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
+A website making you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
 [https://awesomelists.top](https://awesomelists.top)  
 
 ### Make some suggestions
@@ -39,7 +38,7 @@ You can see the JSON format of links [here](https://github.com/lockys/awesome.js
 We build [awesomelists-index](https://github.com/John-Lin/awesomelists-index) to parse these lists. However, we are still finding a more efficient way.  
 [awesome.json](https://github.com/lockys/awesome.json) is the place where the data store for now.
 
-Acceptance testing
+Acceptance testing (Now failed.)
 ==
 We make some acceptance tests for the Web. To run the testing **Ruby** is required.
 

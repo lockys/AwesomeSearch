@@ -26,8 +26,8 @@ That's why "Awesome Search" was born. :octocat:
 Features
 ==
 ✔ Access and search every awesome repo collected in [sindresorhus/awesome](https://github.com/sindresorhus/awesome) in one page quickly.   
-✔ Access an awesome repo by `https://awesomelists.top/#repos/sindresorhus/awesome-nodejs`. (yuo can bookmark it!)  
-✔ Categories of an awesome repo is supported if the that repo uses `headings`.  
+✔ Access an awesome repo by `https://awesomelists.top/#repos/sindresorhus/awesome-nodejs`. (you can BOOKMARK it!)  
+✔ Categories of an awesome repo are supported if the that repo uses `headings`.  
 ✔ Use Github API to retrieve README file of an awesome repo, so it's up-to-date.  
 ✔ Search links in a specified repo we have parsed, see [supported repo](#supported-awesome-lists)
 

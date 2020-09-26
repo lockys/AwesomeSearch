@@ -33,9 +33,9 @@ Features
 
 Supported awesome lists
 ==
-Currently, searching `links` in most of awesome repositories is supported.    
-You can see the JSON format of links [here](https://github.com/lockys/awesome.json/tree/master/output).(Contribution is welcome)  
-We build [awesomelists-index](https://github.com/John-Lin/awesomelists-index) to parse these lists. However, we are still finding a more efficient way.  
+Currently, searching `links` in most of awesome repositories is supported.
+You can see the JSON format of links [here](https://github.com/lockys/Awesome.json/blob/master/awesome/awesome.json).(Contribution is welcome)
+We build [awesomelists-index](https://github.com/John-Lin/awesomelists-index) to parse these lists. However, we are still finding a more efficient way.
 [awesome.json](https://github.com/lockys/awesome.json) is the place where the data store for now.
 
 Acceptance testing (Now failed.)

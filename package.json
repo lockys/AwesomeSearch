@@ -4,16 +4,21 @@
   "description": "A website which make you access the awesome list more quickly.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx npm-force-resolutions"
   },
   "keywords": [
     "awesome",
     "search"
   ],
-  "author": "Calvin Jeng <locky4567@gmail.com> (https://github.com/lockys)",
+  "engines": {
+    "node": ">=12.16.1"
+  },
+  "author": "Calvin Cheng <locky4567@gmail.com> (https://github.com/lockys)",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "del": "^5.1.0",
+    "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^3.1.0",
     "gulp-jshint": "^2.1.0",
@@ -23,5 +28,8 @@
     "gulp-rename": "^1.4.0",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }

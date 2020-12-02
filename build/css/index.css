@@ -43,58 +43,6 @@
   margin: 20px auto;
 }
 
-.search-input-section {
-  width: 100%;
-  margin-top: 100px;
-  color: black;
-  transition: transform 0.2s;
-  -webkit-transition: transform 0.2s;
-  -moz-transition: transform 0.2s;
-  -o-transition: transform 0.2s;
-}
-
-.search-input-section .input-group {
-  display: table;
-  margin: 0 auto;
-  border: 1px solid #b3b3b3;
-}
-
-.search-input-section .input-group .search-icon {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #ff5a92;
-  color: white;
-}
-
-.search-input-section .input-group .awesome-input {
-  border: 0;
-  padding: 10px;
-  width: 200px;
-  float: right;
-  transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-}
-
-.search-input-section .input-group .awesome-input:focus {
-  outline: 0;
-}
-
-.search-input-section .search-result {
-  max-height: 300px;
-  width: 100%;
-  background-color: white;
-  overflow: auto;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid lightgray;
-  border-radius: 3px;
-  -moz-border-raius: 3px;
-  -webkit-border-radius: 3px;
-  -o-border-radius: 3px;
-}
-
 .cate-input {
   width: 150px;
   padding: 5px;
@@ -343,35 +291,6 @@ a {
     margin-left: 0;
   }
 
-  .search-input-section {
-    position: fixed;
-    width: 500px;
-    transform: translate(201px);
-    -webkit-transform: translate(201px);
-    -o-transform: translate(201px);
-    -moz-transform: translate(201px);
-    margin-top: 0px;
-    top: 30%;
-    right: 0;
-  }
-
-  .search-input-section:hover,
-  .search-input-section.hovered {
-    transform: translate(0px);
-    -webkit-transform: translate(0px);
-    -o-transform: translate(0px);
-    -moz-transform: translate(0px);
-  }
-
-  .search-input-section .input-group {
-    float: right;
-    box-shadow: 5px 5px 5px #888888;
-  }
-
-  .search-result {
-    width: 500px;
-  }
-
   .mui-btn {
     padding: 0 10px;
     font-size: 16px;
@@ -433,7 +352,7 @@ a {
 }
 
 #sidedrawer strong:hover {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
 #sidedrawer strong + ul > li {

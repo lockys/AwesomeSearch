@@ -34,8 +34,8 @@
   overflow: auto;
   z-index: 2;
   background-color: #fff;
-  transition: transform .2s;
-  transition: -webkit-transform .2s;
+  transition: transform 0.2s;
+  transition: -webkit-transform 0.2s;
 }
 
 /**
@@ -75,40 +75,11 @@
     margin-left: 0;
   }
 
-  .search-input-section {
-    position: fixed;
-    width: 500px;
-    transform: translate(201px);
-    -webkit-transform: translate(201px);
-    -o-transform: translate(201px);
-    -moz-transform: translate(201px);
-    margin-top: 0px;
-    top: 30%;
-    right: 0;
-
-    &:hover, &.hovered{
-      transform: translate(0px);
-      -webkit-transform: translate(0px);
-      -o-transform: translate(0px);
-      -moz-transform: translate(0px);
-    }
-
-    & .input-group {
-      float: right;
-      box-shadow: 5px 5px 5px #888888;
-    }
-  }
-
-  .search-result {
-    width: 500px;
-  }
-
   .mui-btn {
     padding: 0 10px;
     font-size: 16px;
   }
 }
-
 
 /**
  * Toggle Sidedrawer
@@ -119,7 +90,6 @@
   -webkit-transform: translate(220px);
   transform: translate(220px);
 }
-
 
 /**
  * Header CSS
@@ -137,7 +107,6 @@
   color: #fff;
   text-decoration: none;
 }
-
 
 /**
  * Sidedrawer CSS
@@ -166,7 +135,7 @@
 }
 
 #sidedrawer strong:hover {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
 #sidedrawer strong + ul > li {

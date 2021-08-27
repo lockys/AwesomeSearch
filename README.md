@@ -61,7 +61,7 @@ Related Projects
 
 Credit
 ==
-Thanks all awesome authors for creating these awesome lists to make the world better.  
+Thanks all awesome authors for creating these awesome lists.  
 - [sindresorhus/awesome](https://github.com/sindresorhus/awesome)  
 - [All awesome list contributors](https://github.com/sindresorhus/awesome/graphs/contributors)  
 ![awesome](http://i.imgur.com/qcroMhk.gif)

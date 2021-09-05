@@ -1,6 +1,9 @@
 Awesome Search
 ==
 A website making you access the [awesome](https://github.com/sindresorhus/awesome) lists more quickly.  
+**This is old version of Awesome Search, you can still access via https://legacy.awesomelists.top**
+
+To access the new version of Awesome Search, please visit..   
 [https://awesomelists.top](https://awesomelists.top)  
 
 ### Make some suggestions
